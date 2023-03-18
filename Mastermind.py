@@ -1,22 +1,21 @@
-from tkinter import CENTER, RIGHT, Frame, Label
-Tk import tkinter
-
+from tkinter import Tk, CENTER, RIGHT, Label
+import tkinter
 #Paramètres fenetre racine 
 racine = Tk() # création de la fenetre racine 
 racine.geometry("600x600") #régler la taille de la fenetre 
 racine.title("Masterminnd") #nom fenetre 
-racine["bg"] = pink #couleur arrière plan 
-racine.resizable(height= False, widht= False) 
-racine.grid_colomconfigure(4,weight=4)
-label=Label(racine, text="Bienvenue", fg=("white"), bg=("pink"), font=("helvetica", "25"))
+racine["bg"] = 'pink' #couleur arrière plan 
+racine.resizable(height= False, width= False) 
+racine.grid_columnconfigure(4,weight=4)
+label=Label(racine, text="Bienvenue", fg=("white"), bg=("pink"), font=("helvetica", "30"))
 label.pack(side="top")
 #
-label1=Label(racine,text="Choissisez un mode", fg=("black"), bg=("pink"), font=("helvetica", "14"))
+label1=Label(racine,text="Choissisez un mode", fg=("black"), bg=("pink"), font=("helvetica", "20"))
 label1.place(x='210',y='220')
 
 #Création boutons
 #Bouton mode 1 joueur
-bouton1 = tkinter.Button(racine,text='mode1joueur',bd='5')
+bouton1 = tkinter.Button(racine,text='mode 1 joueur',bd='5')
 bouton1.pack(side='left',fill='x',expand = True)
 
 #Bouton mode 2 joueurs
