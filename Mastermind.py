@@ -18,18 +18,6 @@ label1 = Label(racine, text="Choisissez un mode", fg = ("black"), bg=("pink3"), 
 label1.place(x='235', y='220')
 
 
-#création de la fenetre mode 2 joueurs 
-
-def acces_mode2joueurs(self,):
-    mode_2_joueurs = tkinter.Tk
-    mode_2_joueurs.mainloop()
-    
-   
-
-
-
-
-
 
 # Création boutons 
 # Fonction bouton 1
@@ -53,9 +41,6 @@ def bouton2fonction () :
     bouton2["bg"] = 'rosybrown1'
     labelbouton2 = Label(bouton2, text = 'Mode 2 joueurs', fg = ("black"), bg=("rosybrown1"), font =("helvetica", "15"))
     labelbouton2.pack (side = "top")
-    labelreglejeu = Label(bouton2, text = "Le joueur numéro 1 doit choisir un code secret composé de 4 couleurs", ) #modif à compléter(règle du jeux)
-    labelreglejeu.place(x = 100, y = 90)
-
 
 # Bouton mode 2 joueurs 
 bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
@@ -64,12 +49,18 @@ bouton2.pack(side = 'left', fill='x', expand = True)
 
 
 
+racine.mainloop()  # pour que le fenetre reste ouverte, boucle infinie
 
-
-racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
-
-
-
+#Interphase
+# en cours de programation 
+#création de la fenetre master mind
+master_mind = Tk()#création de la fenetre master mind
+master_mind.geometry("400x600")#taille de la fenetre
+master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
+labelcode = Label(master_mind, text = "Trouver le code secret : )",fg = ('black'), font =("helvetica", "14"))
+labelcode.place(x = "125", y = "30")#emplacement du labelcode
+#création des lignes 
+canvasligne.create_line(master_mind,x = 400, y = 600, width = 3 #épaisseur de la ligne)
 
 
 
@@ -77,6 +68,8 @@ racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
 
 
 #Interphase
+
+
 
 print("-----------------------------------------")
 print("\t\tMenu")
