@@ -13,18 +13,32 @@ label.pack(side="top")
 label1=Label(racine,text="Choissisez un mode", fg=("black"), bg=("pink"), font=("helvetica", "20"))
 label1.place(x='210',y='220')
 
+#création de la fenetre mode 2 joueurs 
+
+def acces_mode2joueurs(self,):
+    mode_2_joueurs = tkinter.Tk
+    mode_2_joueurs.mainloop()
+    
+   
+
+
 #Création boutons
 #Bouton mode 1 joueur
 bouton1 = tkinter.Button(racine,text='mode 1 joueur',bd='5')
 bouton1.pack(side='left',fill='x',expand = True)
 
+
 #Bouton mode 2 joueurs
-bouton2 = tkinter.Button(racine,text='mode 2 joueurs', bd = '5')
+bouton2 = tkinter.Button(racine,text='mode 2 joueurs', bd = '5',command=acces_mode2joueurs)
 bouton2.pack(side='left',fill='x',expand = True)
 
 #Fonction bouton 1
 
 #Fonction bouton 2 
+
+
+   
+
 
 #Interphase
 
