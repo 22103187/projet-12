@@ -73,11 +73,11 @@ bouton2.pack(side = 'left', fill='x', expand = True)
 
 
 racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
->>>>>>> bbb05d7933bad4790235e58af3bfd7d8ce57a07a
 
 
 
-<<<<<<< HEAD
+
+
 
    
 
@@ -93,6 +93,6 @@ print("Example: RED YELLOW ORANGE BLACK ---> 1 3 6 5")
 print("-----------------------------------------")
 print_mastermind_board(show_passcode, guess_codes, guess_flags)
 couleurs = ['rouge', 'rose', 'bleu', 'vert', 'jaune', 'orange', 'violet', 'blanc']
-essais = 10         # nbr d'essai pour trouver le code secret
->>>>>>> bbb05d7933bad4790235e58af3bfd7d8ce57a07a
+essais = 10    # nbr d'essai pour trouver le code secret
+
 
