@@ -14,8 +14,10 @@ racine.grid_columnconfigure(4, weight=4)        # C'EST QUOIIIIIIIII
 
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label.pack(side="top")
+label1 = Label(racine, text="Choisissez un mode", fg = ("black"), bg=("pink3"), font =("helvetica", "14"))
+label1.place(x='235', y='220')
 
-<<<<<<< HEAD
+
 #création de la fenetre mode 2 joueurs 
 
 def acces_mode2joueurs(self,):
@@ -25,18 +27,6 @@ def acces_mode2joueurs(self,):
    
 
 
-#Création boutons
-#Bouton mode 1 joueur
-bouton1 = tkinter.Button(racine,text='mode 1 joueur',bd='5')
-bouton1.pack(side='left',fill='x',expand = True)
-
-
-#Bouton mode 2 joueurs
-bouton2 = tkinter.Button(racine,text='mode 2 joueurs', bd = '5',command=acces_mode2joueurs)
-bouton2.pack(side='left',fill='x',expand = True)
-=======
-label1 = Label(racine, text="Choisissez un mode", fg = ("black"), bg=("pink3"), font =("helvetica", "14"))
-label1.place(x='210', y='220')
 
 
 
@@ -63,6 +53,10 @@ def bouton2fonction () :
     bouton2["bg"] = 'rosybrown1'
     labelbouton2 = Label(bouton2, text = 'Mode 2 joueurs', fg = ("black"), bg=("rosybrown1"), font =("helvetica", "15"))
     labelbouton2.pack (side = "top")
+    labelreglejeu = Label(bouton2, text = "Le joueur numéro 1 doit choisir un code secret composé de 4 couleurs", ) #modif à compléter(règle du jeux)
+    labelreglejeu.place(x = 100, y = 90)
+
+
 # Bouton mode 2 joueurs 
 bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
 bouton2.pack(side = 'left', fill='x', expand = True)
@@ -83,7 +77,7 @@ racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
 
 
 #Interphase
-=======
+
 print("-----------------------------------------")
 print("\t\tMenu")
 print("-----------------------------------------")
