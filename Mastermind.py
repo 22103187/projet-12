@@ -1,6 +1,6 @@
-from tkinter import CENTER, RIGHT, Frame, Label, Tk, Toplevel
+from tkinter import CENTER, RIGHT, Frame, Label, Tk, Toplevel, Canvas,PhotoImage, Frame, Button
 import tkinter
-
+from PIL import ImageTk, Image
 
 
 
@@ -51,20 +51,34 @@ bouton2.pack(side = 'left', fill='x', expand = True)
 
 racine.mainloop()  # pour que le fenetre reste ouverte, boucle infinie
 
+
 #Interphase
 # en cours de programation 
 #création de la fenetre master mind
 master_mind = Tk()#création de la fenetre master mind
-master_mind.geometry("400x600")#taille de la fenetre
-master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
-labelcode = Label(master_mind, text = "Trouver le code secret : )",fg = ('black'), font =("helvetica", "14"))
-labelcode.place(x = "125", y = "30")#emplacement du labelcode
+master_mind.geometry("400x620")#taille de la fenetre
 #création des lignes 
-canvasligne.create_line(master_mind,x = 400, y = 600, width = 3 #épaisseur de la ligne)
+master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
+
+#création du bouton validé et supprimer
+bvalide = Button(master_mind,text = 'Validé')
+bsupprimer = Button(master_mind,text = 'Supprimer')
+
+#placement des boutons validé et supprimer
+bvalide.place(x = 175, y = 520)
+bsupprimer.place(x = 165, y = 550)
+
+#création de la ligne du bas
+ligne1=Canvas(master_mind,width=400, height=20)#largeur et hauteur du canvas 
+a=(0, 15)
+b=(400,15)
+ligne1.place(x = 1, y = 500)#placer le canvas
+ligne1.create_line(a, b)
+
+#création de la ligne à la verticale 
+ligne2=Canvas(master_mind,width=0.5, height=500, bg = 'black')
+ligne2.place(x = 320, y = 9)
 
 
-
-
-
-
+master_mind.mainloop()
 
