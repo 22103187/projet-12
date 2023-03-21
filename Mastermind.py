@@ -64,7 +64,6 @@ canvasligne.create_line(master_mind,x = 400, y = 600, width = 3 #épaisseur de l
 
 
 
-   
 
 
 
