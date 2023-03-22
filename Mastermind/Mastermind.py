@@ -252,7 +252,4 @@ frameb2.pack
 palette.place(x=170, y=509)
 
 
-
-master_mind.mainloop()
-
 master_mind.mainloop()
