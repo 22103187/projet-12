@@ -18,15 +18,23 @@ création fenêtre racine
 fenetre racine doit se fermer quand on clique sur un des deux boutons
 
 Etape 2 :
-création boutons 
+création bouton "mode 1 joueur" et bouton "mode 2 joueurs"
 
 Etape 3 :
-fonction pour accéder à l'interface graphique du mode choisi
+création de la fonction pour accéder à l'interface graphique du mode choisi
 
-Etape 4 :
-Interface de chaque mode 
-- création menu comprenant : "à propos", "préferences"
-- colonnes et lignes
+Etape 4 : 
+création d'un menu qui comprend :
+- "a propos" = règles du jeu
+- "préférences" = paramètres du jeu  --> création fonction pour appliquer les paramètres
+- "ajouter un timer"   (idée bonus)
+
+Etape 5 : 
+création du plateau de jeu 
+
+Etape 6 : 
+code du jeu
+
 
 En plus :
 - pouvoir sauvegarder la partie
