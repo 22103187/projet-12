@@ -61,6 +61,8 @@ def preferencebouton1 () :
     labelpreference3.pack(side = 'top')
     listeCombo3 = ttk.Combobox (preference, values = nombreessai)
     listeCombo3.pack()
+    appliquer = tkinter.Button (preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres1)
+    appliquer.pack(side = "bottom")
     
 
 def aproposbouton1 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
@@ -70,10 +72,14 @@ def aproposbouton1 () :             #https://www.invivoo.com/realiser-mastermind
                      "chaque couleur peut apparaître plusieurs fois.\n\n"
                      "Vous pouvez configurer le nombre de couleurs différentes, la taille du code secret "
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
-       
+    
+def appliquerparametres1 () : 
+    print ("boujour")
+   
 # Bouton mode 1 joueur 
 bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouton1fonction)
 bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE 
+   
 
 
 
@@ -99,22 +105,24 @@ def bouton2fonction () :
  
 
 def preferencebouton2 () :
-    preferencebouton2 = Toplevel(bouton2)
-    preferencebouton2.title ("Préferences")
-    preferencebouton2.geometry ("300x300")
-    preferencebouton2['bg'] = "oldlace"
-    labelpreference4 = Label (preferencebouton2, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    preference2 = Toplevel(bouton2)
+    preference2.title ("Préferences")
+    preference2.geometry ("300x300")
+    preference2['bg'] = "oldlace"
+    labelpreference4 = Label (preference2, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
     labelpreference4.pack(side ='top')
-    listeCombo4 = ttk.Combobox (preferencebouton2, values = nombrepions)
+    listeCombo4 = ttk.Combobox (preference2, values = nombrepions)
     listeCombo4.pack()
-    labelpreference5 = Label (preferencebouton2, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference5 = Label (preference2, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
     labelpreference5.pack(side = 'top')
-    listeCombo5 = ttk.Combobox (preferencebouton2, values = nombrecouleurs)
+    listeCombo5 = ttk.Combobox (preference2, values = nombrecouleurs)
     listeCombo5.pack()
-    lebelpreference6 = Label (preferencebouton2, text = 'Choississez un nombre d essai', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    lebelpreference6 = Label (preference2, text = 'Choississez un nombre d essai', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
     lebelpreference6.pack(side = 'top')
-    listeCombo6 = ttk.Combobox (preferencebouton2, values = nombreessai)
+    listeCombo6 = ttk.Combobox (preference2, values = nombreessai)
     listeCombo6.pack()
+    appliquer = tkinter.Button(preference2, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres2)
+    appliquer.pack(side = "bottom")
     
 
 def aproposbouton2 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
@@ -124,10 +132,15 @@ def aproposbouton2 () :             #https://www.invivoo.com/realiser-mastermind
                      "chaque couleur peut apparaître plusieurs fois.\n\n"
                      "Vous pouvez configurer le nombre de couleurs différentes, la taille du code secret "
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
+    
+def appliquerparametres2 () :
+    print ("bonjour")
+
 
 # Bouton mode 2 joueurs 
 bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
 bouton2.pack(side = 'left', fill='x', expand = True)
+
 
 
 
