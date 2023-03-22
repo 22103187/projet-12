@@ -158,28 +158,24 @@ from PIL import ImageTk, Image
 #Interphase
 # en cours de programation 
 #création de la fenetre master mind
-master_mind = Tk()#création de la fenetre master mind
-master_mind.geometry("450x660")#taille de la fenetre
 
-master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
-palette = Label(master_mind, text='palette de couleurs :') 
 #création du bouton validé et supprimer
-bvalide = Button(master_mind,text = 'Validé')
-bsupprimer = Button(master_mind,text = 'Supprimer')
+bvalide = Button(racine,text = 'Validé')
+bsupprimer = Button(racine,text = 'Supprimer')
 
 #placement des boutons validé et supprimer
 bvalide.place(x = 200, y = 580)
 bsupprimer.place(x = 190, y = 610)
 
 #création de la ligne du bas
-ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
+ligne1=Canvas(racine,width=400, height=30)#largeur et hauteur du canvas 
 a=(0, 30)
 b=(400,30)
 ligne1.create_line(a, b)
 ligne1.place(x = 20, y = 470)#placer le canvas
 
 #création de la ligne du haut
-ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
+ligne1=Canvas(racine,width=400, height=30)#largeur et hauteur du canvas 
 a=(0, 30)
 b=(400,30)
 ligne1.create_line(a, b)
@@ -189,7 +185,7 @@ ligne1.place(x = 20, y = 30)
 
 
 #creation de la frame et des boutons de couleurs 
-frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
+frameb1 = Frame(racine, width=400, height=600, borderwidth=2)
 frameb1.place(x= 60, y=535)
 
 #ouvrir les images 
@@ -245,11 +241,10 @@ B6.grid(row =0,column=6)
 B7.grid(row =0,column=7)
 # création d'une nouvelle frame pour les grilles d'esssais 
 
-frameb2 = Frame(master_mind, width=400, height=600, borderwidth=2)
+frameb2 = Frame(bouton2, width=400, height=600, borderwidth=2)
 frameb2.pack
 
 
 palette.place(x=170, y=509)
 
 
-master_mind.mainloop()
