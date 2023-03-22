@@ -1,17 +1,48 @@
 # Master-mind_12
 projet master mind 
-bonjour 
-#Interphase
+
+Biologie - Informatique 
+TD 4
+
+Lima-Pinto Jessica
+Petit Nina
+Kedir-Gegsa Firdos
+Faradna Alissar
+
+https://github.com/uvsq22200131/Master-mind_12-main.git
 
 
 
-print("-----------------------------------------")
-print("\t\tMenu")
-print("-----------------------------------------")
-print("Enter code using numbers.")
-print("1 - rouge, 2 - vert, 3 - jaune, 4 - bleu, 5 - blanc, 6 - orange, 7 - violet, 8 - rose")
-print("Example: RED YELLOW ORANGE BLACK ---> 1 3 6 5")
-print("-----------------------------------------")
-print_ mastermind_board(show_passcode, guess_codes, guess_flags)
-couleurs = ['rouge', 'rose', 'bleu', 'vert', 'jaune', 'orange', 'violet', 'blanc']
-essais = 10    # nbr d'essai pour trouver le code secret
+Etape 1 :
+création fenêtre racine
+fenetre racine doit se fermer quand on clique sur un des deux boutons
+
+Etape 2 :
+création bouton "mode 1 joueur" et bouton "mode 2 joueurs"
+
+Etape 3 :
+création de la fonction pour accéder à l'interface graphique du mode choisi
+
+Etape 4 : 
+création d'un menu qui comprend :
+- "a propos" = règles du jeu
+- "préférences" = paramètres du jeu  --> création fonction pour appliquer les paramètres
+- "ajouter un timer"   (idée bonus)
+
+Etape 5 : 
+création du plateau de jeu 
+
+Etape 6 : 
+code du jeu
+
+
+En plus :
+- pouvoir sauvegarder la partie
+- pouvoir revenir en arrière 
+- proposer une aide fournissant un code compatible avec les informations obtenues aux essais précédents (sans utiliser le code secret!)
+
+Pour aller plus loin :
+- pouvoir modifier les principaux paramètres du jeux (nbr pions, nbr couleurs, nbr essais)
+- programmer un mode sans joueur, dans lequel le code à chercher est choisi au hasard comme dans le mode à 1 joueur, puis une intelligence artificielle (IA) joue à la place du joueur qui décode
+- créer un timer
+
