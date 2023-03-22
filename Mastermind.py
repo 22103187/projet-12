@@ -19,14 +19,15 @@ label1.place(x='210', y='220')
 
 
 
+
 # Création boutons 
 # Fonction bouton 1
 def bouton1fonction ():                     
     bouton1=Toplevel(racine)                # touver chez StackLima.com
     bouton1.title("Mode 1 joueur")
     bouton1.geometry("600x600")
-    bouton1["bg"] = 'rosybrown1'
-    labelbouton1 = Label(bouton1, text = 'Mode 1 joueur', fg = ("black"), bg=("rosybrown1"), font =("helvetica", "15"))
+    bouton1["bg"] = 'oldlace'
+    labelbouton1 = Label(bouton1, text = 'Mode 1 joueur', fg = ("black"), bg=("oldlace"), font =("helvetica", "15"))
     labelbouton1.pack (side = "top")
 
     # Création Menu
@@ -41,19 +42,25 @@ def bouton1fonction ():
 
 nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
+nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 
 def preferencebouton1 () :
     preference = Toplevel(bouton1)
     preference.title ("Préferences")
     preference.geometry ("300x300")
-    labelpreference1 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
+    preference['bg'] = 'oldlace'
+    labelpreference1 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
     labelpreference1.pack(side ='top')
-    listeCombo1 = ttk.Combobox (preference, values = nombrecouleurs)
+    listeCombo1 = ttk.Combobox (preference, values = nombrepions)
     listeCombo1.pack()
-    labelpreference2 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
+    labelpreference2 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
     labelpreference2.pack(side = 'top')
     listeCombo2 = ttk.Combobox (preference, values = nombrecouleurs)
     listeCombo2.pack()
+    labelpreference3 = Label (preference, text = 'Choississez un nombre d esssai', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference3.pack(side = 'top')
+    listeCombo3 = ttk.Combobox (preference, values = nombreessai)
+    listeCombo3.pack()
     
 
 def aproposbouton1 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
@@ -76,12 +83,12 @@ def bouton2fonction () :
     bouton2=Toplevel(racine)
     bouton2.title("Mode 2 joueurs")
     bouton2.geometry("600x600")
-    bouton2["bg"] = 'rosybrown1'
-    labelbouton2 = Label(bouton2, text = 'Mode 2 joueurs', fg = ("black"), bg=("rosybrown1"), font =("helvetica", "15"))
-    labelbouton2.place (side = "top")
+    bouton2["bg"] = 'oldlace'
+    labelbouton2 = Label(bouton2, text = 'Mode 2 joueurs', fg = ("black"), bg=("oldlace"), font =("helvetica", "15"))
+    labelbouton2.pack (side = "top")
 
     # Création Menu
-    bouton2_menu = Menu(bouton1)               
+    bouton2_menu = Menu(bouton2)               
     bouton2['menu'] = bouton2_menu
     main_cascade = Menu(bouton2_menu)
     bouton2_menu.add_cascade(label='Menu', menu = main_cascade)
@@ -89,9 +96,26 @@ def bouton2fonction () :
     main_cascade.add_separator()
     main_cascade.add_separator()
     main_cascade.add_command(label='À propos', command = aproposbouton2)
+ 
 
 def preferencebouton2 () :
-    print ("bonjour")
+    preferencebouton2 = Toplevel(bouton2)
+    preferencebouton2.title ("Préferences")
+    preferencebouton2.geometry ("300x300")
+    preferencebouton2['bg'] = "oldlace"
+    labelpreference4 = Label (preferencebouton2, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference4.pack(side ='top')
+    listeCombo4 = ttk.Combobox (preferencebouton2, values = nombrepions)
+    listeCombo4.pack()
+    labelpreference5 = Label (preferencebouton2, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference5.pack(side = 'top')
+    listeCombo5 = ttk.Combobox (preferencebouton2, values = nombrecouleurs)
+    listeCombo5.pack()
+    lebelpreference6 = Label (preferencebouton2, text = 'Choississez un nombre d essai', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    lebelpreference6.pack(side = 'top')
+    listeCombo6 = ttk.Combobox (preferencebouton2, values = nombreessai)
+    listeCombo6.pack()
+    
 
 def aproposbouton2 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
     showinfo ('À propos',
@@ -104,9 +128,6 @@ def aproposbouton2 () :             #https://www.invivoo.com/realiser-mastermind
 # Bouton mode 2 joueurs 
 bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
 bouton2.pack(side = 'left', fill='x', expand = True)
-
-
-
 
 
 
