@@ -14,9 +14,10 @@ racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable d
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label.pack(side="top")
 
-label1 = Label(racine, text="Choisissez un mode", fg = ("black"), bg=("pink3"), font =("helvetica", "14"))
-label1.place(x='210', y='220')
-
+label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
+label1.place(x='150', y='220')
+M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='23')
+M.place(x = 230, y=50)
 
 
 
@@ -31,7 +32,7 @@ def bouton1fonction ():
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
     palette = Label(master_mind, text='palette de couleurs :') 
     c = Label(master_mind, text='trouver le code ')
-    s = Label(master_mind,text='secret :')
+    s = Label(master_mind,text='secret ;)')
     #création du bouton validé, supprimer et quitter 
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
@@ -189,8 +190,8 @@ def bouton2fonction () :
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
     palette = Label(master_mind, text='palette de couleurs :')
     c = Label(master_mind, text='trouver le code ')
-    s = Label(master_mind,text='secret :') 
-    #création du bouton validé et supprimer
+    s = Label(master_mind,text='secret ;)') 
+    #création du bouton validé,supprimer et quitter
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
