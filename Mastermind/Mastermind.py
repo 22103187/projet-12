@@ -30,13 +30,19 @@ def bouton1fonction ():
 
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
     palette = Label(master_mind, text='palette de couleurs :') 
-    #création du bouton validé et supprimer
-    bvalide = Button(master_mind,text = 'Validé')
-    bsupprimer = Button(master_mind,text = 'Supprimer')
+    c = Label(master_mind, text='trouver le code ')
+    s = Label(master_mind,text='secret :')
+    #création du bouton validé, supprimer et quitter 
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
+    bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
 
-    #placement des boutons validé et supprimer
-    bvalide.place(x = 200, y = 580)
-    bsupprimer.place(x = 190, y = 610)
+    #placement des boutons validé,supprimer,quitter et le label code
+    bvalide.place(x = 175, y = 600)
+    bsupprimer.place(x =50, y = 600)
+    bquitter.place(x = 300, y = 600)
+    c.place(x= 5, y=5)
+    s.place(x=20, y=23)
 
     #création de la ligne du bas
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
@@ -45,13 +51,22 @@ def bouton1fonction ():
     ligne1.create_line(a, b)
     ligne1.place(x = 20, y = 470)#placer le canvas
 
+    #création du canvas qui va révéler le code secret  
+
+    canvascs = Canvas(master_mind,width = 200, height = 40)
+    canvascs.place(x = 100, y= 8) 
+
+    canvascs.create_oval(50,10,80,40)
+    canvascs.create_oval(90,10,120,40)
+    canvascs.create_oval(130,10,160,40)
+    canvascs.create_oval(170,10,200,40)
+
     #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
     a=(0, 30)
     b=(400,30)
     ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 30)
-
+    ligne1.place(x = 20, y = 50)
 
 
 
@@ -172,14 +187,30 @@ def bouton2fonction () :
     master_mind.geometry("450x660")#taille de la fenetre
 
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
-    palette = Label(master_mind, text='palette de couleurs :') 
+    palette = Label(master_mind, text='palette de couleurs :')
+    c = Label(master_mind, text='trouver le code ')
+    s = Label(master_mind,text='secret :') 
     #création du bouton validé et supprimer
-    bvalide = Button(master_mind,text = 'Validé')
-    bsupprimer = Button(master_mind,text = 'Supprimer')
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
+    bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
+    
 
-    #placement des boutons validé et supprimer
-    bvalide.place(x = 200, y = 580)
-    bsupprimer.place(x = 190, y = 610)
+    #placement des boutons validé,supprimer,quiter + label
+    bvalide.place(x = 175, y = 600)
+    bsupprimer.place(x =50, y = 600)
+    bquitter.place(x = 300, y = 600)
+    c.place(x= 5, y=5)
+    s.place(x=20, y=23)
+
+    #création du canvas qui va révéler le code secret  
+    canvascs = Canvas(master_mind,width = 300, height = 40)
+    canvascs.place(x = 100, y= 8) 
+
+    canvascs.create_oval(50,10,80,40)
+    canvascs.create_oval(90,10,120,40)
+    canvascs.create_oval(130,10,160,40)
+    canvascs.create_oval(170,10,200,40)
 
     #création de la ligne du bas
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
@@ -189,11 +220,11 @@ def bouton2fonction () :
     ligne1.place(x = 20, y = 470)#placer le canvas
 
     #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
     a=(0, 30)
     b=(400,30)
     ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 30)
+    ligne1.place(x = 20, y = 50)
 
 
 
