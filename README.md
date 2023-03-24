@@ -53,3 +53,6 @@ Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaqu
 Jessica -->   création du plateau de jeu et des pions 
 Firdos -->      début du code de jeu mode 1 joueur
 Alisar -->      début code de jeu mode 2 joueur
+
+
+Ajouter docstring pour fonctions
