@@ -31,6 +31,7 @@ def bouton1fonction ():
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
+    master_mind.resizable(height=False, width=False)
     palette = Label(master_mind, text='palette de couleurs :') 
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
@@ -197,6 +198,7 @@ def bouton2fonction () :
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
     palette = Label(master_mind, text='palette de couleurs :')
+    master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)') 
 
