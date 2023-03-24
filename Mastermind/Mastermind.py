@@ -141,7 +141,9 @@ def bouton1fonction ():
     B5.grid(row =0,column=5)
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
+    palette.place(x=170, y=509)
 
+    master_mind.mainloop()
 
 def preferencebouton1 () :
     preference = Toplevel(bouton1)
