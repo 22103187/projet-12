@@ -14,10 +14,10 @@ racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable d
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label.pack(side="top")
 
-label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
+label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "18"))
 label1.place(x='150', y='220')
-M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='23')
-M.place(x = 230, y=50)
+M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
+M.place(x = 205, y=50)
 
 
 
@@ -30,8 +30,12 @@ nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 def bouton1fonction ():                     
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
+
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
     master_mind.resizable(height=False, width=False)
+
+    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre  
+
     palette = Label(master_mind, text='palette de couleurs :') 
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
@@ -54,6 +58,7 @@ def bouton1fonction ():
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8)
+    
     #placement des boutons validé,supprimer,quitter et le label code
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
@@ -150,16 +155,15 @@ def preferencebouton1 () :
     preference = Toplevel(bouton1)
     preference.title ("Préferences")
     preference.geometry ("300x300")
-    preference['bg'] = 'oldlace'
-    labelpreference1 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference1 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
     labelpreference1.pack(side ='top')
     listeCombo1 = ttk.Combobox (preference, values = nombrepions)
     listeCombo1.pack()
-    labelpreference2 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference2 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
     labelpreference2.pack(side = 'top')
     listeCombo2 = ttk.Combobox (preference, values = nombrecouleurs)
     listeCombo2.pack()
-    labelpreference3 = Label (preference, text = "Choississez un nombre d' esssai", fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference3 = Label (preference, text = "Choississez un nombre d' esssai", fg = ('black'), font = ('helvetica', '10'))
     labelpreference3.pack(side = 'top')
     listeCombo3 = ttk.Combobox (preference, values = nombreessai)
     listeCombo3.pack()
@@ -220,6 +224,7 @@ def bouton2fonction () :
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8)
+    
     #placement des boutons validé,supprimer,quiter + label
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
@@ -319,16 +324,15 @@ def preferencebouton2 () :
     preference2 = Toplevel(bouton2)
     preference2.title ("Préferences")
     preference2.geometry ("300x300")
-    preference2['bg'] = "oldlace"
-    labelpreference4 = Label (preference2, text = 'Choississez un nombre de pions', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference4 = Label (preference2, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
     labelpreference4.pack(side ='top')
     listeCombo4 = ttk.Combobox (preference2, values = nombrepions)
     listeCombo4.pack()
-    labelpreference5 = Label (preference2, text = 'Choississez un nombre de couleurs', fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    labelpreference5 = Label (preference2, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
     labelpreference5.pack(side = 'top')
     listeCombo5 = ttk.Combobox (preference2, values = nombrecouleurs)
     listeCombo5.pack()
-    lebelpreference6 = Label (preference2, text = "Choississez un nombre d' essai", fg = ('black'), bg = ('oldlace'), font = ('helvetica', '10'))
+    lebelpreference6 = Label (preference2, text = "Choississez un nombre d' essai", fg = ('black'), font = ('helvetica', '10'))
     lebelpreference6.pack(side = 'top')
     listeCombo6 = ttk.Combobox (preference2, values = nombreessai)
     listeCombo6.pack()
