@@ -179,7 +179,7 @@ def preferencebouton1 () :
     appliquer.pack(side = "bottom")
     
 
-def aproposbouton1 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
+def aproposbouton1 () :             
     showinfo ('À propos',
              message = "Bienvenue dans Mastermind.\n\n"
                      "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
@@ -355,7 +355,7 @@ def preferencebouton2 () :
     appliquer.pack(side = "bottom")
     
 
-def aproposbouton2 () :             #https://www.invivoo.com/realiser-mastermind-tkinter-python-part-3/
+def aproposbouton2 () :             
     showinfo ('À propos',
              message="Bienvenue dans Mastermind.\n\n"
                      "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
