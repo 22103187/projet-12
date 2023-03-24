@@ -53,6 +53,7 @@ def bouton1fonction ():
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8)
+    
     #placement des boutons validé,supprimer,quitter et le label code
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
@@ -218,6 +219,7 @@ def bouton2fonction () :
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8)
+    
     #placement des boutons validé,supprimer,quiter + label
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
