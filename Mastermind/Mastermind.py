@@ -22,8 +22,11 @@ M.place(x = 230, y=50)
 
 
 # Création boutons 
+nombrecouleurs = ["4", "5", "6", "7", "8"]
+nombrepions = ["3", "4", "5", "6", "7", "8"]
+nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 # Fonction bouton 1
-#trouver chez StackLima.com
+
 def bouton1fonction ():                     
     master_mind=Toplevel(racine)
     
@@ -33,6 +36,19 @@ def bouton1fonction ():
     palette = Label(master_mind, text='palette de couleurs :') 
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
+     # Création Menu
+    bouton1_menu = Menu(master_mind)               
+    master_mind['menu'] = bouton1_menu
+    main_cascade = Menu(bouton1_menu)
+    bouton1_menu.add_cascade(label='Menu', menu = main_cascade)
+    main_cascade.add_command(label='Préférences', command = preferencebouton1)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='À propos', command = aproposbouton1)
+
+
+
+   
     #création du bouton validé, supprimer et quitter 
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
@@ -141,6 +157,7 @@ nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
 nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 
+
 def preferencebouton1 () :
     preference = Toplevel(bouton1)
     preference.title ("Préferences")
@@ -191,6 +208,16 @@ def bouton2fonction () :
     palette = Label(master_mind, text='palette de couleurs :')
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)') 
+     # Création Menu
+    bouton1_menu = Menu(master_mind)               
+    master_mind['menu'] = bouton1_menu
+    main_cascade = Menu(bouton1_menu)
+    bouton1_menu.add_cascade(label='Menu', menu = main_cascade)
+    main_cascade.add_command(label='Préférences', command = preferencebouton1)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='À propos', command = aproposbouton1)
+
     #création du bouton validé,supprimer et quitter
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
