@@ -227,7 +227,7 @@ def bouton2fonction () :
     ligne1.create_line(a, b)
     ligne1.place(x = 20, y = 50)
 
-
+a= 
 
 
     #creation de la frame et des boutons de couleurs 
