@@ -46,3 +46,10 @@ Pour aller plus loin :
 - programmer un mode sans joueur, dans lequel le code à chercher est choisi au hasard comme dans le mode à 1 joueur, puis une intelligence artificielle (IA) joue à la place du joueur qui décode
 - créer un timer
 
+
+
+Répartition des tâches :
+Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie, fonction pour revenir en arrière
+Jessica -->   création du plateau de jeu et des pions 
+Firdos -->      début du code de jeu mode 1 joueur
+Alisar -->      début code de jeu mode 2 joueur
