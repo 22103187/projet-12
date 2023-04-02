@@ -27,7 +27,9 @@ nombrepions = ["3", "4", "5", "6", "7", "8"]
 nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 
 # Fonction bouton 1
-def bouton1fonction ():                     
+def bouton1fonction ():  
+        """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
+    clique sur le bouton du mode 1 joueur""" 
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
 
@@ -57,7 +59,7 @@ def bouton1fonction ():
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
-    bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8)
+    bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
     
     #placement des boutons validé,supprimer,quitter et le label code
     bvalide.place(x = 175, y = 585)
@@ -154,6 +156,10 @@ def bouton1fonction ():
     master_mind.mainloop()
 
 def preferencebouton1 () :
+    """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
+    - la taille du code secret (nombre de pion)
+    - le nombre de couleurs
+    - le nombre d'essai afin de trouver le code secret"""
     preference = Toplevel(bouton1)
     preference.title ("Préferences")
     preference.geometry ("300x300")
@@ -173,7 +179,8 @@ def preferencebouton1 () :
     appliquer.pack(side = "bottom")
     
 
-def aproposbouton1 () :             
+def aproposbouton1 () : 
+    """Création de la fonction permettant d'afficher les règles du jeu"""  
     showinfo ('À propos',
              message = "Bienvenue dans Mastermind.\n\n"
                      "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
@@ -187,7 +194,10 @@ def appliquerparametres1 () :
 
 
 def timerbouton1 () :
-    print ('Bonjour')       
+    print ('Bonjour')     
+    
+def sauvegarderjeu () :
+    print ("bonjour")
 
 
 # Bouton mode 1 joueur 
@@ -200,6 +210,8 @@ bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour a
 
 # Fonction bouton 2 
 def bouton2fonction () :
+    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
+    clique sur le bouton du mode 2 joueur"""  
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
@@ -218,6 +230,7 @@ def bouton2fonction () :
     l8= Label(master_mind, text='8.')
     l9= Label(master_mind, text='9.')
     l10= Label(master_mind, text='10.')
+    
     # Création Menu
     bouton2_menu = Menu(master_mind)               
     master_mind['menu'] = bouton2_menu
@@ -247,7 +260,7 @@ def bouton2fonction () :
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
-    bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8)
+    bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
     
     #placement des boutons validé,supprimer,quiter + label
     bvalide.place(x = 175, y = 585)
@@ -533,6 +546,10 @@ def bouton2fonction () :
  
 
 def preferencebouton2 () :
+    """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
+    - la taille du code secret (nombre de pion)
+    - le nombre de couleurs
+    - le nombre d'essai afin de trouver le code secret"""
     preference2 = Toplevel(bouton2)
     preference2.title ("Préferences")
     preference2.geometry ("300x300")
@@ -552,7 +569,8 @@ def preferencebouton2 () :
     appliquer.pack(side = "bottom")
     
 
-def aproposbouton2 () :             
+def aproposbouton2 () : 
+    """Création de la fonction permettant d'afficher les règles du jeu""" 
     showinfo ('À propos',
              message="Bienvenue dans Mastermind.\n\n"
                      "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
@@ -567,6 +585,9 @@ def appliquerparametres2 () :
 
 def timerbouton2 () :
     print ('Bonjour')    
+    
+def sauvergarderjeu () :
+    print ("bonjour")
 
 
 # Bouton mode 2 joueurs 
