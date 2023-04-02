@@ -14,10 +14,10 @@ racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable d
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label.pack(side="top")
 
-label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "18"))
+label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label1.place(x='150', y='220')
 M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
-M.place(x = 205, y=50)
+M.place(x = 230, y=50)
 
 
 
@@ -314,8 +314,96 @@ def bouton2fonction () :
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
 
-    # création d'une nouvelle frame pour les grilles d'esssais 
-    palette.place(x=170, y=509)
+    #ligne 1 des cercles pour le plateau de jeux 
+    grille1 = Canvas(master_mind,width=145, height=40)
+
+    c1 = grille1.create_oval(10,10,40,40)
+    c2 = grille1.create_oval(45,10,75,40)
+    c3= grille1.create_oval(80,10,110,40)
+    c4 = grille1.create_oval(115,10,145,40)
+    gun = grille1.place(x = 20, y=70)
+
+    #ligne 2 des cercles 
+    grille2 = Canvas(master_mind,width=145, height=40)
+
+    c5= grille2.create_oval(10,10,40,40)
+    c6 = grille2.create_oval(45,10,75,40)
+    c7 = grille2.create_oval(80,10,110,40)
+    c8 = grille2.create_oval(115,10,145,40)
+    gdeux = grille2.place(x = 20, y=113)
+
+    # ligne 3 des cercles 
+    grille3 = Canvas(master_mind,width=145, height=40)
+
+    c9= grille3.create_oval(10,10,40,40)
+    c10 = grille3.create_oval(45,10,75,40)
+    c11 = grille3.create_oval(80,10,110,40)
+    c12 = grille3.create_oval(115,10,145,40)
+    gtrois = grille3.place(x = 20, y=156)
+
+    #ligne 4 des cercles 
+    grille4 = Canvas(master_mind,width=145, height=40)
+
+    c13= grille4.create_oval(10,10,40,40)
+    c14 = grille4.create_oval(45,10,75,40)
+    c15 = grille4.create_oval(80,10,110,40)
+    c16 = grille4.create_oval(115,10,145,40)
+    gquatre = grille4.place(x = 20, y=198)
+
+    #ligne 5 des cercles
+    grille4 = Canvas(master_mind,width=145, height=40)
+
+    c17= grille4.create_oval(10,10,40,40)
+    c18 = grille4.create_oval(45,10,75,40)
+    c19 = grille4.create_oval(80,10,110,40)
+    c20 = grille4.create_oval(115,10,145,40)
+    gquatre = grille4.place(x = 20, y=240)
+
+    #ligne 6 des cercles
+    grille6 = Canvas(master_mind,width=145, height=40)
+
+    c21 = grille6.create_oval(10,10,40,40)
+    c22 = grille6.create_oval(45,10,75,40)
+    c23 = grille6.create_oval(80,10,110,40)
+    c24 = grille6.create_oval(115,10,145,40)
+    gsix = grille6.place(x = 20, y=283)
+
+    #ligne 7 des cercles
+    grille7 = Canvas(master_mind,width=145, height=40)
+
+    c25 = grille7.create_oval(10,10,40,40)
+    c26 = grille7.create_oval(45,10,75,40)
+    c27 = grille7.create_oval(80,10,110,40)
+    c28 = grille7.create_oval(115,10,145,40)
+    gsept = grille7.place(x = 20, y=325)
+
+    #ligne 8 des cercles
+    grille8 = Canvas(master_mind,width=145, height=40)
+
+    c29 = grille8.create_oval(10,10,40,40)
+    c30 = grille8.create_oval(45,10,75,40)
+    c31 = grille8.create_oval(80,10,110,40)
+    c32 = grille8.create_oval(115,10,145,40)
+    ghuit = grille8.place(x = 20, y=367)
+
+    #ligne 9 des cercles
+    grille9 = Canvas(master_mind,width=145, height=40)
+
+    c33 = grille9.create_oval(10,10,40,40)
+    c34 = grille9.create_oval(45,10,75,40)
+    c35 = grille9.create_oval(80,10,110,40)
+    c36 = grille9.create_oval(115,10,145,40)
+    gneuf = grille9.place(x = 20, y=409)
+
+    #ligne 10 des cercles 
+    grille10 = Canvas(master_mind,width=145, height=40)
+
+    c37 = grille10.create_oval(10,10,40,40)
+    c38 = grille10.create_oval(45,10,75,40)
+    c39 = grille10.create_oval(80,10,110,40)
+    c40 = grille10.create_oval(115,10,145,40)
+    dix = grille10.place(x = 20, y = 450)
+
 
     master_mind.mainloop()
  
