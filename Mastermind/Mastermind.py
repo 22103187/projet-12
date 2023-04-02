@@ -30,6 +30,8 @@ nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 def bouton1fonction ():  
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
         clique sur le bouton du mode 1 joueur""" 
+
+
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
 
