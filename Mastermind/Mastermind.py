@@ -149,6 +149,8 @@ def bouton1fonction ():
     B7.grid(row =0,column=7)
     palette.place(x=170, y=509)
 
+    
+
     master_mind.mainloop()
 
 def preferencebouton1 () :
@@ -205,7 +207,17 @@ def bouton2fonction () :
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)') 
-
+    # label 1 à 10
+    l1= Label(master_mind, text='1.')
+    l2= Label(master_mind, text='2.')
+    l3= Label(master_mind, text='3.')
+    l4= Label(master_mind, text='4.')
+    l5= Label(master_mind, text='5.')
+    l6= Label(master_mind, text='6.')
+    l7= Label(master_mind, text='7.')
+    l8= Label(master_mind, text='8.')
+    l9= Label(master_mind, text='9.')
+    l10= Label(master_mind, text='10.')
     # Création Menu
     bouton2_menu = Menu(master_mind)               
     master_mind['menu'] = bouton2_menu
@@ -218,6 +230,18 @@ def bouton2fonction () :
     main_cascade.add_separator()
     main_cascade.add_separator()
     main_cascade.add_command(label='Ajouter un timer', command = timerbouton2)
+
+    # label 1 à 10
+    l1= Label(master_mind, text='1.')
+    l2= Label(master_mind, text='2.')
+    l3= Label(master_mind, text='3.')
+    l4= Label(master_mind, text='4.')
+    l5= Label(master_mind, text='5.')
+    l6= Label(master_mind, text='6.')
+    l7= Label(master_mind, text='7.')
+    l8= Label(master_mind, text='8.')
+    l9= Label(master_mind, text='9.')
+    l10= Label(master_mind, text='10.')
 
     #création du bouton validé,supprimer et quitter
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
@@ -233,6 +257,17 @@ def bouton2fonction () :
     c.place(x= 5, y=5)
     s.place(x=20, y=23)
 
+    #placement label 1 à 10
+    l1.place(x = 35, y = 85)
+    l2.place(x = 35, y = 125)
+    l3.place(x = 35, y = 170)
+    l4.place(x = 35, y = 210)
+    l5.place(x = 35, y = 250)
+    l6.place(x = 35, y = 292)
+    l7.place(x = 35, y = 335)
+    l8.place(x = 35, y = 380)
+    l9.place(x = 35, y = 420)
+    l10.place(x = 30, y = 460)
     #création du canvas qui va révéler le code secret  
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8) 
@@ -246,7 +281,7 @@ def bouton2fonction () :
     a=(0, 30)
     b=(400,30)
     ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 470)#placer le canvas
+    ligne1.place(x = 20, y = 480)#placer le canvas
 
     #création de la ligne du haut
     ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
@@ -321,7 +356,7 @@ def bouton2fonction () :
     c2 = grille1.create_oval(45,10,75,40)
     c3= grille1.create_oval(80,10,110,40)
     c4 = grille1.create_oval(115,10,145,40)
-    gun = grille1.place(x = 20, y=70)
+    gun = grille1.place(x = 50, y=70)
 
     #ligne 2 des cercles 
     grille2 = Canvas(master_mind,width=145, height=40)
@@ -330,7 +365,7 @@ def bouton2fonction () :
     c6 = grille2.create_oval(45,10,75,40)
     c7 = grille2.create_oval(80,10,110,40)
     c8 = grille2.create_oval(115,10,145,40)
-    gdeux = grille2.place(x = 20, y=113)
+    gdeux = grille2.place(x = 50, y=113)
 
     # ligne 3 des cercles 
     grille3 = Canvas(master_mind,width=145, height=40)
@@ -339,7 +374,7 @@ def bouton2fonction () :
     c10 = grille3.create_oval(45,10,75,40)
     c11 = grille3.create_oval(80,10,110,40)
     c12 = grille3.create_oval(115,10,145,40)
-    gtrois = grille3.place(x = 20, y=156)
+    gtrois = grille3.place(x = 50, y=156)
 
     #ligne 4 des cercles 
     grille4 = Canvas(master_mind,width=145, height=40)
@@ -348,7 +383,7 @@ def bouton2fonction () :
     c14 = grille4.create_oval(45,10,75,40)
     c15 = grille4.create_oval(80,10,110,40)
     c16 = grille4.create_oval(115,10,145,40)
-    gquatre = grille4.place(x = 20, y=198)
+    gquatre = grille4.place(x = 50, y=198)
 
     #ligne 5 des cercles
     grille4 = Canvas(master_mind,width=145, height=40)
@@ -357,7 +392,7 @@ def bouton2fonction () :
     c18 = grille4.create_oval(45,10,75,40)
     c19 = grille4.create_oval(80,10,110,40)
     c20 = grille4.create_oval(115,10,145,40)
-    gquatre = grille4.place(x = 20, y=240)
+    gquatre = grille4.place(x = 50, y=240)
 
     #ligne 6 des cercles
     grille6 = Canvas(master_mind,width=145, height=40)
@@ -366,7 +401,7 @@ def bouton2fonction () :
     c22 = grille6.create_oval(45,10,75,40)
     c23 = grille6.create_oval(80,10,110,40)
     c24 = grille6.create_oval(115,10,145,40)
-    gsix = grille6.place(x = 20, y=283)
+    gsix = grille6.place(x = 50, y=283)
 
     #ligne 7 des cercles
     grille7 = Canvas(master_mind,width=145, height=40)
@@ -375,7 +410,7 @@ def bouton2fonction () :
     c26 = grille7.create_oval(45,10,75,40)
     c27 = grille7.create_oval(80,10,110,40)
     c28 = grille7.create_oval(115,10,145,40)
-    gsept = grille7.place(x = 20, y=325)
+    gsept = grille7.place(x = 50, y=325)
 
     #ligne 8 des cercles
     grille8 = Canvas(master_mind,width=145, height=40)
@@ -384,7 +419,7 @@ def bouton2fonction () :
     c30 = grille8.create_oval(45,10,75,40)
     c31 = grille8.create_oval(80,10,110,40)
     c32 = grille8.create_oval(115,10,145,40)
-    ghuit = grille8.place(x = 20, y=367)
+    ghuit = grille8.place(x = 50, y=367)
 
     #ligne 9 des cercles
     grille9 = Canvas(master_mind,width=145, height=40)
@@ -393,7 +428,7 @@ def bouton2fonction () :
     c34 = grille9.create_oval(45,10,75,40)
     c35 = grille9.create_oval(80,10,110,40)
     c36 = grille9.create_oval(115,10,145,40)
-    gneuf = grille9.place(x = 20, y=409)
+    gneuf = grille9.place(x = 50, y=409)
 
     #ligne 10 des cercles 
     grille10 = Canvas(master_mind,width=145, height=40)
@@ -402,9 +437,98 @@ def bouton2fonction () :
     c38 = grille10.create_oval(45,10,75,40)
     c39 = grille10.create_oval(80,10,110,40)
     c40 = grille10.create_oval(115,10,145,40)
-    dix = grille10.place(x = 20, y = 450)
+    dix = grille10.place(x = 50, y = 450)
 
+    #création 1 des canvas pions bien placé ou non    
+    aide1 = Canvas(master_mind,width=90, height=25)
 
+    a1 = aide1.create_oval(4,9,20,25)
+    a2 = aide1.create_oval(27,9,43,25)
+    a3 = aide1.create_oval(50,9,65,25)
+    a4 = aide1.create_oval(71,9,87,25)
+    aide1.place(x = 280, y = 80)
+
+    #création 2 des canvas pions bien placé ou non    
+    aide2 = Canvas(master_mind,width=90, height=25)
+
+    a6 = aide2.create_oval(4,9,20,25)
+    a7 = aide2.create_oval(27,9,43,25)
+    a8 = aide2.create_oval(50,9,65,25)
+    a9 = aide2.create_oval(71,9,87,25)
+    aide2.place(x = 280, y = 120)
+
+    #création 3 des canvas pions bien placé ou non    
+    aide3 = Canvas(master_mind,width=90, height=25)
+
+    a10 = aide3.create_oval(4,9,20,25)
+    a11 = aide3.create_oval(27,9,43,25)
+    a12 = aide3.create_oval(50,9,65,25)
+    a13 = aide3.create_oval(71,9,87,25)
+    aide3.place(x = 280, y = 163)
+
+    #création 4 des canvas pions bien placé ou non    
+    aide4 = Canvas(master_mind,width=90, height=25)
+
+    a14 = aide4.create_oval(4,9,20,25)
+    a15 = aide4.create_oval(27,9,43,25)
+    a16 = aide4.create_oval(50,9,65,25)
+    a17 = aide4.create_oval(71,9,87,25)
+    aide4.place(x = 280, y = 207)
+
+    #création 5 des canvas pions bien placé ou non    
+    aide5 = Canvas(master_mind,width=90, height=25)
+
+    a18 = aide5.create_oval(4,9,20,25)
+    a19 = aide5.create_oval(27,9,43,25)
+    a20 = aide5.create_oval(50,9,65,25)
+    a21 = aide5.create_oval(71,9,87,25)
+    aide5.place(x = 280, y = 250)
+
+    #création 6 des canvas pions bien placé ou non   
+    aide6 = Canvas(master_mind,width=90, height=25)
+
+    a22 = aide6.create_oval(4,9,20,25)
+    a23 = aide6.create_oval(27,9,43,25)
+    a24 = aide6.create_oval(50,9,65,25)
+    a25 = aide6.create_oval(71,9,87,25)
+    aide6.place(x = 280, y = 290)
+
+    #création 7 des canvas pions bien placé ou non   
+    aide7 = Canvas(master_mind,width=90, height=25)
+
+    a26 = aide7.create_oval(4,9,20,25)
+    a27 = aide7.create_oval(27,9,43,25)
+    a28 = aide7.create_oval(50,9,65,25)
+    a29 = aide7.create_oval(71,9,87,25)
+    aide7.place(x = 280, y = 333)
+
+    #création 8 des canvas pions bien placé ou non   
+    aide8 = Canvas(master_mind,width=90, height=25)
+
+    a30 = aide8.create_oval(4,9,20,25)
+    a31 = aide8.create_oval(27,9,43,25)
+    a32 = aide8.create_oval(50,9,65,25)
+    a33 = aide8.create_oval(71,9,87,25)
+    aide8.place(x = 280, y = 375)
+
+    #création 9 des canvas pions bien placé ou non   
+    aide9 = Canvas(master_mind,width=90, height=25)
+
+    a34 = aide9.create_oval(4,9,20,25)
+    a35 = aide9.create_oval(27,9,43,25)
+    a36 = aide9.create_oval(50,9,65,25)
+    a37 = aide9.create_oval(71,9,87,25)
+    aide9.place(x = 280, y = 415)
+
+    #création 10 des canvas pions bien placé ou non   
+    aide10 = Canvas(master_mind,width=90, height=25)
+
+    a38 = aide10.create_oval(4,9,20,25)
+    a39 = aide10.create_oval(27,9,43,25)
+    a40 = aide10.create_oval(50,9,65,25)
+    a41 = aide10.create_oval(71,9,87,25)
+    aide10.place(x = 280, y = 457)
+    
     master_mind.mainloop()
  
 
