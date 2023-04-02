@@ -356,7 +356,7 @@ def bouton2fonction () :
     c2 = grille1.create_oval(45,10,75,40)
     c3= grille1.create_oval(80,10,110,40)
     c4 = grille1.create_oval(115,10,145,40)
-    gun = grille1.place(x = 50, y=70)
+    grille1.place(x = 50, y=70)
 
     #ligne 2 des cercles 
     grille2 = Canvas(master_mind,width=145, height=40)
@@ -365,7 +365,7 @@ def bouton2fonction () :
     c6 = grille2.create_oval(45,10,75,40)
     c7 = grille2.create_oval(80,10,110,40)
     c8 = grille2.create_oval(115,10,145,40)
-    gdeux = grille2.place(x = 50, y=113)
+    grille2.place(x = 50, y=113)
 
     # ligne 3 des cercles 
     grille3 = Canvas(master_mind,width=145, height=40)
@@ -374,7 +374,7 @@ def bouton2fonction () :
     c10 = grille3.create_oval(45,10,75,40)
     c11 = grille3.create_oval(80,10,110,40)
     c12 = grille3.create_oval(115,10,145,40)
-    gtrois = grille3.place(x = 50, y=156)
+    grille3.place(x = 50, y=156)
 
     #ligne 4 des cercles 
     grille4 = Canvas(master_mind,width=145, height=40)
@@ -383,7 +383,7 @@ def bouton2fonction () :
     c14 = grille4.create_oval(45,10,75,40)
     c15 = grille4.create_oval(80,10,110,40)
     c16 = grille4.create_oval(115,10,145,40)
-    gquatre = grille4.place(x = 50, y=198)
+    grille4.place(x = 50, y=198)
 
     #ligne 5 des cercles
     grille4 = Canvas(master_mind,width=145, height=40)
@@ -392,7 +392,7 @@ def bouton2fonction () :
     c18 = grille4.create_oval(45,10,75,40)
     c19 = grille4.create_oval(80,10,110,40)
     c20 = grille4.create_oval(115,10,145,40)
-    gquatre = grille4.place(x = 50, y=240)
+    grille4.place(x = 50, y=240)
 
     #ligne 6 des cercles
     grille6 = Canvas(master_mind,width=145, height=40)
@@ -401,7 +401,7 @@ def bouton2fonction () :
     c22 = grille6.create_oval(45,10,75,40)
     c23 = grille6.create_oval(80,10,110,40)
     c24 = grille6.create_oval(115,10,145,40)
-    gsix = grille6.place(x = 50, y=283)
+    grille6.place(x = 50, y=283)
 
     #ligne 7 des cercles
     grille7 = Canvas(master_mind,width=145, height=40)
@@ -410,7 +410,7 @@ def bouton2fonction () :
     c26 = grille7.create_oval(45,10,75,40)
     c27 = grille7.create_oval(80,10,110,40)
     c28 = grille7.create_oval(115,10,145,40)
-    gsept = grille7.place(x = 50, y=325)
+    grille7.place(x = 50, y=325)
 
     #ligne 8 des cercles
     grille8 = Canvas(master_mind,width=145, height=40)
@@ -419,7 +419,7 @@ def bouton2fonction () :
     c30 = grille8.create_oval(45,10,75,40)
     c31 = grille8.create_oval(80,10,110,40)
     c32 = grille8.create_oval(115,10,145,40)
-    ghuit = grille8.place(x = 50, y=367)
+    grille8.place(x = 50, y=367)
 
     #ligne 9 des cercles
     grille9 = Canvas(master_mind,width=145, height=40)
@@ -428,7 +428,7 @@ def bouton2fonction () :
     c34 = grille9.create_oval(45,10,75,40)
     c35 = grille9.create_oval(80,10,110,40)
     c36 = grille9.create_oval(115,10,145,40)
-    gneuf = grille9.place(x = 50, y=409)
+    grille9.place(x = 50, y=409)
 
     #ligne 10 des cercles 
     grille10 = Canvas(master_mind,width=145, height=40)
@@ -437,7 +437,7 @@ def bouton2fonction () :
     c38 = grille10.create_oval(45,10,75,40)
     c39 = grille10.create_oval(80,10,110,40)
     c40 = grille10.create_oval(115,10,145,40)
-    dix = grille10.place(x = 50, y = 450)
+    grille10.place(x = 50, y = 450)
 
     #création 1 des canvas pions bien placé ou non    
     aide1 = Canvas(master_mind,width=90, height=25)
