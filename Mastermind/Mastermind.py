@@ -20,7 +20,6 @@ M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
 M.place(x = 230, y=50)
 
 
-
 # CREATION BOUTON 
 nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
@@ -30,8 +29,7 @@ nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 def bouton1fonction ():  
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
         clique sur le bouton du mode 1 joueur""" 
-
-
+    global master_mind
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
 
@@ -214,6 +212,7 @@ bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour a
 def bouton2fonction () :
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
     clique sur le bouton du mode 2 joueur"""  
+    global master_mind
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
@@ -221,17 +220,6 @@ def bouton2fonction () :
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)') 
-    # label 1 à 10
-    l1= Label(master_mind, text='1.')
-    l2= Label(master_mind, text='2.')
-    l3= Label(master_mind, text='3.')
-    l4= Label(master_mind, text='4.')
-    l5= Label(master_mind, text='5.')
-    l6= Label(master_mind, text='6.')
-    l7= Label(master_mind, text='7.')
-    l8= Label(master_mind, text='8.')
-    l9= Label(master_mind, text='9.')
-    l10= Label(master_mind, text='10.')
     
     # Création Menu
     bouton2_menu = Menu(master_mind)               
@@ -283,13 +271,19 @@ def bouton2fonction () :
     l8.place(x = 35, y = 370)
     l9.place(x = 35, y = 410)
     l10.place(x = 30, y = 447)
+
     #création du canvas qui va révéler le code secret  
+    global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
-    canvascs.place(x = 100, y= 8) 
-    canvascs.create_oval(50,10,80,40)
-    canvascs.create_oval(90,10,120,40)
-    canvascs.create_oval(130,10,160,40)
-    canvascs.create_oval(170,10,200,40)
+    canvascs.place(x = 100, y= 8)
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
 
     #création de la ligne du bas
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
@@ -389,7 +383,6 @@ def bouton2fonction () :
     c14 = grille.create_oval(45,130,75,160)
     c15 = grille.create_oval(80,130,110,160)
     c16 = grille.create_oval(115,130,145,160)
-
 
     #ligne 5 des cercles pour le plateau de jeux 
     c17= grille.create_oval(10,170,40,200)
@@ -518,18 +511,21 @@ def bouton2fonction () :
     a40 = aide10.create_oval(50,9,65,25)
     a41 = aide10.create_oval(71,9,87,25)
     aide10.place(x = 280, y = 443)
-    
-    master_mind.mainloop()
- 
+
+master_mind.mainloop()  
+
 
 def preferencebouton2 () :
     """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
     - la taille du code secret (nombre de pion)
     - le nombre de couleurs
-    - le nombre d'essai afin de trouver le code secret"""
+    - le nombre d'essai afin de trouver le code secret""" 
     preference2 = Toplevel(bouton2)
     preference2.title ("Préferences")
     preference2.geometry ("300x300")
+    global labelpreference4
+    global labelpreference5
+    global labelpreference6
     labelpreference4 = Label (preference2, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
     labelpreference4.pack(side ='top')
     listeCombo4 = ttk.Combobox (preference2, values = nombrepions)
@@ -538,13 +534,44 @@ def preferencebouton2 () :
     labelpreference5.pack(side = 'top')
     listeCombo5 = ttk.Combobox (preference2, values = nombrecouleurs)
     listeCombo5.pack()
-    lebelpreference6 = Label (preference2, text = "Choississez un nombre d' essai", fg = ('black'), font = ('helvetica', '10'))
-    lebelpreference6.pack(side = 'top')
+    labelpreference6 = Label (preference2, text = "Choississez un nombre d' essai", fg = ('black'), font = ('helvetica', '10'))
+    labelpreference6.pack(side = 'top')
     listeCombo6 = ttk.Combobox (preference2, values = nombreessai)
     listeCombo6.pack()
-    appliquer = tkinter.Button(preference2, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres2)
+    appliquer = tkinter.Button(preference2, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = lambda : appliquerparametres2(master_mind))
     appliquer.pack(side = "bottom")
-    
+
+
+def appliquerparametres2 (master_mind) :
+    if labelpreference4 == 3 :
+        canvascs.delete(cercle4) 
+    if labelpreference4 == 5 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+    if labelpreference4 == 6 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+    if labelpreference4 == 7 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+        cercle7 = canvascs.create_oval (240, 10, 270, 40)
+    if labelpreference4 == 8 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+        cercle7 = canvascs.create_oval (240, 10, 270, 40)
+        cercle8 = canvascs.create_oval (280, 10, 300, 40)
+    if labelpreference6 == 6 :
+        print ('bjr')
+    if labelpreference6 == 7 :
+        print ('bjr')
+    if labelpreference6 == 8 :
+        print ('bjr')
+    if labelpreference6 == 9 :
+        print ('bjr')
+    if labelpreference6 == 15 :
+        print ('bjr')
+    if labelpreference6 == 20 :
+        print ('bjr')
+
 
 def aproposbouton2 () : 
     """Création de la fonction permettant d'afficher les règles du jeu""" 
@@ -556,8 +583,7 @@ def aproposbouton2 () :
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
     
 
-def appliquerparametres2 () :
-    print ("bonjour")
+
 
 
 def timerbouton2 () :
