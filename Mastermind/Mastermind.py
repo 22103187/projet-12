@@ -3,7 +3,7 @@ import tkinter
 from tkinter.messagebox import showinfo
 from PIL import ImageTk, Image
 
-
+# jess
 # Paramètres fenetre racine
 racine = Tk()    # création de la fenetre racine
 racine.geometry("600x600")    # régler la taille de la fenetre
