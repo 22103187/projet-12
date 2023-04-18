@@ -1,3 +1,4 @@
+
 from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas, Button
 import tkinter
 from tkinter.messagebox import showinfo
@@ -23,8 +24,8 @@ M.place(x = 230, y=50)
 
 
 # CREATION BOUTON 
-nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
+nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 
 # Fonction bouton 1
@@ -274,19 +275,12 @@ def bouton2fonction (fonction={}) :
     #création du canvas qui va révéler le code secret  
     global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
-    canvascs.place(x = 100, y= 8)
+    canvascs.place(x = 70, y= 8)
 
-    if fonction == {}:
-        global cercle1
-        global cercle2
-        global cercle3
-        global cercle4
-        cercle1 = canvascs.create_oval(50,10,80,40)
-        cercle2 = canvascs.create_oval(90,10,120,40)
-        cercle3 = canvascs.create_oval(130,10,160,40)
-        cercle4 = canvascs.create_oval(170,10,200,40)
+    if fonction == {}:                         #fonction prend en paramètre un élément
+        cerclequatre()                          # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
     else:
-        fonction()
+        fonction()                          #si pas de paramètres, ca appelle la fonction 
 
 
     #création de la ligne du bas
@@ -535,6 +529,8 @@ def preferencebouton2 () :
 
 
 def appliquerparametres2 () :
+    """fonction qui va permettre d'appliquer les paramètres choisi sur l'interface graphique en cliquant sur le 
+    bouton appliquer"""
     if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox
         master_mind.destroy()                   # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
         bouton2fonction(cercletrois)
@@ -553,6 +549,30 @@ def appliquerparametres2 () :
     elif int(listeCombo4.get()) == 8:
         master_mind.destroy()
         bouton2fonction(cerclehuit)
+    if int(listeCombo5.get()) == 4 :
+        pass
+    elif int(listeCombo5.get()) == 5:
+        pass
+    elif int(listeCombo5.get()) == 6:
+        pass
+    elif int(listeCombo5.get()) == 7:
+        pass
+    elif int(listeCombo5.get()) == 8:
+        pass
+    elif int(listeCombo6.get()) == 6:
+        pass
+    elif int(listeCombo6.get()) == 7:
+        pass
+    elif int(listeCombo6.get()) == 8:
+        pass
+    elif int(listeCombo6.get()) == 9:
+        pass
+    elif int(listeCombo6.get()) == 10:
+        pass
+    elif int(listeCombo6.get()) == 15:
+        pass
+    elif int(listeCombo6.get()) == 20:
+        pass
 
 def cercletrois():
     global cercle1
@@ -563,74 +583,29 @@ def cercletrois():
     cercle3 = canvascs.create_oval(130,10,160,40)
 
 def cerclequatre():
-    global cercle1
-    global cercle2
-    global cercle3
+    cercletrois()
     global cercle4
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
     cercle4 = canvascs.create_oval(170,10,200,40)
 
 def cerclecinq():
-    global cercle1
-    global cercle2
-    global cercle3
-    global cercle4
+    cerclequatre()
     global cercle5
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
-    cercle4 = canvascs.create_oval(170,10,200,40)
     cercle5 = canvascs.create_oval (210, 10, 240, 40)
 
 def cerclesix():
-    global cercle1
-    global cercle2
-    global cercle3
-    global cercle4
-    global cercle5
+    cerclecinq()
     global cercle6
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
-    cercle4 = canvascs.create_oval(170,10,200,40)
-    cercle5 = canvascs.create_oval (210, 10, 240, 40)
     cercle6 = canvascs.create_oval (10, 10, 40, 40)
 
 def cerclesept():
-    global cercle1
-    global cercle2
-    global cercle3
-    global cercle4
-    global cercle5
-    global cercle6
+    cerclesix()
     global cercle7
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
-    cercle4 = canvascs.create_oval(170,10,200,40)
-    cercle5 = canvascs.create_oval (210, 10, 240, 40)
-    cercle6 = canvascs.create_oval (10, 10, 40, 40)
     cercle7 = canvascs.create_oval (240, 10, 270, 40)
 
 def cerclehuit():
-    global cercle1
-    global cercle2
-    global cercle3
-    global cercle4
-    global cercle5
-    global cercle6
-    global cercle7
+    cerclesept()
     global cercle8
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
-    cercle4 = canvascs.create_oval(170,10,200,40)
-    cercle5 = canvascs.create_oval (210, 10, 240, 40)
-    cercle6 = canvascs.create_oval (10, 10, 40, 40)
-    cercle7 = canvascs.create_oval (240, 10, 270, 40)
-    cercle8 = canvascs.create_oval (280, 10, 300, 40)
+    cercle8 = canvascs.create_oval (270, 10, 300, 40)
 
 
 def aproposbouton2 () : 
@@ -645,8 +620,7 @@ def aproposbouton2 () :
 
 def timerbouton2 () :
     start = time.time()
-    for r in range(1,20000):
-        pass
+    
     end = time.time()
     print(format(end-start))    
     
@@ -663,4 +637,3 @@ bouton2.pack(side = 'left', fill='x', expand = True)
 
 
 racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
-
