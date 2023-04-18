@@ -2,6 +2,7 @@ from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas
 import tkinter
 from tkinter.messagebox import showinfo
 from PIL import ImageTk, Image
+import time
 
 
 # Paramètres fenetre racine
@@ -20,6 +21,7 @@ M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
 M.place(x = 230, y=50)
 
 
+
 # CREATION BOUTON 
 nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
@@ -29,15 +31,10 @@ nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
 def bouton1fonction ():  
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
         clique sur le bouton du mode 1 joueur""" 
-    global master_mind
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
-
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
-    master_mind.resizable(height=False, width=False)
-
-    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre  
-
+    master_mind.resizable(height=False, width=False)   # On peut l'enlever nan ?????
     palette = Label(master_mind, text='palette de couleurs :') 
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
@@ -155,6 +152,7 @@ def bouton1fonction ():
 
     master_mind.mainloop()
 
+
 def preferencebouton1 () :
     """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
     - la taille du code secret (nombre de pion)
@@ -196,6 +194,7 @@ def appliquerparametres1 () :
 def timerbouton1 () :
     print ('Bonjour')     
     
+
 def sauvegarderjeu () :
     print ("bonjour")
 
@@ -203,13 +202,12 @@ def sauvegarderjeu () :
 # Bouton mode 1 joueur 
 bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouton1fonction)
 bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE 
-   
 
 
 
 
 # Fonction bouton 2 
-def bouton2fonction () :
+def bouton2fonction (fonction={}) :
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
     clique sur le bouton du mode 2 joueur"""  
     global master_mind
@@ -271,19 +269,25 @@ def bouton2fonction () :
     l8.place(x = 35, y = 370)
     l9.place(x = 35, y = 410)
     l10.place(x = 30, y = 447)
-
+    
+    
     #création du canvas qui va révéler le code secret  
     global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8)
-    global cercle1
-    global cercle2
-    global cercle3
-    global cercle4
-    cercle1 = canvascs.create_oval(50,10,80,40)
-    cercle2 = canvascs.create_oval(90,10,120,40)
-    cercle3 = canvascs.create_oval(130,10,160,40)
-    cercle4 = canvascs.create_oval(170,10,200,40)
+
+    if fonction == {}:
+        global cercle1
+        global cercle2
+        global cercle3
+        global cercle4
+        cercle1 = canvascs.create_oval(50,10,80,40)
+        cercle2 = canvascs.create_oval(90,10,120,40)
+        cercle3 = canvascs.create_oval(130,10,160,40)
+        cercle4 = canvascs.create_oval(170,10,200,40)
+    else:
+        fonction()
+
 
     #création de la ligne du bas
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
@@ -424,7 +428,6 @@ def bouton2fonction () :
 
     #création 1 des canvas pions bien placé ou non    
     aide1 = Canvas(master_mind,width=90, height=25)
-
     a1 = aide1.create_oval(4,9,20,25)
     a2 = aide1.create_oval(27,9,43,25)
     a3 = aide1.create_oval(50,9,65,25)
@@ -433,7 +436,6 @@ def bouton2fonction () :
 
     #création 2 des canvas pions bien placé ou non    
     aide2 = Canvas(master_mind,width=90, height=25)
-
     a6 = aide2.create_oval(4,9,20,25)
     a7 = aide2.create_oval(27,9,43,25)
     a8 = aide2.create_oval(50,9,65,25)
@@ -442,7 +444,6 @@ def bouton2fonction () :
 
     #création 3 des canvas pions bien placé ou non    
     aide3 = Canvas(master_mind,width=90, height=25)
-
     a10 = aide3.create_oval(4,9,20,25)
     a11 = aide3.create_oval(27,9,43,25)
     a12 = aide3.create_oval(50,9,65,25)
@@ -451,7 +452,6 @@ def bouton2fonction () :
 
     #création 4 des canvas pions bien placé ou non    
     aide4 = Canvas(master_mind,width=90, height=25)
-
     a14 = aide4.create_oval(4,9,20,25)
     a15 = aide4.create_oval(27,9,43,25)
     a16 = aide4.create_oval(50,9,65,25)
@@ -460,7 +460,6 @@ def bouton2fonction () :
 
     #création 5 des canvas pions bien placé ou non    
     aide5 = Canvas(master_mind,width=90, height=25)
-
     a18 = aide5.create_oval(4,9,20,25)
     a19 = aide5.create_oval(27,9,43,25)
     a20 = aide5.create_oval(50,9,65,25)
@@ -469,7 +468,6 @@ def bouton2fonction () :
 
     #création 6 des canvas pions bien placé ou non   
     aide6 = Canvas(master_mind,width=90, height=25)
-
     a22 = aide6.create_oval(4,9,20,25)
     a23 = aide6.create_oval(27,9,43,25)
     a24 = aide6.create_oval(50,9,65,25)
@@ -477,8 +475,7 @@ def bouton2fonction () :
     aide6.place(x = 280, y = 285)
 
     #création 7 des canvas pions bien placé ou non   
-    aide7 = Canvas(master_mind,width=90, height=25)
-
+    aide7 = Canvas(master_mind, width=90, height=25)
     a26 = aide7.create_oval(4,9,20,25)
     a27 = aide7.create_oval(27,9,43,25)
     a28 = aide7.create_oval(50,9,65,25)
@@ -486,8 +483,7 @@ def bouton2fonction () :
     aide7.place(x = 280, y = 325)
 
     #création 8 des canvas pions bien placé ou non   
-    aide8 = Canvas(master_mind,width=90, height=25)
-
+    aide8 = Canvas(master_mind, width=90, height=25)
     a30 = aide8.create_oval(4,9,20,25)
     a31 = aide8.create_oval(27,9,43,25)
     a32 = aide8.create_oval(50,9,65,25)
@@ -495,8 +491,7 @@ def bouton2fonction () :
     aide8.place(x = 280, y = 365)
 
     #création 9 des canvas pions bien placé ou non   
-    aide9 = Canvas(master_mind,width=90, height=25)
-
+    aide9 = Canvas(master_mind, width=90, height=25)
     a34 = aide9.create_oval(4,9,20,25)
     a35 = aide9.create_oval(27,9,43,25)
     a36 = aide9.create_oval(50,9,65,25)
@@ -504,15 +499,12 @@ def bouton2fonction () :
     aide9.place(x = 280, y = 405)
 
     #création 10 des canvas pions bien placé ou non   
-    aide10 = Canvas(master_mind,width=90, height=25)
-
+    aide10 = Canvas(master_mind, width=90, height=25)
     a38 = aide10.create_oval(4,9,20,25)
     a39 = aide10.create_oval(27,9,43,25)
     a40 = aide10.create_oval(50,9,65,25)
     a41 = aide10.create_oval(71,9,87,25)
     aide10.place(x = 280, y = 443)
-
-master_mind.mainloop()  
 
 
 def preferencebouton2 () :
@@ -520,57 +512,125 @@ def preferencebouton2 () :
     - la taille du code secret (nombre de pion)
     - le nombre de couleurs
     - le nombre d'essai afin de trouver le code secret""" 
-    preference2 = Toplevel(bouton2)
-    preference2.title ("Préferences")
-    preference2.geometry ("300x300")
-    global labelpreference4
-    global labelpreference5
-    global labelpreference6
-    labelpreference4 = Label (preference2, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
+    preference = Toplevel(bouton2)
+    preference.title ("Préferences")
+    preference.geometry ("300x300")
+    global listeCombo4
+    global listeCombo5
+    global listeCombo6
+    labelpreference4 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
     labelpreference4.pack(side ='top')
-    listeCombo4 = ttk.Combobox (preference2, values = nombrepions)
+    listeCombo4 = ttk.Combobox (preference, values = nombrepions)
     listeCombo4.pack()
-    labelpreference5 = Label (preference2, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
+    labelpreference5 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
     labelpreference5.pack(side = 'top')
-    listeCombo5 = ttk.Combobox (preference2, values = nombrecouleurs)
+    listeCombo5 = ttk.Combobox (preference, values = nombrecouleurs)
     listeCombo5.pack()
-    labelpreference6 = Label (preference2, text = "Choississez un nombre d' essai", fg = ('black'), font = ('helvetica', '10'))
+    labelpreference6 = Label (preference, text = "Choississez un nombre d' essai", fg = ('black'), font = ('helvetica', '10'))
     labelpreference6.pack(side = 'top')
-    listeCombo6 = ttk.Combobox (preference2, values = nombreessai)
+    listeCombo6 = ttk.Combobox (preference, values = nombreessai)
     listeCombo6.pack()
-    appliquer = tkinter.Button(preference2, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = lambda : appliquerparametres2(master_mind))
+    appliquer = tkinter.Button(preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres2)
     appliquer.pack(side = "bottom")
 
 
-def appliquerparametres2 (master_mind) :
-    if labelpreference4 == 3 :
-        canvascs.delete(cercle4) 
-    if labelpreference4 == 5 :
-        cercle5 = canvascs.create_oval (210, 10, 240, 40)
-    if labelpreference4 == 6 :
-        cercle5 = canvascs.create_oval (210, 10, 240, 40)
-        cercle6 = canvascs.create_oval (10, 10, 40, 40)
-    if labelpreference4 == 7 :
-        cercle5 = canvascs.create_oval (210, 10, 240, 40)
-        cercle6 = canvascs.create_oval (10, 10, 40, 40)
-        cercle7 = canvascs.create_oval (240, 10, 270, 40)
-    if labelpreference4 == 8 :
-        cercle5 = canvascs.create_oval (210, 10, 240, 40)
-        cercle6 = canvascs.create_oval (10, 10, 40, 40)
-        cercle7 = canvascs.create_oval (240, 10, 270, 40)
-        cercle8 = canvascs.create_oval (280, 10, 300, 40)
-    if labelpreference6 == 6 :
-        print ('bjr')
-    if labelpreference6 == 7 :
-        print ('bjr')
-    if labelpreference6 == 8 :
-        print ('bjr')
-    if labelpreference6 == 9 :
-        print ('bjr')
-    if labelpreference6 == 15 :
-        print ('bjr')
-    if labelpreference6 == 20 :
-        print ('bjr')
+def appliquerparametres2 () :
+    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox
+        master_mind.destroy()                   # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
+        bouton2fonction(cercletrois)
+    elif int(listeCombo4.get()) == 4:
+        master_mind.destroy()
+        bouton2fonction(cerclequatre)
+    elif int(listeCombo4.get()) == 5:
+        master_mind.destroy()
+        bouton2fonction(cerclecinq)
+    elif int(listeCombo4.get()) == 6:
+        master_mind.destroy()
+        bouton2fonction(cerclesix)
+    elif int(listeCombo4.get()) == 7:
+        master_mind.destroy()
+        bouton2fonction(cerclesept)
+    elif int(listeCombo4.get()) == 8:
+        master_mind.destroy()
+        bouton2fonction(cerclehuit)
+
+def cercletrois():
+    global cercle1
+    global cercle2
+    global cercle3
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+
+def cerclequatre():
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
+
+def cerclecinq():
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    global cercle5
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
+    cercle5 = canvascs.create_oval (210, 10, 240, 40)
+
+def cerclesix():
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    global cercle5
+    global cercle6
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
+    cercle5 = canvascs.create_oval (210, 10, 240, 40)
+    cercle6 = canvascs.create_oval (10, 10, 40, 40)
+
+def cerclesept():
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    global cercle5
+    global cercle6
+    global cercle7
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
+    cercle5 = canvascs.create_oval (210, 10, 240, 40)
+    cercle6 = canvascs.create_oval (10, 10, 40, 40)
+    cercle7 = canvascs.create_oval (240, 10, 270, 40)
+
+def cerclehuit():
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    global cercle5
+    global cercle6
+    global cercle7
+    global cercle8
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
+    cercle5 = canvascs.create_oval (210, 10, 240, 40)
+    cercle6 = canvascs.create_oval (10, 10, 40, 40)
+    cercle7 = canvascs.create_oval (240, 10, 270, 40)
+    cercle8 = canvascs.create_oval (280, 10, 300, 40)
 
 
 def aproposbouton2 () : 
@@ -583,12 +643,14 @@ def aproposbouton2 () :
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
     
 
-
-
-
 def timerbouton2 () :
-    print ('Bonjour')    
+    start = time.time()
+    for r in range(1,20000):
+        pass
+    end = time.time()
+    print(format(end-start))    
     
+
 def sauvergarderjeu () :
     print ("bonjour")
 
