@@ -3,6 +3,7 @@ from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas
 import tkinter
 from tkinter.messagebox import showinfo
 from PIL import ImageTk, Image
+import random
 
 
 # Paramètres fenetre racine
@@ -118,20 +119,9 @@ def bouton1fonction ():
     ligne1.create_line(a, b)
     ligne1.place(x = 20, y = 470)#placer le canvas
 
-    #création du canvas qui va révéler le code secret  
-    canvascs = Canvas(master_mind,width = 200, height = 40)
-    canvascs.place(x = 100, y= 8) 
-    canvascs.create_oval(50,10,80,40)
-    canvascs.create_oval(90,10,120,40)
-    canvascs.create_oval(130,10,160,40)
-    canvascs.create_oval(170,10,200,40)
+    
 
-    #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
-    a=(0, 30)
-    b=(400,30)
-    ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 50)
+    
 
     #creation de la frame et des boutons de couleurs 
     frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
