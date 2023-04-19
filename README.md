@@ -13,6 +13,7 @@ https://github.com/uvsq22200131/Master-mind_12-main.git
 
 
 
+
 Etape 1 :
 création fenêtre racine
 fenetre racine doit se fermer quand on clique sur un des deux boutons
@@ -36,6 +37,8 @@ Etape 6 :
 code du jeu
 
 
+
+
 En plus :
 - pouvoir sauvegarder la partie
 - pouvoir revenir en arrière 
@@ -48,6 +51,7 @@ Pour aller plus loin :
 
 
 
+
 Répartition des tâches :
 Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie, fonction pour revenir en arrière
 Jessica -->   création du plateau de jeu et des pions 
@@ -55,4 +59,47 @@ Firdos -->      début du code de jeu mode 1 joueur
 Alisar -->      début code de jeu mode 2 joueur
 
 
+
+
+
+Nina :
+- création de la fenètre racine
+- création de 2 boutons sur celle-ci pour accéder au mode 1 et 2 joueurs 
+- création des fonction spermettant d'afficher le plateu de jeu lorsqu'on clique sur un des boutons des modes de jeu
+- création du menu de jeu contenant les règles du jeu dans "à propos", les paramètres de jeu mofifiables selon nos envies dans "préférences", et enfin l'ajout d'un timer qui permettra de savoir en combien de temps le code secret a été trouver 
+"préférence", "ajouter un timer" et "à propos" renvoient chacun à une fonction
+pour la fonction préférénce ("preferencebouton1 (ou 2)) : Cette fonction permet de choisir le nombre de pions souhaité (= taille du code secret), le nombre de couleurs disponibles et le nombre d'essais possibles pour trouver le code secret. De plus, le bouton "appliquer" est crée qui renvoie à une fonction permettant d'appliquer tous ses paramètres : "appliquerparametres1 (ou 2)". 
+La fonction "appliquerparamètres" renvoie à d'autres fonctions, selon les valeurs de paramètres choisis. 
+Les valeurs des combobox ont du être appeler grace à .get, puis transformées en nombre entier grace à "int" afin d'être utilisables. 
+les variables des préférences ont été définies plus tôt 
+essai précédent : 
+def appliquerparametres2 (master_mind) :
+    if labelpreference4 == 3 :
+        canvascs.delete(cercle4) 
+    if labelpreference4 == 5 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+    if labelpreference4 == 6 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+    if labelpreference4 == 7 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+        cercle7 = canvascs.create_oval (240, 10, 270, 40)
+    if labelpreference4 == 8 :
+        cercle5 = canvascs.create_oval (210, 10, 240, 40)
+        cercle6 = canvascs.create_oval (10, 10, 40, 40)
+        cercle7 = canvascs.create_oval (240, 10, 270, 40)
+        cercle8 = canvascs.create_oval (280, 10, 300, 40)
+
+- création du timer
+- création du bouton permettant la sauvegarde de la partie 
+
+
+
+
+
+
+A faire :
 Ajouter docstring pour fonctions
+demander à jessica pour que "choisir le code secret" passe au dessu du canva
+voir pour espacer cercle 6, 7, 8
