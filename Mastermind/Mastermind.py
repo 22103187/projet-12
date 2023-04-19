@@ -2,8 +2,8 @@ from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas
 import tkinter
 from tkinter.messagebox import showinfo
 from PIL import ImageTk, Image
+import random
 
-# jess
 # Paramètres fenetre racine
 racine = Tk()    # création de la fenetre racine
 racine.geometry("600x600")    # régler la taille de la fenetre
@@ -25,6 +25,51 @@ M.place(x = 230, y=50)
 nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombrepions = ["3", "4", "5", "6", "7", "8"]
 nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
+
+combinaison_max=4
+combinaison_secrete=[]
+def creer_combinaison_secrete():
+    combinaison_secrete=""
+    for i in range(0,combinaison_max):
+        couleurs=["rose","bleu","jaune","orange","turquoise", "violet","bleuciel","rouge"]
+        index=random.randint(0,len(couleurs)-1)
+        combinaison_secrete=combinaison_secrete+couleurs[index]#je ne comprends pas
+    return combinaison_secrete
+a=creer_combinaison_secrete()
+combinaison=a
+L=[]
+#global cpt
+
+def get_couleur(couleur, master_mind, image):
+    if len(L)>=combinaison_max:
+        Labelcouleur=Label(master_mind, text="tu as dépassé le nombre max")
+        Labelcouleur.place(x=20, y=20)
+    else:
+        L.append(couleur)
+        cpt=len(L)-1
+        label_image = Label(master_mind, image=image)
+        label_image.grid(row=0, column=cpt)
+        cpt+=1
+    print(L) 
+
+
+
+
+
+longueur_combinaison=4
+def comparer_combinaison(combinaison_entree, combinaison_secrete, master_mind):
+    nb_couleurs_bien_placees=0
+    nb_couleurs_mal_placees=0
+    for i in range (longueur_combinaison):
+        if combinaison_entree[i]==combinaison_secrete[i]:
+            nb_couleurs_bien_placees+=1
+        elif combinaison_entree[i] in combinaison_secrete:
+            nb_couleurs_mal_placees+=1
+            Labelperdue=Label(master_mind, text="recommence ce n'est pas sa")
+            Labelperdue.place(x=50, y=20)
+            nb_max_tentatives=0
+            nb_max_tentatives+=1
+    return (nb_couleurs_bien_placees, nb_couleurs_mal_placees)
 
 # Fonction bouton 1
 def bouton1fonction ():  
@@ -58,7 +103,7 @@ def bouton1fonction ():
     main_cascade.add_command(label='Ajouter un timer', command = timerbouton1)
 
     #création du bouton validé, supprimer et quitter 
-    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8, command=lambda:comparer_combinaison(L,combinaison,master_mind))
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
@@ -133,14 +178,14 @@ def bouton1fonction ():
     h = ImageTk.PhotoImage(taille7)
 
     #boutons
-    B0 = Button(frameb1, image=a)
-    B1 = Button(frameb1, image=b)
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
-    B6 = Button(frameb1, image=g)
-    B7 = Button(frameb1, image=h)
+    B0 = Button(frameb1, image=a, command=lambda: get_couleur("rose",master_mind,a))
+    B1 = Button(frameb1, image=b, command=lambda: get_couleur("violet",master_mind,b))
+    B2 = Button(frameb1, image=c, command=lambda: get_couleur("bleu", master_mind,c))
+    B3 = Button(frameb1, image=d, command=lambda: get_couleur("bleuciel",master_mind,d))
+    B4 = Button(frameb1, image=e,command=lambda: get_couleur("turquoise",master_mind,e))
+    B5 = Button(frameb1, image=f,command=lambda: get_couleur("jaune",master_mind,f))
+    B6 = Button(frameb1, image=g,command=lambda: get_couleur("orange",master_mind,g))
+    B7 = Button(frameb1, image=h,command=lambda: get_couleur("rouge",master_mind,h))
 
     #affichage des boutons
     B0.grid()
@@ -345,7 +390,7 @@ def bouton2fonction () :
     h = ImageTk.PhotoImage(taille7)
 
     #boutons
-    B0 = Button(frameb1, image=a)
+    B0 = Button(frameb1, image=a,)
     B1 = Button(frameb1, image=b)
     B2 = Button(frameb1, image=c)
     B3 = Button(frameb1, image=d)
@@ -363,6 +408,7 @@ def bouton2fonction () :
     B5.grid(row =0,column=5)
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
+    
 
     #Canvas de la grille de jeu 
     grille = Canvas(master_mind,width=145, height=400)
@@ -520,6 +566,9 @@ def bouton2fonction () :
     aide10.place(x = 280, y = 443)
     
     master_mind.mainloop()
+
+
+
  
 
 def preferencebouton2 () :
