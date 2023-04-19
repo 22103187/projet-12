@@ -1,3 +1,4 @@
+
 import random
 from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas, Button
 import tkinter
@@ -27,6 +28,8 @@ M.place(x = 230, y=50)
 nombrepions = ["3", "4", "5", "6", "7", "8"]
 nombrecouleurs = ["4", "5", "6", "7", "8"]
 nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
+
+
 
 combinaison_max=4
 combinaison_secrete=[]
@@ -336,7 +339,7 @@ def bouton2fonction (fonction={}) :
     ligne1.place(x = 20, y = 480)#placer le canvas
 
     #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')               #largeur et hauteur du canvas 
     a=(0, 30)
     b=(400,30)
     ligne1.create_line(a, b)
@@ -404,21 +407,11 @@ def bouton2fonction (fonction={}) :
     #Canvas de la grille de jeu 
     global grille 
     grille = Canvas(master_mind,width=145, height=400)
-
     global gun
     gun = grille.place(x = 50, y=75)
 
-
-    global aide1
-    global aide2
-    global aide3
-    global aide4
-    global aide5
-    global aide6
-    global aide7
-    global aide8
-    global aide9
-    global aide10
+    #Création des cercles pour chaque essai
+    global aide1, aide2, aide3, aide4, aide5, aide6, aide7, aide8, aide9, aide10
     aide1 = Canvas(master_mind,width=90, height=25)
     aide2 = Canvas(master_mind,width=90, height=25)
     aide3 = Canvas(master_mind,width=90, height=25)
@@ -430,137 +423,228 @@ def bouton2fonction (fonction={}) :
     aide9 = Canvas(master_mind, width=90, height=25)
     aide10 = Canvas(master_mind, width=90, height=25)
 
-    
+
 #ligne 1 des cercles pour le plateau de jeux 
-def ligne1 () :
-    global c1 
-    global c2
-    global c3 
-    global c4   
-    global a1
-    global a2
-    global a3
-    global a4
+def ligne1 () :  
+    if int(listeCombo4.get()) == 3:
+        ovalsligne1_pions3 ()
+    elif int(listeCombo4.get()) == 4:
+        ovalsligne1_pions4 ()
+    elif int(listeCombo4.get()) == 5:
+        ovalsligne1_pions5 ()
+    elif int(listeCombo4.get()) == 6:
+        ovalsligne1_pions6 () 
+
+def ovalsligne1_pions3 () :
+    global c1, c2, c3, a1, a2, a3
     c1 = grille.create_oval(10,10,40,40)
     c2 = grille.create_oval(45,10,75,40)
     c3= grille.create_oval(80,10,110,40)
-    c4 = grille.create_oval(115,10,145,40)
     #création 1 des canvas pions bien placé ou non 
     a1 = aide1.create_oval(4,9,20,25)
     a2 = aide1.create_oval(27,9,43,25)
     a3 = aide1.create_oval(50,9,65,25)
-    a4 = aide1.create_oval(71,9,87,25)
     aide1.place(x = 280, y = 83)
+
+def ovalsligne1_pions4 () :
+    ovalsligne1_pions3 ()
+    global c4, a4
+    c4 = grille.create_oval(115,10,145,40)
+    a4 = aide1.create_oval(71,9,87,25)
+    
+def ovalsligne1_pions5 () :
+    ovalsligne1_pions4 ()
+    global c5, a5
+    c5 = grille.create_oval(150,10,180,40)
+    a5 = aide1.create_oval(92,9,109,25)
+
+def ovalsligne1_pions6 () :
+    ovalsligne1_pions5 () 
+    global c6, a6
+    c6 = grille.create_oval(185,10,215,40)
+    a6 = aide1.create_oval(117,9,125,25)
 
 
 #ligne 2 des cercles pour le plateau de jeux 
 def ligne2 () :
     ligne1 ()
-    global c5
-    global c6
-    global c7 
-    global c8
-    global a6
-    global a7
-    global a8
-    global a9
-    c5= grille.create_oval(10,50,40,80)
-    c6 = grille.create_oval(45,50,75,80)
-    c7 = grille.create_oval(80,50,110,80)
-    c8 = grille.create_oval(115,50,145,80)
-    #création 2 des canvas pions bien placé ou non 
-    a6 = aide2.create_oval(4,9,20,25)
-    a7 = aide2.create_oval(27,9,43,25)
-    a8 = aide2.create_oval(50,9,65,25)
-    a9 = aide2.create_oval(71,9,87,25)
+    if int(listeCombo4.get()) == 3:
+        ovalsligne2_pions3 ()
+    elif int(listeCombo4.get()) == 4:
+        ovalsligne2_pions4 ()
+    elif int(listeCombo4.get()) == 5:
+        ovalsligne2_pions5 ()
+    elif int(listeCombo4.get()) == 6:
+        ovalsligne2_pions6 ()
+
+def ovalsligne2_pions3 () :
+    global c1b, c2b, c3b, a1b, a2b, a3b
+    c1b = grille.create_oval(10,50,40,80)
+    c2b = grille.create_oval(45,50,75,80)
+    c3b = grille.create_oval(80,50,110,80)
+    #création 1 des canvas pions bien placé ou non 
+    a1b = aide2.create_oval(4,9,20,25)
+    a2b = aide2.create_oval(27,9,43,25)
+    a3b = aide2.create_oval(50,9,65,25)
     aide2.place(x = 280, y = 122)
+
+def ovalsligne2_pions4 () :
+    ovalsligne2_pions3 ()
+    global c4b, a4b
+    c4b = grille.create_oval(115,50,145,80)
+    a4b = aide1.create_oval(71,9,87,25)
+
+def ovalsligne2_pions5 () :
+    ovalsligne2_pions4 ()
+    global c5b, a5b
+    c5b = grille.create_oval(150,50,180,80)
+    a5b = aide1.create_oval(92,9,109,25)
+
+def ovalsligne2_pions6 () :
+    ovalsligne2_pions5 () 
+    global c6b, a6b
+    c6b = grille.create_oval(185,50,215,80)
+    a6b = aide1.create_oval(117,9,125,25)
+
 
 #ligne 3 des cercles pour le plateau de jeux 
 def ligne3 () :
     ligne2 ()
-    global c9
-    global c10
-    global c11 
-    global c12
-    global a10
-    global a11
-    global a12
-    global a13
-    c9= grille.create_oval(10,90,40,120)
-    c10 = grille.create_oval(45,90,75,120)
-    c11 = grille.create_oval(80,90,110,120)
-    c12 = grille.create_oval(115,90,145,120)
+    if int(listeCombo4.get()) == 3:
+        ovalsligne3_pions3 ()
+    elif int(listeCombo4.get()) == 4:
+        ovalsligne3_pions4 ()
+    elif int(listeCombo4.get()) == 5:
+        ovalsligne3_pions5 ()
+    elif int(listeCombo4.get()) == 6:
+        ovalsligne3_pions6 ()
+
+def ovalsligne3_pions3 () :
+    global c1c, c2c, c3c, a1c, a2c, a3c
+    c1c= grille.create_oval(10,90,40,120)
+    c2c = grille.create_oval(45,90,75,120)
+    c3c = grille.create_oval(80,90,110,120)
     #création 3 des canvas pions bien placé ou non  
-    a10 = aide3.create_oval(4,9,20,25)
-    a11 = aide3.create_oval(27,9,43,25)
-    a12 = aide3.create_oval(50,9,65,25)
-    a13 = aide3.create_oval(71,9,87,25)
+    a1c = aide3.create_oval(4,9,20,25)
+    a2c = aide3.create_oval(27,9,43,25)
+    a3c = aide3.create_oval(50,9,66,25)
     aide3.place(x = 280, y = 163)
+
+def ovalsligne3_pions4 () :
+    ovalsligne3_pions3 ()
+    global c4c, a4c
+    c4c = grille.create_oval(115,90,145,120)
+    a4c = aide3.create_oval(71,9,87,25)
+
+def ovalsligne3_pions5 () :
+    ovalsligne3_pions4 ()
+    global c5c, a5c
+    c5c = grille.create_oval(150,50,180,80)
+    a5c = aide1.create_oval(92,9,109,25)
+
+def ovalsligne3_pions6 () :
+    ovalsligne3_pions5 () 
+    global c6c, a6c
+    c6c = grille.create_oval(185,50,215,80)
+    a6c = aide1.create_oval(117,9,125,25)
+
 
 #ligne 4 des cercles pour le plateau de jeux 
 def ligne4 () :
     ligne3 ()
-    global c13
-    global c14
-    global c15 
-    global c16
-    global a14
-    global a15
-    global a16
-    global a17
-    c13= grille.create_oval(10,130,40,160)
-    c14 = grille.create_oval(45,130,75,160)
-    c15 = grille.create_oval(80,130,110,160)
-    c16 = grille.create_oval(115,130,145,160)
-    #création 4 des canvas pions bien placé ou non  
+    if int(listeCombo4.get()) == 3:
+        ovalsligne4_pions3 ()
+    elif int(listeCombo4.get()) == 4:
+        ovalsligne4_pions4 ()
+    elif int(listeCombo4.get()) == 5:
+        ovalsligne4_pions5 ()
+    elif int(listeCombo4.get()) == 6:
+        ovalsligne4_pions6 ()
+
+def ovalsligne4_pions3 () :
+    global c1d, c2d, c3d, c4d, a1d, a2d, a3d, a4d
+    c1d= grille.create_oval(10,130,40,160)
+    c2d = grille.create_oval(45,130,75,160)
+    c3d = grille.create_oval(80,130,110,160)
+    #création 3 des canvas pions bien placé ou non  
     a14 = aide4.create_oval(4,9,20,25)
     a15 = aide4.create_oval(27,9,43,25)
     a16 = aide4.create_oval(50,9,65,25)
-    a17 = aide4.create_oval(71,9,87,25)
     aide4.place(x = 280, y = 203)
+
+def ovalsligne4_pions4 () :
+    ovalsligne4_pions3 ()
+    global c4d, a4d
+    c4d = grille.create_oval(115,130,145,160)
+    a4d = aide3.create_oval(71,9,87,25)
+
+def ovalsligne4_pions5 () :
+    ovalsligne4_pions4 ()
+    global c5d, a5d
+    c5d = grille.create_oval(150,50,180,80)
+    a5d = aide1.create_oval(92,9,109,25)
+
+def ovalsligne4_pions6 () :
+    ovalsligne4_pions5 () 
+    global c6d, a6d
+    c6d = grille.create_oval(185,50,215,80)
+    a6d = aide1.create_oval(117,9,125,25)
+
 
 #ligne 5 des cercles pour le plateau de jeux 
 def ligne5 () :
     ligne4 ()
-    global c17
-    global c18
-    global c19 
-    global c20
-    global a18
-    global a19
-    global a20
-    global a21
-    c17= grille.create_oval(10,170,40,200)
-    c18 = grille.create_oval(45,170,75,200)
-    c19 = grille.create_oval(80,170,110,200)
-    c20 = grille.create_oval(115,170,145,200)
-    #création 5 des canvas pions bien placé ou non    
-    a18 = aide5.create_oval(4,9,20,25)
-    a19 = aide5.create_oval(27,9,43,25)
-    a20 = aide5.create_oval(50,9,65,25)
-    a21 = aide5.create_oval(71,9,87,25)
+    if int(listeCombo4.get()) == 3:
+        ovalsligne5_pions3 ()
+    elif int(listeCombo4.get()) == 4:
+        ovalsligne5_pions4 ()
+    elif int(listeCombo4.get()) == 5:
+        ovalsligne5_pions5 ()
+    elif int(listeCombo4.get()) == 6:
+        ovalsligne5_pions6 ()
+
+def ovalsligne5_pions3 () :
+    global c1e, c2e, c3e, a1e, a2e, a3e
+    c1e= grille.create_oval(10,170,40,200)
+    c2e = grille.create_oval(45,170,75,200)
+    c3e = grille.create_oval(80,170,110,200)
+    #création 3 des canvas pions bien placé ou non  
+    a1e = aide5.create_oval(4,9,20,25)
+    a2e = aide5.create_oval(27,9,43,25)
+    a3e = aide5.create_oval(50,9,65,25)
     aide5.place(x = 280, y = 245)
+
+def ovalsligne5_pions4 () :
+    ovalsligne5_pions3 ()
+    global c4e, a4e
+    c4e = grille.create_oval(115,170,145,200)
+    a4e = aide5.create_oval(71,9,87,25)
+
+def ovalsligne5_pions5 () :
+    ovalsligne5_pions4 ()
+    global c5e, a5e
+    c5e = grille.create_oval(150,50,180,80)
+    a5e = aide1.create_oval(92,9,109,25)
+
+def ovalsligne5_pions6 () :
+    ovalsligne5_pions5 () 
+    global c6e, a6e
+    c6e = grille.create_oval(185,50,215,80)
+    a6e = aide1.create_oval(117,9,125,25)
 
 #ligne 6 des cercles pour le plateau de jeux 
 def ligne6 () :
     ligne5 ()
-    global c21
-    global c22
-    global c23 
-    global c24
-    global a22
-    global a23
-    global a24
-    global a25
-    c21 = grille.create_oval(10,210,40,240)
-    c22 = grille.create_oval(45,210,75,240)
-    c23 = grille.create_oval(80,210,110,240)
-    c24 = grille.create_oval(115,210,145,240)
+    global c1f, c2f, c3f, c4f, a1f, a2f, a3f, a4f
+    c1f = grille.create_oval(10,210,40,240)
+    c2f = grille.create_oval(45,210,75,240)
+    c3f = grille.create_oval(80,210,110,240)
+    c4f = grille.create_oval(115,210,145,240)
     #création 6 des canvas pions bien placé ou non 
-    a22 = aide6.create_oval(4,9,20,25)
-    a23 = aide6.create_oval(27,9,43,25)
-    a24 = aide6.create_oval(50,9,65,25)
-    a25 = aide6.create_oval(71,9,87,25)
+    a1f = aide6.create_oval(4,9,20,25)
+    a2f = aide6.create_oval(27,9,43,25)
+    a3f = aide6.create_oval(50,9,65,25)
+    a4f = aide6.create_oval(71,9,87,25)
     aide6.place(x = 280, y = 285)
 
 #ligne 7 des cercles pour le plateau de jeux 
@@ -653,8 +737,6 @@ def ligne10 () :
     aide10.place(x = 280, y = 443)
 
 
-
-
 def preferencebouton2 () :
     """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
     - la taille du code secret (nombre de pion)
@@ -663,9 +745,7 @@ def preferencebouton2 () :
     preference = Toplevel(bouton2)
     preference.title ("Préferences")
     preference.geometry ("300x300")
-    global listeCombo4
-    global listeCombo5
-    global listeCombo6
+    global listeCombo4, listeCombo5, listeCombo6
     labelpreference4 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
     labelpreference4.pack(side ='top')
     listeCombo4 = ttk.Combobox (preference, values = nombrepions)
@@ -730,9 +810,7 @@ def appliquerparametres2 () :
     
 
 def cercletrois():
-    global cercle1
-    global cercle2
-    global cercle3
+    global cercle1, cercle2, cercle3
     cercle1 = canvascs.create_oval(50,10,80,40)
     cercle2 = canvascs.create_oval(90,10,120,40)
     cercle3 = canvascs.create_oval(130,10,160,40)
