@@ -223,6 +223,7 @@ def bouton2fonction (fonction={}) :
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)') 
+
     
     # Création Menu
     bouton2_menu = Menu(master_mind)               
@@ -237,7 +238,7 @@ def bouton2fonction (fonction={}) :
     main_cascade.add_separator()
     main_cascade.add_command(label='Ajouter un timer', command = timerbouton2)
 
-#création de la ligne du bas
+    #création de la ligne du bas
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
     a=(0, 30)
     b=(400,30)
@@ -288,84 +289,16 @@ def bouton2fonction (fonction={}) :
     bsauvegarder.place(x =175, y=620)
     c.place(x= 5, y=5)
     s.place(x=20, y=23)
-    
-    #creation de la frame et des boutons de couleurs 
-    frameb1 = Frame(master_mind, width=400, height=600)
-    frameb1.place(x= 60, y=535)
 
-    #ouvrir les images 
-    img = Image.open('boutonrose.PNG')
-    img1 = Image.open('boutonviolet.PNG')
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
-    img6 = Image.open('boutonorange1.PNG')
-    img7 = Image.open('boutonrouge.PNG')
-
-    #redimentionner les images
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
-
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
-
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
-
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
-
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
-
-    #boutons
-    B0 = Button(frameb1, image=a)
-    B1 = Button(frameb1, image=b)
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
-    B6 = Button(frameb1, image=g)
-    B7 = Button(frameb1, image=h)
-
-    #affichage des boutons
-    B0.grid()
-    B1.grid(row =0, column=1)
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
-    B6.grid(row =0,column=6)
-    B7.grid(row =0,column=7)
-
-<<<<<<< HEAD
-    #Canvas de la grille de jeu 
-    grille = Canvas(master_mind,width=200, height=400, bg= 'ivory')
-    #ligne 1 des cercles pour le plateau de jeux 
-    c1 = grille.create_oval(10,10,40,40)
-    c2 = grille.create_oval(45,10,75,40)
-    c3= grille.create_oval(80,10,110,40)
-    c4 = grille.create_oval(115,10,145,40)
-=======
     #création du canvas qui va révéler le code secret  
     global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8)
->>>>>>> 28e96104cb0cc7692d0bd7d34c2c5dedebeaf9e0
 
     if fonction == {}:                         #fonction prend en paramètre un élément
         cerclequatre()   
-        ligne10()                       # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
+        ligne10()      
+        nbrcouleur8 ()                 # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
     else:
         fonction()                          #si pas de paramètres, ca appelle la fonction 
 
@@ -389,11 +322,14 @@ def bouton2fonction (fonction={}) :
     aide10 = Canvas(master_mind, width=180, height=25)
 
 
+
+
 def preferencebouton2 () :
     """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
     - la taille du code secret (nombre de pion)
     - le nombre de couleurs
     - le nombre d'essai afin de trouver le code secret""" 
+    global preference
     preference = Toplevel(bouton2)
     preference.title ("Préferences")
     preference.geometry ("300x300")
@@ -410,16 +346,16 @@ def preferencebouton2 () :
     labelpreference6.pack(side = 'top')
     listeCombo6 = ttk.Combobox (preference, values = nombreessai)
     listeCombo6.pack()
-    appliquer = tkinter.Button(preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres2)
+    appliquer = tkinter.Button(preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command=  appliquerparametres2)
     appliquer.pack(side = "bottom")
 
 
 def appliquerparametres2 () :
     """fonction qui va permettre d'appliquer les paramètres choisi sur l'interface graphique en cliquant sur le 
     bouton appliquer"""
-    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox
-        master_mind.destroy()                   # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
-        bouton2fonction(cercletrois)
+    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox                  
+        master_mind.destroy()
+        bouton2fonction(cercletrois)            # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
     elif int(listeCombo4.get()) == 4:
         master_mind.destroy()
         bouton2fonction(cerclequatre)
@@ -436,15 +372,20 @@ def appliquerparametres2 () :
         master_mind.destroy()
         bouton2fonction(cerclehuit)
     if int(listeCombo5.get()) == 4 :
-        pass
+        master_mind.destroy()
+        bouton2fonction (nbrcouleur4)
     elif int(listeCombo5.get()) == 5:
-        pass
+        master_mind.destroy()
+        bouton2fonction (nbrcouleur5)
     elif int(listeCombo5.get()) == 6:
-        pass
+        master_mind.destroy()
+        bouton2fonction (nbrcouleur6)
     elif int(listeCombo5.get()) == 7:
-        pass
+        master_mind.destroy()
+        bouton2fonction (nbrcouleur7)
     elif int(listeCombo5.get()) == 8:
-        pass
+        master_mind.destroy()
+        bouton2fonction (nbrcouleur8)
     if int(listeCombo6.get()) == 6:
         bouton2fonction(ligne6)
     elif int(listeCombo6.get()) == 7:
@@ -459,7 +400,8 @@ def appliquerparametres2 () :
         pass
     elif int(listeCombo6.get()) == 20:
         pass
-    
+    preference.destroy()
+
 
 def cercletrois():
     global cercle1, cercle2, cercle3
@@ -561,7 +503,7 @@ def ovalsligne2_pions4 () :
     ovalsligne2_pions3 ()
     global c4b, a4b
     c4b = grille.create_oval(115,50,145,80)
-    a4b = aide2.create_oval(71,9,87,255)
+    a4b = aide2.create_oval(71,9,87,25)
 
 def ovalsligne2_pions5 () :
     ovalsligne2_pions4 ()
@@ -908,6 +850,70 @@ def ovalsligne10_pions6 () :
     global c6j, a6j
     c6j = grille.create_oval(185,370,215,400)
     a6j = aide10.create_oval(113,9,129,25)
+
+
+def nbrcouleur4 () :
+        #creation de la frame et des boutons de couleurs 
+    global frameb1
+    frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
+    frameb1.place(x= 60, y=535)
+        #ouvrir les images 
+    img2 = Image.open('boutonbleuf.PNG')
+    img3 = Image.open('boutonbleuciel.PNG')
+    img4 = Image.open('boutonturquoise.PNG')
+    img5 = Image.open('boutonjeune.PNG')
+        #redimentionner les images
+    taille2 = img2.resize((35,35))
+    c = ImageTk.PhotoImage(taille2)
+    taille3 = img3.resize((35,35))
+    d = ImageTk.PhotoImage(taille3)
+    taille4 = img4.resize((35,35))
+    e = ImageTk.PhotoImage(taille4)
+    taille5 = img5.resize((35,35))
+    f = ImageTk.PhotoImage(taille5)
+        #boutons
+    B2 = Button(frameb1, image=c)
+    B3 = Button(frameb1, image=d)
+    B4 = Button(frameb1, image=e)
+    B5 = Button(frameb1, image=f)
+        # affichage des boutons
+    B2.grid(row =0,column=2)
+    B3.grid(row =0,column=3)
+    B4.grid(row =0,column=4)
+    B5.grid(row =0,column=5)
+
+def nbrcouleur5 () :
+    nbrcouleur4 ()
+    img6 = Image.open('boutonorange1.PNG')
+    taille6 = img6.resize((35,35))
+    g = ImageTk.PhotoImage(taille6)
+    B6 = Button(frameb1, image=g)
+    B6.grid(row =0,column=6)
+
+def nbrcouleur6 () :
+    nbrcouleur5 ()
+    img1 = Image.open('boutonviolet.PNG')
+    taille1 = img1.resize((35,35))
+    b = ImageTk.PhotoImage(taille1)
+    B1 = Button(frameb1, image=b)
+    B1.grid(row =0, column=1)
+
+def nbrcouleur7 () :
+    nbrcouleur6 ()
+    img7 = Image.open('boutonrouge.PNG')
+    taille7 = img7.resize((35,35))
+    h = ImageTk.PhotoImage(taille7)
+    B7 = Button(frameb1, image=h)
+    B7.grid(row =0,column=7)
+
+def nbrcouleur8 () :
+    nbrcouleur7 ()
+    img = Image.open('boutonrose.PNG')
+    taille0= img.resize((35,35))
+    a = ImageTk.PhotoImage(taille0)
+    B0 = Button(frameb1, image=a)
+    B0.grid()
+
 
 
 def aproposbouton2 () : 
