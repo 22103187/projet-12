@@ -332,7 +332,7 @@ def bouton2fonction (fonction={}) :
     ligne1.place(x = 20, y = 50)
 
     #creation de la frame et des boutons de couleurs 
-    frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
+    frameb1 = Frame(master_mind, width=400, height=600)
     frameb1.place(x= 60, y=535)
 
     #ouvrir les images 
@@ -392,7 +392,7 @@ def bouton2fonction (fonction={}) :
     
 
     #Canvas de la grille de jeu 
-    grille = Canvas(master_mind,width=145, height=400)
+    grille = Canvas(master_mind,width=200, height=400, bg= 'ivory')
     #ligne 1 des cercles pour le plateau de jeux 
     c1 = grille.create_oval(10,10,40,40)
     c2 = grille.create_oval(45,10,75,40)
