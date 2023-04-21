@@ -12,68 +12,154 @@ racine.geometry("600x600")    # régler la taille de la fenetre
 racine.title("Mastermind")     # nom fenetre
 racine["bg"] = 'pink3'      # couleur arrière plan 
 racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
-
-label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
+label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
 label.pack(side="top")
-
-label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
-label1.place(x='150', y='220')
+label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
+label1.place(x='140', y='230')
 M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
-M.place(x = 230, y=50)
+M.place(x = 210, y=40)
 
 
 
-# CREATION BOUTON 
-nombrepions = ["3", "4", "5", "6", "7", "8"]
-nombrecouleurs = ["4", "5", "6", "7", "8"]
-nombreessai = ["6", "7", "8", "9", "10", "15", "20"]
+
+CPT=0
+nombredetentative=0
+combinaison_max=4
+combinaison_secrete=[]
+
+def creer_combinaison_secrete():
+    combinaison_secrete=[]
+    for i in range(0,combinaison_max):
+        couleurs=["rose","bleu","jaune","orange","turquoise", "violet","bleuciel","rouge"]
+        index=random.randint(0,len(couleurs)-1)
+        combinaison_secrete.append(couleurs[index])#je ne comprends pas
+    return combinaison_secrete
+a=creer_combinaison_secrete()
+combinaison=a
+L=[]
+# CPT
+
+def get_couleur(couleur, master_mind, canvas, color):
+    global CPT
+    if len(L)>=combinaison_max:
+        Labelcouleur=Label(master_mind, text="Tu as dépassé le nombre maximum!", font =("helvetica", "12"))
+        Labelcouleur.place(x=95, y=250)
+    else:
+        L.append(couleur)
+        cpt=len(L)-1
+        print(CPT)
+        # label_image = Label(master_mind, image=image)
+        # label_image.grid(row=0, column=cpt)
+        canvas.create_oval(10+cpt*35,10+CPT*40,40+cpt*35,40+CPT*40, fill=color)
+        canvas.place(x = 50, y=75)
+
+def get_couleur2(couleur, master_mind,canvas,color):
+    global CPT
+    if len(L)>=combinaison_max:
+        Labelcouleur=Label(master_mind, text="Tu as dépassé le nombre maximum!", font =("helvetica", "12"))
+        Labelcouleur.place(x=95, y=250)
+    else:
+        L.append(couleur)
+        cpt=len(L)-1
+        print(CPT)
+        # label_image = Label(master_mind, image=image)
+        # label_image.grid(row=0, column=cpt)
+        canvas.create_oval(10+cpt*35,10+CPT*40,40+cpt*35,40+CPT*40, fill=color)
+        canvas.place(x = 50, y=75)       
+     
+    
+    print(L) 
+
+def supprimer () :
+    pass
+
+
+longueur_combinaison=4
+def comparer_combinaison(combinaison_entree, combinaison_secrete, master_mind):
+    nb_couleurs_bien_placees=0
+    nb_couleurs_mal_placees=0
+    for i in range (longueur_combinaison):
+        if combinaison_entree[i]==combinaison_secrete[i]:
+            nb_couleurs_bien_placees+=1
+        elif combinaison_entree[i] in combinaison_secrete:
+            nb_couleurs_mal_placees+=1
+            #Labelperdue=Label(master_mind, text="recommence ce n'est pas sa")
+            # nb_max_tentatives=0
+            # nb_max_tentatives+=1
+    
+
+    return (nb_couleurs_bien_placees, nb_couleurs_mal_placees)
+
+    #labelaffichescore=label()
+#comparer_combinaison(L, combinaison)
+        #placement des boutons validé,supprimer,quitter et le label code
+Nombre_tentativesmaximum= 10
+
+def fonctionvalider(canvas,Nombre_tentativesmaximum):
+    global CPT
+    global nombredetentative
+    if len(L)<combinaison_max:
+        Labelerreur=Label(master_mind, text="Tu n'as pas fini ta combinaison!", font =("helvetica", "12"))
+        Labelerreur.place(x=95, y=250)
+    else:
+        (bienplace, malplace) = comparer_combinaison(L, combinaison, master_mind)
+        print(bienplace)
+        print(malplace)
+        print(combinaison)
+        if bienplace==4:
+            print("tu as gagne")
+            Labelvictoire=Label(master_mind, text="Tu as gagné!", font =("helvetica", "12"),bg='green')
+            Labelvictoire.place(x=95, y=250)
+        if bienplace!=4:
+            nombredetentative+=1
+        if nombredetentative==Nombre_tentativesmaximum:
+            Labelcouleur=Label(master_mind, text="Tu as perdue!", font =("helvetica", "12"), bg='red')
+            Labelcouleur.place(x=95, y=250)
+            print("tu as perdue")
+
+        cpt=0
+        while bienplace>0:
+            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
+            cpt+=1
+            bienplace-=1
+        while malplace>0:
+            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='black')
+            cpt+=1
+            malplace-=1
+        CPT+=1
+        canvas.place(x = 280, y = 75)
+        # del L
+        L.pop()
+        L.pop()
+        L.pop()
+        L.pop()
+
+
+
+
+
 
 
 # Fonction bouton 1
 def bouton1fonction ():  
-    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
-        clique sur le bouton du mode 1 joueur""" 
+    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on
+        clique sur le bouton du mode 1 joueur"""
+    global master_mind
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
-    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre 
-    master_mind.resizable(height=False, width=False)   # On peut l'enlever nan ?????
-    palette = Label(master_mind, text='palette de couleurs :') 
+    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre
+    master_mind.resizable(height=False, width=False)
+    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre  
+    palette = Label(master_mind, text='palette de couleurs :')
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
 
-    # Création Menu
-    bouton1_menu = Menu(master_mind)               
-    master_mind['menu'] = bouton1_menu
-    main_cascade = Menu(bouton1_menu)
-    bouton1_menu.add_cascade(label='Menu', menu = main_cascade)
-    main_cascade.add_command(label='Préférences', command = preferencebouton1)
-    main_cascade.add_separator()
-    main_cascade.add_separator()
-    main_cascade.add_command(label='À propos', command = aproposbouton1)
-    main_cascade.add_separator()
-    main_cascade.add_separator()
-    main_cascade.add_command(label='Ajouter un timer', command = timerbouton1)
-
-    #création de la ligne du bas
-    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
-    a=(0, 30)
-    b=(400,30)
-    ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 470)#placer le canvas
-
-    #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas 
-    a=(0, 30)
-    b=(400,30)
-    ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 50)
-
-    #création du bouton validé, supprimer et quitter 
-    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
-    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
+    #création du bouton validé, supprimer et quitter
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8, command=lambda: fonctionvalider(aide1,Nombre_tentativesmaximum))
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8, command=supprimer)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
     bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
-    
+
     #placement des boutons validé,supprimer,quitter et le label code
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
@@ -82,19 +168,36 @@ def bouton1fonction ():
     c.place(x= 5, y=5)
     s.place(x=20, y=23)
 
+    #création de la ligne du bas
+    grille = Canvas(master_mind,width=145, height=500)
+    gun = grille.place(x = 50, y=75)
+    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas
+    a=(0, 30)
+    b=(400,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 470)#placer le canvas
+
     #création du canvas qui va révéler le code secret  
     canvascs = Canvas(master_mind,width = 200, height = 40)
-    canvascs.place(x = 100, y= 8) 
+    canvascs.place(x = 100, y= 8)
     canvascs.create_oval(50,10,80,40)
     canvascs.create_oval(90,10,120,40)
     canvascs.create_oval(130,10,160,40)
     canvascs.create_oval(170,10,200,40)
 
-    #creation de la frame et des boutons de couleurs 
+    #création de la ligne du haut
+    aide1 = Canvas(master_mind,width=90, height=400)
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas
+    a=(0, 30)
+    b=(400,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 50)
+
+    #creation de la frame et des boutons de couleurs
     frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
     frameb1.place(x= 60, y=535)
 
-    #ouvrir les images 
+    #ouvrir les images
     img = Image.open('boutonrose.PNG')
     img1 = Image.open('boutonviolet.PNG')
     img2 = Image.open('boutonbleuf.PNG')
@@ -107,38 +210,31 @@ def bouton1fonction ():
     #redimentionner les images
     taille0= img.resize((35,35))
     a = ImageTk.PhotoImage(taille0)
-
     taille1 = img1.resize((35,35))
     b = ImageTk.PhotoImage(taille1)
-
     taille2 = img2.resize((35,35))
     c = ImageTk.PhotoImage(taille2)
-
     taille3 = img3.resize((35,35))
     d = ImageTk.PhotoImage(taille3)
-
     taille4 = img4.resize((35,35))
     e = ImageTk.PhotoImage(taille4)
-
     taille5 = img5.resize((35,35))
     f = ImageTk.PhotoImage(taille5)
-
     taille6 = img6.resize((35,35))
     g = ImageTk.PhotoImage(taille6)
-
     taille7 = img7.resize((35,35))
     h = ImageTk.PhotoImage(taille7)
 
     #boutons
-    B0 = Button(frameb1, image=a)
-    B1 = Button(frameb1, image=b)
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
-    B6 = Button(frameb1, image=g)
-    B7 = Button(frameb1, image=h)
-
+    B0 = Button(frameb1, image=a, command=lambda : get_couleur("rose", master_mind, grille, 'fuchsia'))
+    B1 = Button(frameb1, image=b, command=lambda : get_couleur("violet", master_mind, grille,'blueviolet'))
+    B2 = Button(frameb1, image=c, command=lambda : get_couleur("bleu", master_mind, grille,'blue'))
+    B3 = Button(frameb1, image=d,command=lambda : get_couleur("bleuciel", master_mind, grille, 'deepskyblue'))
+    B4 = Button(frameb1, image=e,command=lambda : get_couleur("turquoise", master_mind, grille,'cyan'))
+    B5 = Button(frameb1, image=f,command=lambda : get_couleur("jaune", master_mind, grille, 'yellow'))
+    B6 = Button(frameb1, image=g,command=lambda : get_couleur("orange", master_mind, grille,'darkorange'))
+    B7 = Button(frameb1, image=h,command=lambda : get_couleur("rouge", master_mind, grille, 'crimson'))
+    
     #affichage des boutons
     B0.grid()
     B1.grid(row =0, column=1)
@@ -148,73 +244,30 @@ def bouton1fonction ():
     B5.grid(row =0,column=5)
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
+  
     palette.place(x=170, y=509)
 
-    
 
     master_mind.mainloop()
-
-
-def preferencebouton1 () :
-    """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
-    - la taille du code secret (nombre de pion)
-    - le nombre de couleurs
-    - le nombre d'essai afin de trouver le code secret"""
-    preference = Toplevel(bouton1)
-    preference.title ("Préferences")
-    preference.geometry ("300x300")
-    labelpreference1 = Label (preference, text = 'Choississez un nombre de pions', fg = ('black'), font = ('helvetica', '10'))
-    labelpreference1.pack(side ='top')
-    listeCombo1 = ttk.Combobox (preference, values = nombrepions)
-    listeCombo1.pack()
-    labelpreference2 = Label (preference, text = 'Choississez un nombre de couleurs', fg = ('black'), font = ('helvetica', '10'))
-    labelpreference2.pack(side = 'top')
-    listeCombo2 = ttk.Combobox (preference, values = nombrecouleurs)
-    listeCombo2.pack()
-    labelpreference3 = Label (preference, text = "Choississez un nombre d' esssai", fg = ('black'), font = ('helvetica', '10'))
-    labelpreference3.pack(side = 'top')
-    listeCombo3 = ttk.Combobox (preference, values = nombreessai)
-    listeCombo3.pack()
-    appliquer = tkinter.Button (preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres1)
-    appliquer.pack(side = "bottom")
-    
-
-def aproposbouton1 () : 
-    """Création de la fonction permettant d'afficher les règles du jeu"""  
-    showinfo ('À propos',
-             message = "Bienvenue dans Mastermind.\n\n"
-                     "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
-                     "chaque couleur peut apparaître plusieurs fois.\n\n"
-                     "Vous pouvez configurer le nombre de couleurs différentes, la taille du code secret "
-                     "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
-    
-
-def appliquerparametres1 () : 
-    print ("boujour")
-
-
-def timerbouton1 () :
-    print ('Bonjour')     
-    
+   
 
 def sauvegarderjeu () :
     print ("bonjour")
 
-
-# Bouton mode 1 joueur 
+ 
+# Bouton mode 1 joueur
 bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouton1fonction)
-bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE 
+bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE
+
+   
 
 
 
 
-
-
-
-# Fonction bouton 2 
-def bouton2fonction (fonction={}) :
-    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
-    clique sur le bouton du mode 2 joueur"""  
+# Fonction bouton 2
+def bouton2fonction () :
+    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on
+    clique sur le bouton du mode 2 joueurs"""  
     global master_mind
     master_mind=Toplevel(racine)
     master_mind.geometry("460x650")#taille de la fenetre
@@ -222,34 +275,7 @@ def bouton2fonction (fonction={}) :
     palette = Label(master_mind, text='palette de couleurs :')
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
-    s = Label(master_mind,text='secret ;)') 
-    
-    # Création Menu
-    bouton2_menu = Menu(master_mind)               
-    master_mind['menu'] = bouton2_menu
-    main_cascade = Menu(bouton2_menu)
-    bouton2_menu.add_cascade(label='Menu', menu = main_cascade)
-    main_cascade.add_command(label='Préférences', command = preferencebouton2)
-    main_cascade.add_separator()
-    main_cascade.add_separator()
-    main_cascade.add_command(label='À propos', command = aproposbouton2)
-    main_cascade.add_separator()
-    main_cascade.add_separator()
-    main_cascade.add_command(label='Ajouter un timer', command = timerbouton2)
-
-#création de la ligne du bas
-    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas 
-    a=(0, 30)
-    b=(400,30)
-    ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 480)#placer le canvas
-
-    #création de la ligne du haut
-    ligne1=Canvas(master_mind,width=400, height=1,bg='black')               #largeur et hauteur du canvas 
-    a=(0, 30)
-    b=(400,30)
-    ligne1.create_line(a, b)
-    ligne1.place(x = 20, y = 50)
+    s = Label(master_mind,text='secret ;)')
 
     # label 1 à 10
     l1= Label(master_mind, text='1.')
@@ -263,6 +289,20 @@ def bouton2fonction (fonction={}) :
     l9= Label(master_mind, text='9.')
     l10= Label(master_mind, text='10.')
 
+    #création du bouton validé,supprimer et quitter
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8, command=lambda: fonctionvalider(aide1,Nombre_tentativesmaximum))
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
+    bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
+    bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
+
+    #placement des boutons validé,supprimer,quiter + label
+    bvalide.place(x = 175, y = 585)
+    bsupprimer.place(x =50, y = 585)
+    bquitter.place(x = 300, y = 585)
+    bsauvegarder.place(x =175, y=620)
+    c.place(x= 5, y=5)
+    s.place(x=20, y=23)
+
     #placement label 1 à 10
     l1.place(x = 35, y = 85)
     l2.place(x = 35, y = 125)
@@ -274,26 +314,39 @@ def bouton2fonction (fonction={}) :
     l8.place(x = 35, y = 370)
     l9.place(x = 35, y = 410)
     l10.place(x = 30, y = 447)
+ 
+    #création du canvas qui va révéler le code secret  
+    global canvascs
+    canvascs = Canvas(master_mind,width = 300, height = 40)
+    canvascs.place(x = 100, y= 8)
+    global cercle1
+    global cercle2
+    global cercle3
+    global cercle4
+    cercle1 = canvascs.create_oval(50,10,80,40)
+    cercle2 = canvascs.create_oval(90,10,120,40)
+    cercle3 = canvascs.create_oval(130,10,160,40)
+    cercle4 = canvascs.create_oval(170,10,200,40)
 
-    #création du bouton validé,supprimer et quitter
-    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
-    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
-    bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
-    bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
-    
-    #placement des boutons validé,supprimer,quiter + label
-    bvalide.place(x = 175, y = 585)
-    bsupprimer.place(x =50, y = 585)
-    bquitter.place(x = 300, y = 585)
-    bsauvegarder.place(x =175, y=620)
-    c.place(x= 5, y=5)
-    s.place(x=20, y=23)
-    
-    #creation de la frame et des boutons de couleurs 
-    frameb1 = Frame(master_mind, width=400, height=600)
+    #création de la ligne du bas
+    ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas
+    a=(0, 30)
+    b=(400,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 480)#placer le canvas
+
+    #création de la ligne du haut
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')#largeur et hauteur du canvas
+    a=(0, 30)
+    b=(400,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 50)
+
+    #creation de la frame et des boutons de couleurs
+    frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
     frameb1.place(x= 60, y=535)
 
-    #ouvrir les images 
+    #ouvrir les images
     img = Image.open('boutonrose.PNG')
     img1 = Image.open('boutonviolet.PNG')
     img2 = Image.open('boutonbleuf.PNG')
@@ -302,42 +355,35 @@ def bouton2fonction (fonction={}) :
     img5 = Image.open('boutonjeune.PNG')
     img6 = Image.open('boutonorange1.PNG')
     img7 = Image.open('boutonrouge.PNG')
-
+ 
     #redimentionner les images
     taille0= img.resize((35,35))
     a = ImageTk.PhotoImage(taille0)
-
     taille1 = img1.resize((35,35))
     b = ImageTk.PhotoImage(taille1)
-
     taille2 = img2.resize((35,35))
     c = ImageTk.PhotoImage(taille2)
-
     taille3 = img3.resize((35,35))
     d = ImageTk.PhotoImage(taille3)
-
     taille4 = img4.resize((35,35))
     e = ImageTk.PhotoImage(taille4)
-
     taille5 = img5.resize((35,35))
     f = ImageTk.PhotoImage(taille5)
-
     taille6 = img6.resize((35,35))
     g = ImageTk.PhotoImage(taille6)
-
     taille7 = img7.resize((35,35))
     h = ImageTk.PhotoImage(taille7)
 
     #boutons
-    B0 = Button(frameb1, image=a)
-    B1 = Button(frameb1, image=b)
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
-    B6 = Button(frameb1, image=g)
-    B7 = Button(frameb1, image=h)
-
+    B0 = Button(frameb1, image=a, command=lambda : get_couleur2("rose", master_mind, grille, 'fuchsia'))
+    B1 = Button(frameb1, image=b, command=lambda : get_couleur2("violet", master_mind, grille,'blueviolet'))
+    B2 = Button(frameb1, image=c, command=lambda : get_couleur2("bleu", master_mind, grille,'blue'))
+    B3 = Button(frameb1, image=d,command=lambda : get_couleur2("bleuciel", master_mind, grille, 'deepskyblue'))
+    B4 = Button(frameb1, image=e,command=lambda : get_couleur2("turquoise", master_mind, grille,'springgreen'))
+    B5 = Button(frameb1, image=f,command=lambda : get_couleur2("jaune", master_mind, grille, 'yellow'))
+    B6 = Button(frameb1, image=g,command=lambda : get_couleur2("orange", master_mind, grille,'darkorange'))
+    B7 = Button(frameb1, image=h,command=lambda : get_couleur2("rouge", master_mind, grille, 'crimson'))
+        
     #affichage des boutons
     B0.grid()
     B1.grid(row =0, column=1)
@@ -362,10 +408,10 @@ def bouton2fonction (fonction={}) :
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8)
 
-
     if fonction == {}:                         #fonction prend en paramètre un élément
         cerclequatre()   
-        ligne10()                       # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
+        ligne10()      
+        nbrcouleur8 ()                 # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
     else:
         fonction()                          #si pas de paramètres, ca appelle la fonction 
 
@@ -390,11 +436,14 @@ def bouton2fonction (fonction={}) :
     aide10 = Canvas(master_mind, width=180, height=25)
 
 
-def preferencebouton2 () :
+
+
+def preferencebouton () :
     """Création de la fonction permettant de choisir les préférences du jeu, c'est à dire :
     - la taille du code secret (nombre de pion)
     - le nombre de couleurs
     - le nombre d'essai afin de trouver le code secret""" 
+    global preference
     preference = Toplevel(bouton2)
     preference.title ("Préferences")
     preference.geometry ("300x300")
@@ -411,56 +460,58 @@ def preferencebouton2 () :
     labelpreference6.pack(side = 'top')
     listeCombo6 = ttk.Combobox (preference, values = nombreessai)
     listeCombo6.pack()
-    appliquer = tkinter.Button(preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command = appliquerparametres2)
+    appliquer = tkinter.Button(preference, text="Appliquer", fg = ("black"), font =("helvetica", "10"), command=  appliquerparametres)
     appliquer.pack(side = "bottom")
 
 
-def appliquerparametres2 () :
+def appliquerparametres () :
     """fonction qui va permettre d'appliquer les paramètres choisi sur l'interface graphique en cliquant sur le 
     bouton appliquer"""
-    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox
-        master_mind.destroy()                   # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
-        bouton2fonction(cercletrois)
+    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox                  
+        master_mind.destroy()
+        bouton3fonction(cercletrois)            # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
     elif int(listeCombo4.get()) == 4:
         master_mind.destroy()
-        bouton2fonction(cerclequatre)
+        bouton3fonction(cerclequatre)
     elif int(listeCombo4.get()) == 5:
         master_mind.destroy()
-        bouton2fonction(cerclecinq)
+        bouton3fonction(cerclecinq)
     elif int(listeCombo4.get()) == 6:
         master_mind.destroy()
-        bouton2fonction(cerclesix)
+        bouton3fonction(cerclesix)
     elif int(listeCombo4.get()) == 7:
         master_mind.destroy()
-        bouton2fonction(cerclesept)
+        bouton3fonction(cerclesept)
     elif int(listeCombo4.get()) == 8:
         master_mind.destroy()
-        bouton2fonction(cerclehuit)
+        bouton3fonction(cerclehuit)
     if int(listeCombo5.get()) == 4 :
-        pass
+        master_mind.destroy()
+        bouton3fonction (nbrcouleur4)
     elif int(listeCombo5.get()) == 5:
-        pass
+        master_mind.destroy()
+        bouton3fonction (nbrcouleur5)
     elif int(listeCombo5.get()) == 6:
-        pass
+        master_mind.destroy()
+        bouton3fonction (nbrcouleur6)
     elif int(listeCombo5.get()) == 7:
-        pass
+        master_mind.destroy()
+        bouton3fonction (nbrcouleur7)
     elif int(listeCombo5.get()) == 8:
-        pass
+        master_mind.destroy()
+        bouton3fonction (nbrcouleur8)
     if int(listeCombo6.get()) == 6:
-        bouton2fonction(ligne6)
+        bouton3fonction(ligne6)
     elif int(listeCombo6.get()) == 7:
-        bouton2fonction(ligne7)
+        bouton3fonction(ligne7)
     elif int(listeCombo6.get()) == 8:
-        bouton2fonction(ligne8)
+        bouton3fonction(ligne8)
     elif int(listeCombo6.get()) == 9:
-        bouton2fonction(ligne9)
+        bouton3fonction(ligne9)
     elif int(listeCombo6.get()) == 10:
-        bouton2fonction(ligne10)
-    elif int(listeCombo6.get()) == 15:
-        pass
-    elif int(listeCombo6.get()) == 20:
-        pass
-    
+        bouton3fonction(ligne10)
+    preference.destroy()
+
 
 def cercletrois():
     global cercle1, cercle2, cercle3
@@ -562,7 +613,7 @@ def ovalsligne2_pions4 () :
     ovalsligne2_pions3 ()
     global c4b, a4b
     c4b = grille.create_oval(115,50,145,80)
-    a4b = aide2.create_oval(71,9,87,255)
+    a4b = aide2.create_oval(71,9,87,25)
 
 def ovalsligne2_pions5 () :
     ovalsligne2_pions4 ()
@@ -911,7 +962,71 @@ def ovalsligne10_pions6 () :
     a6j = aide10.create_oval(113,9,129,25)
 
 
-def aproposbouton2 () : 
+def nbrcouleur4 () :
+        #creation de la frame et des boutons de couleurs 
+    global frameb1
+    frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
+    frameb1.place(x= 60, y=535)
+        #ouvrir les images 
+    img2 = Image.open('boutonbleuf.PNG')
+    img3 = Image.open('boutonbleuciel.PNG')
+    img4 = Image.open('boutonturquoise.PNG')
+    img5 = Image.open('boutonjeune.PNG')
+        #redimentionner les images
+    taille2 = img2.resize((35,35))
+    c = ImageTk.PhotoImage(taille2)
+    taille3 = img3.resize((35,35))
+    d = ImageTk.PhotoImage(taille3)
+    taille4 = img4.resize((35,35))
+    e = ImageTk.PhotoImage(taille4)
+    taille5 = img5.resize((35,35))
+    f = ImageTk.PhotoImage(taille5)
+        #boutons
+    B2 = Button(frameb1, image=c)
+    B3 = Button(frameb1, image=d)
+    B4 = Button(frameb1, image=e)
+    B5 = Button(frameb1, image=f)
+        # affichage des boutons
+    B2.grid(row =0,column=2)
+    B3.grid(row =0,column=3)
+    B4.grid(row =0,column=4)
+    B5.grid(row =0,column=5)
+
+def nbrcouleur5 () :
+    nbrcouleur4 ()
+    img6 = Image.open('boutonorange1.PNG')
+    taille6 = img6.resize((35,35))
+    g = ImageTk.PhotoImage(taille6)
+    B6 = Button(frameb1, image=g)
+    B6.grid(row =0,column=6)
+
+def nbrcouleur6 () :
+    nbrcouleur5 ()
+    img1 = Image.open('boutonviolet.PNG')
+    taille1 = img1.resize((35,35))
+    b = ImageTk.PhotoImage(taille1)
+    B1 = Button(frameb1, image=b)
+    B1.grid(row =0, column=1)
+
+def nbrcouleur7 () :
+    nbrcouleur6 ()
+    img7 = Image.open('boutonrouge.PNG')
+    taille7 = img7.resize((35,35))
+    h = ImageTk.PhotoImage(taille7)
+    B7 = Button(frameb1, image=h)
+    B7.grid(row =0,column=7)
+
+def nbrcouleur8 () :
+    nbrcouleur7 ()
+    img = Image.open('boutonrose.PNG')
+    taille0= img.resize((35,35))
+    a = ImageTk.PhotoImage(taille0)
+    B0 = Button(frameb1, image=a)
+    B0.grid()
+
+
+
+def aproposbouton () : 
     """Création de la fonction permettant d'afficher les règles du jeu""" 
     showinfo ('À propos',
              message="Bienvenue dans Mastermind.\n\n"
@@ -921,7 +1036,7 @@ def aproposbouton2 () :
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
     
 
-def timerbouton2 () :
+def timerbouton () :
     start = time.time()
     
     end = time.time()
@@ -932,10 +1047,9 @@ def sauvergarderjeu () :
     print ("bonjour")
 
 
-# Bouton mode 2 joueurs 
-bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
-bouton2.pack(side = 'left', fill='x', expand = True)
-
+# Bouton mode préférences 
+bouton3 = tkinter.Button(racine, text = 'mode préférences', bd = '5', command=bouton3fonction)          # On peut aussi mettre un bg... comme sur les labels
+bouton3.pack(side = 'left', fill='x', expand = True)
 
 
 
