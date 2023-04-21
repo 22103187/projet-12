@@ -217,7 +217,7 @@ def bouton2fonction (fonction={}) :
     clique sur le bouton du mode 2 joueur"""  
     global master_mind
     master_mind=Toplevel(racine)
-    master_mind.geometry("500x800")#taille de la fenetre
+    master_mind.geometry("460x650")#taille de la fenetre
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
     palette = Label(master_mind, text='palette de couleurs :')
     master_mind.resizable(height=False, width=False)
@@ -348,7 +348,7 @@ def bouton2fonction (fonction={}) :
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
 
-<<<<<<< HEAD
+
     #Canvas de la grille de jeu 
     grille = Canvas(master_mind,width=200, height=400, bg= 'ivory')
     #ligne 1 des cercles pour le plateau de jeux 
@@ -356,12 +356,12 @@ def bouton2fonction (fonction={}) :
     c2 = grille.create_oval(45,10,75,40)
     c3= grille.create_oval(80,10,110,40)
     c4 = grille.create_oval(115,10,145,40)
-=======
+
     #création du canvas qui va révéler le code secret  
     global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8)
->>>>>>> 28e96104cb0cc7692d0bd7d34c2c5dedebeaf9e0
+
 
     if fonction == {}:                         #fonction prend en paramètre un élément
         cerclequatre()   
@@ -370,8 +370,9 @@ def bouton2fonction (fonction={}) :
         fonction()                          #si pas de paramètres, ca appelle la fonction 
 
     #Canvas de la grille de jeu 
-    global grille 
+    
     grille = Canvas(master_mind,width=250, height=400)
+    
     global gun
     gun = grille.place(x = 50, y=75)
 
