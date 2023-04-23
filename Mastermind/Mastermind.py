@@ -152,6 +152,15 @@ def bouton1fonction ():
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
 
+    bouton3_menu = Menu(master_mind)               
+    master_mind['menu'] = bouton3_menu
+    main_cascade = Menu(bouton3_menu)
+    bouton3_menu.add_cascade(label='Menu', menu = main_cascade)
+    main_cascade.add_command(label='À propos', command = aproposbouton_mode1)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='Ajouter un timer', command = timerbouton)
+
     #création du bouton validé, supprimer et quitter
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8, command=lambda: fonctionvalider(aide1,Nombre_tentativesmaximum))
     bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8, command=supprimer)
@@ -246,6 +255,20 @@ def bouton1fonction ():
 
     master_mind.mainloop()
    
+def aproposbouton_mode1 () : 
+    """Création de la fonction permettant d'afficher les règles du jeu""" 
+    showinfo ('À propos',
+             message="Bienvenue dans Mastermind.\n\n"
+                     "Ce jeu consiste à trouver un code secret composé de huit couleurs, sachant que "
+                     "chaque couleur peut apparaître plusieurs fois.\n\n"
+                     "Le code secret est choisi au hasard au début de la partie, à vous de le trouver"
+                     "Vous disposerez pour cela de 10 tentatives. A chaque essai, vous aurez accès aux informations suivante : \n\n"
+                     "- le nombre de pions bien placés (pion rouge); c'est à dire qui a la même couleur et la même position que le pions du code secret;\n\n"
+                     "- et le nombre de pions mal placés (pion noir); c'est à dire qu'il a la même couleur qu’un pion du du code secret, mais n'est pas "
+                     "à la bonne position.\n\n"
+                     " De plus chaque pion du code secret peut compter pour au plus un pion mal placé. \n\n"
+                      "Maintenant, à vous de jouer ! ")
+
 
 def sauvegarderjeu () :
     print ("bonjour")
@@ -270,10 +293,18 @@ def bouton2fonction () :
     master_mind=Toplevel(racine)
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre
-    palette = Label(master_mind, text='palette de couleurs :')
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
+
+    bouton3_menu = Menu(master_mind)               
+    master_mind['menu'] = bouton3_menu
+    main_cascade = Menu(bouton3_menu)
+    bouton3_menu.add_cascade(label='Menu', menu = main_cascade)
+    main_cascade.add_command(label='À propos', command = aproposbouton_mode2)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='Ajouter un timer', command = timerbouton)
 
     # label 1 à 10
     l1= Label(master_mind, text='1.')
@@ -490,8 +521,102 @@ def bouton2fonction () :
     a41 = aide1.create_oval(71,368,87,385)
     aide1.place(x = 280, y = 83)
  
+    codesecret()
     master_mind.mainloop()  
 
+
+
+def codesecret() :
+    #création de la fenetre, taille et titre 
+    code_secret = Tk()
+    code_secret.geometry("400x250")
+    code_secret.title(":)")
+
+    #création des label + placement dans la fenetre 
+    choisir = Label(code_secret, text='Choississez le code secret : )')
+    choisir.place(x=120, y=10)
+    pal = Label(code_secret, text="palette de couleurs : ")
+    pal.place(x= 140, y=110)
+
+    #création du bouton validé 
+    valider = Button(code_secret, text='Validé') 
+    valider.place(x =165, y=200)
+
+    #création du canvas et des cercles qui révèle le code secrert
+    canvasbis = Canvas(code_secret,width=245, height=50)
+    canvasbis.create_oval(40,10,80,50)
+    canvasbis.create_oval(90,10,130,50)
+    canvasbis.create_oval(140,10,180,50)
+    canvasbis.create_oval(190,10,230,50)
+    canvasbis.place(x= 55 , y= 40)
+
+    #creation de la frame qui contient les boutons de couleurs
+    frameb1 = Frame(code_secret, width=400, height=600)
+    frameb1.place(x= 20, y=145)
+
+    #ouvrir les images
+    img = Image.open('boutonrose.PNG')
+    img1 = Image.open('boutonviolet.PNG')
+    img2 = Image.open('boutonbleuf.PNG')
+    img3 = Image.open('boutonbleuciel.PNG')
+    img4 = Image.open('boutonturquoise.PNG')
+    img5 = Image.open('boutonjeune.PNG')
+    img6 = Image.open('boutonorange1.PNG')
+    img7 = Image.open('boutonrouge.PNG')
+
+    #redimentionner les images
+    taille0= img.resize((35,35))
+    a = ImageTk.PhotoImage(taille0)
+    taille1 = img1.resize((35,35))
+    b = ImageTk.PhotoImage(taille1)
+    taille2 = img2.resize((35,35))
+    c = ImageTk.PhotoImage(taille2)
+    taille3 = img3.resize((35,35))
+    d = ImageTk.PhotoImage(taille3)
+    taille4 = img4.resize((35,35))
+    e = ImageTk.PhotoImage(taille4)
+    taille5 = img5.resize((35,35))
+    f = ImageTk.PhotoImage(taille5)
+    taille6 = img6.resize((35,35))
+    g = ImageTk.PhotoImage(taille6)
+    taille7 = img7.resize((35,35))
+    h = ImageTk.PhotoImage(taille7)
+
+    #création des bouton + ajout des parametre 
+    B0 = Button(frameb1, image=a, command=lambda : get_couleur("rose", code_secret, canvasbis, 'fuchsia'))
+    B1 = Button(frameb1, image=b, command=lambda : get_couleur("violet", code_secret, canvasbis,'blueviolet'))
+    B2 = Button(frameb1, image=c, command=lambda : get_couleur("bleu", code_secret,canvasbis,'blue'))
+    B3 = Button(frameb1, image=d,command=lambda : get_couleur("bleuciel", code_secret,canvasbis, 'deepskyblue'))
+    B4 = Button(frameb1, image=e,command=lambda : get_couleur("turquoise", code_secret, canvasbis,'cyan'))
+    B5 = Button(frameb1, image=f,command=lambda : get_couleur("jaune", code_secret, canvasbis, 'yellow'))
+    B6 = Button(frameb1, image=g,command=lambda : get_couleur("orange", code_secret, canvasbis,'darkorange'))
+    B7 = Button(frameb1, image=h,command=lambda : get_couleur("rouge", code_secret, canvasbis, 'crimson'))
+
+    #placement des bouton
+    B0.grid()
+    B1.grid(row =0, column=1)
+    B2.grid(row =0,column=2)
+    B3.grid(row =0,column=3)
+    B4.grid(row =0,column=4)
+    B5.grid(row =0,column=5)
+    B6.grid(row =0,column=6)
+    B7.grid(row =0,column=7)
+
+    code_secret.mainloop()
+
+def aproposbouton_mode2 () : 
+    """Création de la fonction permettant d'afficher les règles du jeu""" 
+    showinfo ('À propos',
+             message="Bienvenue dans Mastermind.\n\n"
+                     "Ce jeu consiste à trouver un code secret composé de huit couleurs, sachant que "
+                     "chaque couleur peut apparaître plusieurs fois.\n\n"
+                     "Vous devez dans un premier temps choisir le code secret, qu'un autre joueur devra trouver. "
+                     "Celui-ci aura 10 tentatives. A chaque essai, le joueur acquiert l'information suivante : \n\n"
+                     "- le nombre de pions bien placés (pion rouge); c'est à dire qui a la même couleur et la même position que le pions du code secret;\n\n"
+                     "- et le nombre de pions mal placés (pion noir); c'est à dire qu'il a la même couleur qu’un pion du du code secret, mais n'est pas "
+                     "à la bonne position.\n\n"
+                     " De plus chaque pion du code secret peut compter pour au plus un pion mal placé. \n\n"
+                      "Maintenant, à vous de jouer ! ")
 
 def sauvergarderjeu2 () :
     print ("bonjour")
