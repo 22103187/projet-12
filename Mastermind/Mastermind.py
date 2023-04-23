@@ -109,13 +109,13 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
         print(combinaison)
         if bienplace==4:
             print("tu as gagne")
-            Labelvictoire=Label(master_mind, text="Tu as gagné!", font =("helvetica", "12"),bg='green')
-            Labelvictoire.place(x=95, y=250)
+            Labelvictoire=Label(master_mind, text="Bravo, tu as gagné!", font =("helvetica", "12"),fg='green')
+            Labelvictoire.place(x=100, y=250)
         if bienplace!=4:
             nombredetentative+=1
         if nombredetentative==Nombre_tentativesmaximum:
-            Labelcouleur=Label(master_mind, text="Tu as perdue!", font =("helvetica", "12"), bg='red')
-            Labelcouleur.place(x=95, y=250)
+            Labelcouleur=Label(master_mind, text="Tu as perdue :(", font =("helvetica", "12"), fg='red')
+            Labelcouleur.place(x=155, y=250)
             print("tu as perdue")
 
         cpt=0
@@ -180,7 +180,7 @@ def bouton1fonction ():
     gun = grille.place(x = 50, y=75)
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas
     a=(0, 30)
-    b=(400,30)
+    b=(300,30)
     ligne1.create_line(a, b)
     ligne1.place(x = 20, y = 470)#placer le canvas
 
@@ -264,8 +264,8 @@ def aproposbouton_mode1 () :
                      "Le code secret est choisi au hasard au début de la partie, à vous de le trouver"
                      "Vous disposerez pour cela de 10 tentatives. A chaque essai, vous aurez accès aux informations suivante : \n\n"
                      "- le nombre de pions bien placés (pion rouge); c'est à dire qui a la même couleur et la même position que le pions du code secret;\n\n"
-                     "- et le nombre de pions mal placés (pion noir); c'est à dire qu'il a la même couleur qu’un pion du du code secret, mais n'est pas "
-                     "à la bonne position.\n\n"
+                     "- et le nombre de pions mal placés (pion noir); c'est à dire qu'il a la même "
+                     "couleur qu’un pion du du code secret, mais n'est pas à la bonne position.\n\n"
                      " De plus chaque pion du code secret peut compter pour au plus un pion mal placé. \n\n"
                       "Maintenant, à vous de jouer ! ")
 
@@ -1380,7 +1380,8 @@ def aproposbouton () :
                      "Ce jeu consiste à trouver un code secret composé de plusieurs couleurs, sachant que "
                      "chaque couleur peut apparaître plusieurs fois.\n\n"
                      "Vous pouvez configurer le nombre de couleurs différentes, la taille du code secret "
-                     "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
+                     "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.\n\n"
+                     "Maintenant, à vous de jouer ! ")
     
 
 
