@@ -22,6 +22,7 @@ M.place(x = 210, y=40)
 
 
 
+
 CPT=0
 nombredetentative=0
 combinaison_max=4
@@ -139,7 +140,6 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
 
 
 
-
 # Fonction bouton 1
 def bouton1fonction ():  
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on
@@ -149,8 +149,6 @@ def bouton1fonction ():
     master_mind.geometry("450x660")#taille de la fenetre
     master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre
     master_mind.resizable(height=False, width=False)
-    master_mind.title("Master mind mode 1 joueurs")#titre de la fenetre  
-    palette = Label(master_mind, text='palette de couleurs :')
     c = Label(master_mind, text='trouver le code ')
     s = Label(master_mind,text='secret ;)')
 
@@ -245,8 +243,6 @@ def bouton1fonction ():
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
   
-    palette.place(x=170, y=509)
-
 
     master_mind.mainloop()
    
@@ -259,7 +255,9 @@ def sauvegarderjeu () :
 bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouton1fonction)
 bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE
 
-   
+
+
+
 
 
 
@@ -270,8 +268,8 @@ def bouton2fonction () :
     clique sur le bouton du mode 2 joueurs"""  
     global master_mind
     master_mind=Toplevel(racine)
-    master_mind.geometry("460x650")#taille de la fenetre
-    master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre 
+    master_mind.geometry("450x660")#taille de la fenetre
+    master_mind.title("Master mind mode 2 joueurs")#titre de la fenetre
     palette = Label(master_mind, text='palette de couleurs :')
     master_mind.resizable(height=False, width=False)
     c = Label(master_mind, text='trouver le code ')
@@ -393,49 +391,257 @@ def bouton2fonction () :
     B5.grid(row =0,column=5)
     B6.grid(row =0,column=6)
     B7.grid(row =0,column=7)
-
-
-    #Canvas de la grille de jeu 
-    grille = Canvas(master_mind,width=200, height=400, bg= 'ivory')
-    #ligne 1 des cercles pour le plateau de jeux 
+  
+    #Canvas de la grille de jeu
+    grille = Canvas(master_mind,width=145, height=400)
+    #ligne 1 des cercles pour le plateau de jeux
     c1 = grille.create_oval(10,10,40,40)
     c2 = grille.create_oval(45,10,75,40)
     c3= grille.create_oval(80,10,110,40)
     c4 = grille.create_oval(115,10,145,40)
+    #ligne 2 des cercles pour le plateau de jeux
+    c5= grille.create_oval(10,50,40,80)
+    c6 = grille.create_oval(45,50,75,80)
+    c7 = grille.create_oval(80,50,110,80)
+    c8 = grille.create_oval(115,50,145,80)
+    #ligne 3 des cercles pour le plateau de jeux
+    c9= grille.create_oval(10,90,40,120)
+    c10 = grille.create_oval(45,90,75,120)
+    c11 = grille.create_oval(80,90,110,120)
+    c12 = grille.create_oval(115,90,145,120)
+    #ligne 4 des cercles pour le plateau de jeux
+    c13= grille.create_oval(10,130,40,160)
+    c14 = grille.create_oval(45,130,75,160)
+    c15 = grille.create_oval(80,130,110,160)
+    c16 = grille.create_oval(115,130,145,160)
+    #ligne 5 des cercles pour le plateau de jeux
+    c17= grille.create_oval(10,170,40,200)
+    c18 = grille.create_oval(45,170,75,200)
+    c19 = grille.create_oval(80,170,110,200)
+    c20 = grille.create_oval(115,170,145,200)
+    #ligne 6 des cercles pour le plateau de jeux
+    c21 = grille.create_oval(10,210,40,240)
+    c22 = grille.create_oval(45,210,75,240)
+    c23 = grille.create_oval(80,210,110,240)
+    c24 = grille.create_oval(115,210,145,240)
+    #ligne 7 des cercles pour le plateau de jeux
+    c25 = grille.create_oval(10,250,40,280)
+    c26 = grille.create_oval(45,250,75,280)
+    c27 = grille.create_oval(80,250,110,280)
+    c28 = grille.create_oval(115,250,145,280)
+    #ligne 8 des cercles pour le plateau de jeux
+    c29 = grille.create_oval(10,290,40,320)
+    c30 = grille.create_oval(45,290,75,320)
+    c31 = grille.create_oval(80,290,110,320)
+    c32 = grille.create_oval(115,290,145,320)
+    #ligne 9 des cercles pour le plateau de jeux
+    c33 = grille.create_oval(10,330,40,360)
+    c34 = grille.create_oval(45,330,75,360)
+    c35 = grille.create_oval(80,330,110,360)
+    c36 = grille.create_oval(115,330,145,360)
+    #ligne 10 des cercles pour le plateau de jeux
+    c37 = grille.create_oval(10,370,40,400)
+    c38 = grille.create_oval(45,370,75,400)
+    c39 = grille.create_oval(80,370,110,400)
+    c40 = grille.create_oval(115,370,145,400)
+    gun = grille.place(x = 50, y=75)
+    
+    #création 1 des canvas pions bien placé ou non    
+    aide1 = Canvas(master_mind,width=90, height=400)
+    a1 = aide1.create_oval(4,9,20,25)
+    a2 = aide1.create_oval(27,9,43,25)
+    a3 = aide1.create_oval(50,9,65,25)
+    a4 = aide1.create_oval(71,9,87,25)
+    a6 = aide1.create_oval(4,50,20,65)
+    a7 = aide1.create_oval(27,50,43,65)
+    a8 = aide1.create_oval(50,50,65,65)
+    a9 = aide1.create_oval(71,50,87,65)
+    a10 = aide1.create_oval(4,89,20,105)
+    a11 = aide1.create_oval(27,89,43,105)
+    a12 = aide1.create_oval(50,89,65,105)
+    a13 = aide1.create_oval(71,89,87,105)
+    a14 = aide1.create_oval(4,128,20,145)
+    a15 = aide1.create_oval(27,128,43,145)
+    a16 = aide1.create_oval(50,128,65,145)
+    a17 = aide1.create_oval(71,128,87,145)
+    a18 = aide1.create_oval(4,168,20,185)
+    a19 = aide1.create_oval(27,168,43,185)
+    a20 = aide1.create_oval(50,168,65,185)
+    a21 = aide1.create_oval(71,168,87,185)
+    a22 = aide1.create_oval(4,208,20,225)
+    a23 = aide1.create_oval(27,208,43,225)
+    a24 = aide1.create_oval(50,208,65,225)
+    a25 = aide1.create_oval(71,208,87,225)
+    a26 = aide1.create_oval(4,249,20,265)
+    a27 = aide1.create_oval(27,249,43,265)
+    a28 = aide1.create_oval(50,249,65,265)
+    a29 = aide1.create_oval(71,249,87,265)
+    a30 = aide1.create_oval(4,289,20,305)
+    a31 = aide1.create_oval(27,289,43,305)
+    a32 = aide1.create_oval(50,289,65,305)
+    a33 = aide1.create_oval(71,289,87,305)
+    a34 = aide1.create_oval(4,328,20,345)
+    a35 = aide1.create_oval(27,328,43,345)
+    a36 = aide1.create_oval(50,328,65,345)
+    a37 = aide1.create_oval(71,328,87,345)
+    a38 = aide1.create_oval(4,368,20,385)
+    a39 = aide1.create_oval(27,368,43,385)
+    a40 = aide1.create_oval(50,368,65,385)
+    a41 = aide1.create_oval(71,368,87,385)
+    aide1.place(x = 280, y = 83)
+ 
+    master_mind.mainloop()  
 
-    #création du canvas qui va révéler le code secret  
+
+def sauvergarderjeu2 () :
+    print ("bonjour")
+
+
+# Bouton mode 2 joueurs
+bouton2 = tkinter.Button(racine, text = 'mode 2 joueurs', bd = '5', command=bouton2fonction)          # On peut aussi mettre un bg... comme sur les labels
+bouton2.pack(side = 'left', fill='x', expand = True)
+
+
+
+
+
+
+
+# variables combobox 
+nombrepions = ["3", "4", "5", "6"]
+nombrecouleurs = ["4", "5", "6", "7", "8"]
+nombreessai = ["6", "7", "8", "9", "10"]
+
+# Fonction bouton 3
+def bouton3fonction (fonction={}) :
+    """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on 
+    clique sur le bouton du mode préférences"""  
+    global master_mind
+    master_mind=Toplevel(racine)
+    master_mind.geometry("500x800")
+    master_mind.title("Master mind mode préférences")
+    master_mind.resizable(height=False, width=False)
+    c = Label(master_mind, text='trouver le code ')
+    s = Label(master_mind,text='secret ;)') 
+
+    # Création Menu
+    bouton3_menu = Menu(master_mind)               
+    master_mind['menu'] = bouton3_menu
+    main_cascade = Menu(bouton3_menu)
+    bouton3_menu.add_cascade(label='Menu', menu = main_cascade)
+    main_cascade.add_command(label='Préférences', command = preferencebouton)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='À propos', command = aproposbouton)
+    main_cascade.add_separator()
+    main_cascade.add_separator()
+    main_cascade.add_command(label='Ajouter un timer', command = timerbouton)
+    
+    #création de la ligne du bas
+    ligne1=Canvas(master_mind,width=600, height=80) 
+    a=(0, 30)
+    b=(450,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 480)
+
+    #création de la ligne du haut
+    ligne1=Canvas(master_mind,width=400, height=1,bg='black')               
+    a=(0, 30)
+    b=(450,30)
+    ligne1.create_line(a, b)
+    ligne1.place(x = 20, y = 50)
+
+    #création du bouton validé,supprimer et quitter
+    bvalide = Button(master_mind,text = 'Validé', height=1, width=8)
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8)
+    bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
+    bsauvegarder = Button(master_mind,text= 'Sauvegarder', height=1, width=8, command = sauvergarderjeu)
+
+    #placement des boutons validé,supprimer,quiter + label
+    bvalide.place(x = 90, y = 585)
+    bsupprimer.place(x = 190, y = 585)
+    bquitter.place(x = 290, y = 585)
+    bsauvegarder.place(x =190, y=620)
+    c.place(x= 5, y=5)
+    s.place(x=20, y=23) 
+
+    #placer les pions du code secret
     global canvascs
     canvascs = Canvas(master_mind,width = 300, height = 40)
     canvascs.place(x = 100, y= 8)
 
+     #creation de la frame et des boutons de couleurs 
+    frameb = Frame(master_mind, width=400, height=600, borderwidth=2)
+    frameb.place(x= 60, y=535)
+
+    #ouvrir les images 
+    img = Image.open('boutonrose.PNG')
+    img1 = Image.open('boutonviolet.PNG')
+    img2 = Image.open('boutonbleuf.PNG')
+    img3 = Image.open('boutonbleuciel.PNG')
+    img4 = Image.open('boutonturquoise.PNG')
+    img5 = Image.open('boutonjeune.PNG')
+    img6 = Image.open('boutonorange1.PNG')
+    img7 = Image.open('boutonrouge.PNG')
+
+    #redimentionner les images
+    taille0= img.resize((35,35))
+    a = ImageTk.PhotoImage(taille0)
+
+    taille1 = img1.resize((35,35))
+    b = ImageTk.PhotoImage(taille1)
+
+    taille2 = img2.resize((35,35))
+    c = ImageTk.PhotoImage(taille2)
+
+    taille3 = img3.resize((35,35))
+    d = ImageTk.PhotoImage(taille3)
+
+    taille4 = img4.resize((35,35))
+    e = ImageTk.PhotoImage(taille4)
+
+    taille5 = img5.resize((35,35))
+    f = ImageTk.PhotoImage(taille5)
+
+    taille6 = img6.resize((35,35))
+    g = ImageTk.PhotoImage(taille6)
+
+    taille7 = img7.resize((35,35))
+    h = ImageTk.PhotoImage(taille7)
+
+    #boutons
+    B0 = Button(frameb, image=a)
+    B1 = Button(frameb, image=b)
+    B2 = Button(frameb, image=c)
+    B3 = Button(frameb, image=d)
+    B4 = Button(frameb, image=e)
+    B5 = Button(frameb, image=f)
+    B6 = Button(frameb, image=g)
+    B7 = Button(frameb, image=h)
+
+    #affichage des boutons
+    B0.grid()
+    B1.grid(row =0, column=1)
+    B2.grid(row =0,column=2)
+    B3.grid(row =0,column=3)
+    B4.grid(row =0,column=4)
+    B5.grid(row =0,column=5)
+    B6.grid(row =0,column=6)
+    B7.grid(row =0,column=7)
+
+
     if fonction == {}:                         #fonction prend en paramètre un élément
-        cerclequatre()   
-        ligne10()      
-        nbrcouleur8 ()                 # si le paramètre est vide, ca appaelle donc la fonction de base qui est cercle4
+        appliquerparametres()   # si le paramètre est vide, ca appaelle donc la fonction de base qui est appliquerparametres             
     else:
-        fonction()                          #si pas de paramètres, ca appelle la fonction 
-
-    #Canvas de la grille de jeu 
-    
-    grille = Canvas(master_mind,width=250, height=400)
-    
-    global gun
-    gun = grille.place(x = 50, y=75)
-
-    #Création de la grille des petits cercles
-    global aide1, aide2, aide3, aide4, aide5, aide6, aide7, aide8, aide9, aide10
-    aide1 = Canvas(master_mind,width=180, height=25)
-    aide2 = Canvas(master_mind,width=180, height=25)
-    aide3 = Canvas(master_mind,width=180, height=25)
-    aide4 = Canvas(master_mind,width=180, height=25)
-    aide5 = Canvas(master_mind,width=180, height=25)
-    aide6 = Canvas(master_mind,width=180, height=25)
-    aide7 = Canvas(master_mind, width=180, height=25)
-    aide8 = Canvas(master_mind, width=180, height=25)
-    aide9 = Canvas(master_mind, width=180, height=25)
-    aide10 = Canvas(master_mind, width=180, height=25)
+        fonction()                          #si pas de paramètres, ca appelle la fonction
 
 
+def timerbouton () :
+    pass
+
+
+def sauvergarderjeu () :
+        pass
 
 
 def preferencebouton () :
@@ -444,7 +650,7 @@ def preferencebouton () :
     - le nombre de couleurs
     - le nombre d'essai afin de trouver le code secret""" 
     global preference
-    preference = Toplevel(bouton2)
+    preference = Toplevel(bouton3)
     preference.title ("Préferences")
     preference.geometry ("300x300")
     global listeCombo4, listeCombo5, listeCombo6
@@ -467,9 +673,9 @@ def preferencebouton () :
 def appliquerparametres () :
     """fonction qui va permettre d'appliquer les paramètres choisi sur l'interface graphique en cliquant sur le 
     bouton appliquer"""
-    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox                  
+    if int(listeCombo4.get()) == 3:          # .get c'est pour appeler la valeur qu'on a choisi dans la combobox;il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int                  
         master_mind.destroy()
-        bouton3fonction(cercletrois)            # il faut ensuite mettre la veleur récupéré en nombre entier, d'ou le int
+        bouton3fonction(cercletrois)            
     elif int(listeCombo4.get()) == 4:
         master_mind.destroy()
         bouton3fonction(cerclequatre)
@@ -514,6 +720,7 @@ def appliquerparametres () :
 
 
 def cercletrois():
+    #création du canvas qui va révéler le code secret  
     global cercle1, cercle2, cercle3
     cercle1 = canvascs.create_oval(50,10,80,40)
     cercle2 = canvascs.create_oval(90,10,120,40)
@@ -547,6 +754,11 @@ def cerclehuit():
 
 #ligne 1 des cercles pour le plateau de jeux 
 def ligne1 () :  
+    #Canvas de la grille de jeu 
+    global grille 
+    grille = Canvas(master_mind,width=250, height=400)
+    global gun
+    gun = grille.place(x = 50, y=75)
     if int(listeCombo4.get()) == 3:
         ovalsligne1_pions3 ()
     elif int(listeCombo4.get()) == 4:
@@ -557,6 +769,19 @@ def ligne1 () :
         ovalsligne1_pions6 () 
 
 def ovalsligne1_pions3 () :
+    cercletrois()
+    #Création de la grille des petits cercles
+    global aide1, aide2, aide3, aide4, aide5, aide6, aide7, aide8, aide9, aide10
+    aide1 = Canvas(master_mind,width=180, height=25)
+    aide2 = Canvas(master_mind,width=180, height=25)
+    aide3 = Canvas(master_mind,width=180, height=25)
+    aide4 = Canvas(master_mind,width=180, height=25)
+    aide5 = Canvas(master_mind,width=180, height=25)
+    aide6 = Canvas(master_mind,width=180, height=25)
+    aide7 = Canvas(master_mind, width=180, height=25)
+    aide8 = Canvas(master_mind, width=180, height=25)
+    aide9 = Canvas(master_mind, width=180, height=25)
+    aide10 = Canvas(master_mind, width=180, height=25)
     global c1, c2, c3, a1, a2, a3
     c1 = grille.create_oval(10,10,40,40)
     c2 = grille.create_oval(45,10,75,40)
@@ -568,18 +793,21 @@ def ovalsligne1_pions3 () :
     aide1.place(x = 280, y = 83)
 
 def ovalsligne1_pions4 () :
+    cerclequatre()
     ovalsligne1_pions3 ()
     global c4, a4
     c4 = grille.create_oval(115,10,145,40)
     a4 = aide1.create_oval(71,9,87,25)
     
 def ovalsligne1_pions5 () :
+    cerclecinq()
     ovalsligne1_pions4 ()
     global c5, a5
     c5 = grille.create_oval(150,10,180,40)
     a5 = aide1.create_oval(92,9,108,25)
 
 def ovalsligne1_pions6 () :
+    cerclesix()
     ovalsligne1_pions5 () 
     global c6, a6
     c6 = grille.create_oval(185,10,215,40)
@@ -603,7 +831,6 @@ def ovalsligne2_pions3 () :
     c1b = grille.create_oval(10,50,40,80)
     c2b = grille.create_oval(45,50,75,80)
     c3b = grille.create_oval(80,50,110,80)
-    #création 1 des canvas pions bien placé ou non 
     a1b = aide2.create_oval(4,9,20,25)
     a2b = aide2.create_oval(27,9,43,25)
     a3b = aide2.create_oval(50,9,65,25)
@@ -645,7 +872,6 @@ def ovalsligne3_pions3 () :
     c1c= grille.create_oval(10,90,40,120)
     c2c = grille.create_oval(45,90,75,120)
     c3c = grille.create_oval(80,90,110,120)
-    #création 3 des canvas pions bien placé ou non  
     a1c = aide3.create_oval(4,9,20,25)
     a2c = aide3.create_oval(27,9,43,25)
     a3c = aide3.create_oval(50,9,66,25)
@@ -687,7 +913,6 @@ def ovalsligne4_pions3 () :
     c1d= grille.create_oval(10,130,40,160)
     c2d = grille.create_oval(45,130,75,160)
     c3d = grille.create_oval(80,130,110,160)
-    #création 3 des canvas pions bien placé ou non  
     a1d = aide4.create_oval(4,9,20,25)
     a2d = aide4.create_oval(27,9,43,25)
     a3d = aide4.create_oval(50,9,65,25)
@@ -729,7 +954,6 @@ def ovalsligne5_pions3 () :
     c1e= grille.create_oval(10,170,40,200)
     c2e = grille.create_oval(45,170,75,200)
     c3e = grille.create_oval(80,170,110,200)
-    #création 3 des canvas pions bien placé ou non  
     a1e = aide5.create_oval(4,9,20,25)
     a2e = aide5.create_oval(27,9,43,25)
     a3e = aide5.create_oval(50,9,65,25)
@@ -753,6 +977,7 @@ def ovalsligne5_pions6 () :
     c6e = grille.create_oval(185,170,215,200)
     a6e = aide5.create_oval(113,9,129,25)
 
+
 #ligne 6 des cercles pour le plateau de jeux 
 def ligne6 () :
     ligne5 ()
@@ -770,7 +995,6 @@ def ovalsligne6_pions3 () :
     c1f = grille.create_oval(10,210,40,240)
     c2f = grille.create_oval(45,210,75,240)
     c3f = grille.create_oval(80,210,110,240)
-    #création 3 des canvas pions bien placé ou non  
     a1f = aide6.create_oval(4,9,20,25)
     a2f = aide6.create_oval(27,9,43,25)
     a3f = aide6.create_oval(50,9,65,25)
@@ -812,7 +1036,6 @@ def ovalsligne7_pions3 () :
     c1g = grille.create_oval(10,250,40,280)
     c2g = grille.create_oval(45,250,75,280)
     c3g = grille.create_oval(80,250,110,280)
-    #création 3 des canvas pions bien placé ou non  
     a1g = aide7.create_oval(4,9,20,25)
     a2g = aide7.create_oval(27,9,43,25)
     a3g = aide7.create_oval(50,9,65,25)
@@ -836,6 +1059,7 @@ def ovalsligne7_pions6 () :
     c6g = grille.create_oval(185,250,215,280)
     a6g = aide7.create_oval(113,9,129,25)
 
+
 #ligne 8 des cercles pour le plateau de jeux
 def ligne8 () :
     ligne7 ()
@@ -853,7 +1077,6 @@ def ovalsligne8_pions3 () :
     c1h = grille.create_oval(10,290,40,320)
     c2h = grille.create_oval(45,290,75,320)
     c3h = grille.create_oval(80,290,110,320)
-    #création 3 des canvas pions bien placé ou non  
     a1h = aide8.create_oval(4,9,20,25)
     a2h = aide8.create_oval(27,9,43,25)
     a3h = aide8.create_oval(50,9,65,25)
@@ -895,7 +1118,6 @@ def ovalsligne9_pions3 () :
     c1i = grille.create_oval(10,330,40,360)
     c2i = grille.create_oval(45,330,75,360)
     c3i = grille.create_oval(80,330,110,360)
-    #création 3 des canvas pions bien placé ou non  
     a1i = aide9.create_oval(4,9,20,25)
     a2i = aide9.create_oval(27,9,43,25)
     a3i = aide9.create_oval(50,9,65,25)
@@ -937,7 +1159,6 @@ def ovalsligne10_pions3 () :
     c1j = grille.create_oval(10,370,40,400)
     c2j = grille.create_oval(45,370,75,400)
     c3j = grille.create_oval(80,370,110,400)
-    #création 3 des canvas pions bien placé ou non  
     a1j = aide10.create_oval(4,9,20,25)
     a2j = aide10.create_oval(27,9,43,25)
     a3j = aide10.create_oval(50,9,65,25)
@@ -963,9 +1184,9 @@ def ovalsligne10_pions6 () :
 
 
 def nbrcouleur4 () :
-        #creation de la frame et des boutons de couleurs 
+    #creation de la frame et des boutons de couleurs 
     global frameb1
-    frameb1 = Frame(master_mind, width=400, height=600, borderwidth=2)
+    frameb1 = Frame(master_mind, width=0, height=200, borderwidth=1)
     frameb1.place(x= 60, y=535)
         #ouvrir les images 
     img2 = Image.open('boutonbleuf.PNG')
@@ -982,6 +1203,7 @@ def nbrcouleur4 () :
     taille5 = img5.resize((35,35))
     f = ImageTk.PhotoImage(taille5)
         #boutons
+    global B2, B3, B4, B5
     B2 = Button(frameb1, image=c)
     B3 = Button(frameb1, image=d)
     B4 = Button(frameb1, image=e)
@@ -1036,21 +1258,9 @@ def aproposbouton () :
                      "et le nombre de tentatives que vous pouvez effectuer dans le menu Préférences.")
     
 
-def timerbouton () :
-    start = time.time()
-    
-    end = time.time()
-    print(format(end-start))    
-    
-
-def sauvergarderjeu () :
-    print ("bonjour")
-
 
 # Bouton mode préférences 
 bouton3 = tkinter.Button(racine, text = 'mode préférences', bd = '5', command=bouton3fonction)          # On peut aussi mettre un bg... comme sur les labels
 bouton3.pack(side = 'left', fill='x', expand = True)
 
-
-
-racine.mainloop()      # pour que le fenetre reste ouverte, boucle infinie
+racine.mainloop()
