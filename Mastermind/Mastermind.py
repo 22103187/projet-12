@@ -271,6 +271,7 @@ def aproposbouton_mode1 () :
 
 
 def sauvegarderjeu () :
+    """fonction permettant de sauvegarder la partie joué """
     print ("bonjour")
 
  
@@ -527,6 +528,7 @@ def bouton2fonction () :
 
 
 def codesecret() :
+    """Création de la fenetre permettant de choisir le code secret"""
     #création de la fenetre, taille et titre 
     code_secret = Tk()
     code_secret.geometry("400x250")
@@ -618,7 +620,9 @@ def aproposbouton_mode2 () :
                      " De plus chaque pion du code secret peut compter pour au plus un pion mal placé. \n\n"
                       "Maintenant, à vous de jouer ! ")
 
+
 def sauvergarderjeu2 () :
+    """fonction permettant de sauvegarder la partie"""
     print ("bonjour")
 
 
@@ -810,12 +814,6 @@ def appliquerparametres () :
     elif int(listeCombo4.get()) == 6:
         master_mind.destroy()
         bouton3fonction(cerclesix)
-    elif int(listeCombo4.get()) == 7:
-        master_mind.destroy()
-        bouton3fonction(cerclesept)
-    elif int(listeCombo4.get()) == 8:
-        master_mind.destroy()
-        bouton3fonction(cerclehuit)
     if int(listeCombo5.get()) == 4 :
         master_mind.destroy()
         bouton3fonction (nbrcouleur4)
@@ -845,6 +843,7 @@ def appliquerparametres () :
 
 
 def cercletrois():
+    """fonction appellée lorsqu'on choisi un nombre de pion égal à 3 dans les paramètres"""
     #création du canvas qui va révéler le code secret  
     global cercle1, cercle2, cercle3
     cercle1 = canvascs.create_oval(50,10,80,40)
@@ -852,33 +851,28 @@ def cercletrois():
     cercle3 = canvascs.create_oval(130,10,160,40)
 
 def cerclequatre():
+    """fonction appellée lorsqu'on choisi un nombre de pion égal à 4 dans les paramètres"""
     cercletrois()
     global cercle4
     cercle4 = canvascs.create_oval(170,10,200,40)
 
 def cerclecinq():
+    """fonction appellée lorsqu'on choisi un nombre de pion égal à 5 dans les paramètres"""
     cerclequatre()
     global cercle5
     cercle5 = canvascs.create_oval (210, 10, 240, 40)
 
 def cerclesix():
+    """fonction appellée lorsqu'on choisi un nombre de pion égal à 6 dans les paramètres"""
     cerclecinq()
     global cercle6
     cercle6 = canvascs.create_oval (10, 10, 40, 40)
 
-def cerclesept():
-    cerclesix()
-    global cercle7
-    cercle7 = canvascs.create_oval (240, 10, 270, 40)
-
-def cerclehuit():
-    cerclesept()
-    global cercle8
-    cercle8 = canvascs.create_oval (270, 10, 300, 40)
 
 
 #ligne 1 des cercles pour le plateau de jeux 
 def ligne1 () :  
+    """fonction appellée qui place le même nombre de pions (essai et pions rouges et noirs) sur la ligne 1 que le nombre de pions du code secret"""
     #Canvas de la grille de jeu 
     global grille 
     grille = Canvas(master_mind,width=250, height=400)
@@ -894,6 +888,8 @@ def ligne1 () :
         ovalsligne1_pions6 () 
 
 def ovalsligne1_pions3 () :
+    """fonction appellée pour que le nombre de pions de la ligne 1 soit égal à 3, qui est le nombre de pions du code secret
+    appelle la fonction cercletrois pour que tous les cercles soient sur la même page"""
     cercletrois()
     #Création de la grille des petits cercles
     global aide1, aide2, aide3, aide4, aide5, aide6, aide7, aide8, aide9, aide10
@@ -918,6 +914,9 @@ def ovalsligne1_pions3 () :
     aide1.place(x = 280, y = 83)
 
 def ovalsligne1_pions4 () :
+    """fonction appellée pour que le nombre de pions de la ligne 1 soit égal à 4, qui est le nombre de pions du code secret
+    appelle la fonction cerclequatre pour que les pions du code secret et des essais soient sur la même page
+    appelle la fonction ovalsligne1_pions3 parce que les trois premiers cercles sont crées dans cette fonction"""
     cerclequatre()
     ovalsligne1_pions3 ()
     global c4, a4
@@ -1309,6 +1308,8 @@ def ovalsligne10_pions6 () :
 
 
 def nbrcouleur4 () :
+    """fonction qui permet d'avoir seulement 4 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
+    est égal à 4"""
     #creation de la frame et des boutons de couleurs 
     global frameb1
     frameb1 = Frame(master_mind, width=0, height=200, borderwidth=1)
@@ -1340,6 +1341,9 @@ def nbrcouleur4 () :
     B5.grid(row =0,column=5)
 
 def nbrcouleur5 () :
+    """fonction qui permet d'avoir 5 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
+    est égal à 5
+    appelle la fonction nbrcouleur4 car les 4 premières couleurs sont déjà placés dans cette fonction"""
     nbrcouleur4 ()
     img6 = Image.open('boutonorange1.PNG')
     taille6 = img6.resize((35,35))
