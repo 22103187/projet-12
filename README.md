@@ -115,6 +115,7 @@ def appliquerparametres2 (master_mind) :
 
 
 Notre code : 
+ajouter "cd Mastermind" dans le terminal pour appeller les boutons  
 - création fenetre racine 
     * titre, taille, background...
     * ajout de labels 
@@ -223,3 +224,7 @@ Notre code :
  Note : nous n'avons réussi à régler le problème des boutons. En effet, cela ne s'affichent pas malgré nos tentatives. Une fois ce problème réglé nous aurions relier ce mode à un code ressemblant au code de jeu du mode 1 joueur. 
 
 * racine.mainloop()
+
+
+Sources : 
+cours 
