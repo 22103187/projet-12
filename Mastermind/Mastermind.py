@@ -1,7 +1,5 @@
-
- 
-
 import random
+import pickle
 from tkinter import CENTER, RIGHT, Frame, Label, Menu, Tk, Toplevel, ttk, Canvas, Button
 import tkinter
 from tkinter.messagebox import showinfo
