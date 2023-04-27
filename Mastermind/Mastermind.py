@@ -686,12 +686,12 @@ def sauvegarderjeu2 () :
     sauvegarder = "partie.mastermind"
     import pickle 
     with open (sauvegarder, "wb") as f :
-        pickle.dump(L, f)
+        pickle.dump(L1, f)
 
 def recharger_partie2 () :
     with open (sauvegarder, "rb") as f :
-        L = pickle.load(f)
-    print (L)
+        L1 = pickle.load(f)
+    print (L1)
 
 
 def aproposbouton_mode2 () : 
