@@ -35,7 +35,7 @@ def creer_combinaison_secrete():
     
     combinaison_secrete=[]
     for i in range(0,combinaison_max):
-        couleurs=["rose","bleu","jaune","orange","turquoise", "violet","bleuciel","rouge"]
+        couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuciel","rouge"]
         index=random.randint(0,len(couleurs)-1)
         combinaison_secrete.append(couleurs[index])
     return combinaison_secrete
@@ -368,7 +368,7 @@ def recharger_partie () :
  
 # Bouton mode 1 joueur
 bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouton1fonction)
-bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE
+bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton  
 
 
 
@@ -1399,67 +1399,69 @@ def ovalsligne10_pions6 () :
 
 
 def nbrcouleur4 () :
+    """fonction qui permet d'avoir seulement 4 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
+    est égal à 4"""
     #creation de la frame et des boutons de couleurs 
-    global frameb1
-    frameb1 = Frame(master_mind, width=0, height=200, borderwidth=1)
-    frameb1.place(x= 60, y=535)
+    global frameb3
+    frameb3 = Frame(master_mind, width=0, height=200, borderwidth=1)
+    frameb3.place(x= 60, y=535)
         #ouvrir les images 
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
+    img30 = Image.open('a3.png')
+    img31 = Image.open('a7.png')
+    img32 = Image.open('a2.png')
+    img33 = Image.open('a1.png')
         #redimentionner les images
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
+    taille30 = img30.resize((35,35))
+    z7 = ImageTk.PhotoImage(taille30)
+    taille31 = img31.resize((35,35))
+    z8 = ImageTk.PhotoImage(taille31)
+    taille32 = img32.resize((35,35))
+    z9 = ImageTk.PhotoImage(taille32)
+    taille33 = img33.resize((35,35))
+    z10 = ImageTk.PhotoImage(taille33)
         #boutons
-    global B2, B3, B4, B5
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
+    global B30, B31, B32, B33
+    B30 = Button(frameb3, image=z7)
+    B31 = Button(frameb3, image=z8)
+    B32 = Button(frameb3, image=z9)
+    B33 = Button(frameb3, image=z10)
         # affichage des boutons
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
+    B30.grid(row =0,column=2)
+    B31.grid(row =0,column=3)
+    B32.grid(row =0,column=4)
+    B33.grid(row =0,column=5)
 
 def nbrcouleur5 () :
     nbrcouleur4 ()
-    img6 = Image.open('boutonorange1.PNG')
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
-    B6 = Button(frameb1, image=g)
-    B6.grid(row =0,column=6)
+    img34 = Image.open('a8.png')
+    taille34 = img34.resize((35,35))
+    z11 = ImageTk.PhotoImage(taille34)
+    B34 = Button(frameb3, image=z11)
+    B34.grid(row =0,column=6)
 
 def nbrcouleur6 () :
     nbrcouleur5 ()
-    img1 = Image.open('boutonviolet.PNG')
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
-    B1 = Button(frameb1, image=b)
-    B1.grid(row =0, column=1)
+    img35 = Image.open('a5.png')
+    taille35 = img35.resize((35,35))
+    z12 = ImageTk.PhotoImage(taille35)
+    B35 = Button(frameb3, image=z12)
+    B35.grid(row =0, column=1)
 
 def nbrcouleur7 () :
     nbrcouleur6 ()
-    img7 = Image.open('boutonrouge.PNG')
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
-    B7 = Button(frameb1, image=h)
-    B7.grid(row =0,column=7)
+    img36 = Image.open('a4.png')
+    taille36 = img36.resize((35,35))
+    z13 = ImageTk.PhotoImage(taille36)
+    B36 = Button(frameb3, image=z13)
+    B36.grid(row =0,column=7)
 
 def nbrcouleur8 () :
     nbrcouleur7 ()
-    img = Image.open('boutonrose.PNG')
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
-    B0 = Button(frameb1, image=a)
-    B0.grid()
+    img37 = Image.open('a6.png')
+    taille37= img37.resize((35,35))
+    z14 = ImageTk.PhotoImage(taille37)
+    B37 = Button(frameb3, image=z14)
+    B37.grid()
 
 
 
@@ -1475,7 +1477,7 @@ def aproposbouton () :
 
 
 # Bouton mode préférences 
-bouton3 = tkinter.Button(racine, text = 'mode préférences', bd = '5', command=bouton3fonction)          # On peut aussi mettre un bg... comme sur les labels
+bouton3 = tkinter.Button(racine, text = 'mode préférences', bd = '5', command=bouton3fonction) 
 bouton3.pack(side = 'left', fill='x', expand = True)
 
 racine.mainloop()
