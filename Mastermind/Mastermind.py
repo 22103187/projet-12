@@ -118,15 +118,56 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
         print(malplace)
         print(combinaison)
         if bienplace==4:
-            print("tu as gagne")
-            Labelvictoire=Label(master_mind, text="Bravo, tu as gagné!", font =("helvetica", "12"),fg='green')
-            Labelvictoire.place(x=100, y=250)
+            win=Toplevel(master_mind)
+            win.geometry("340x120")
+            win.title("Vous avez gagner : )")
+
+            bravo1 = Label(win,text='Bravo !!!!!',font =("helvetica", "20"))
+            bravo1.place(x= 120, y=40)
+
+            confettis1 = Image.open('Confettis.png')
+
+            taille100 = confettis1.resize((100,100))
+            e34 = ImageTk.PhotoImage(taille100)
+
+            lab = Label(win,image=e34)
+            lab.place(x = 10, y = 10)
+
+            confettis2 = Image.open('Confettis2.PNG')
+
+            taille101 = confettis2.resize((100,100))
+            e35 = ImageTk.PhotoImage(taille101)
+
+            lab2 = Label(win,image=e35)
+            lab2.place(x = 220, y = 10)
+
+            win.mainloop()
         if bienplace!=4:
             nombredetentative+=1
         if nombredetentative==Nombre_tentativesmaximum:
-            Labelcouleur=Label(master_mind, text="Tu as perdue :(", font =("helvetica", "12"), fg='red')
-            Labelcouleur.place(x=155, y=250)
-            print("tu as perdue")
+            #création de la fenetre, taille et titre 
+            lost=Toplevel(master_mind)
+            lost.geometry("300x100")
+            lost.title("Vous avez perdu : (")
+
+            #création de label + positionnement 
+            revelation_code_secret = Label(lost,text='Le code secret était : ')
+            revelation_code_secret.place(x= 90, y=10)
+
+            #création du canvas et des cercles qui révèle le code secret 
+            cperdu = Canvas(lost,width=245, height=50)
+
+            cperdu .create_oval(40,10,80,50)
+
+            cperdu.create_oval(90,10,130,50)
+
+            cperdu.create_oval(140,10,180,50)
+
+            cperdu.create_oval(190,10,230,50)
+
+            cperdu.place(x= 15 , y= 40)
+
+            lost.mainloop()
 
         cpt=0
         while bienplace>0:
