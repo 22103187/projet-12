@@ -258,15 +258,17 @@ def bouton1fonction ():
 
     #création du bouton validé, supprimer et quitter
     bvalide = Button(master_mind,text = 'Validé', height=1, width=8, command=lambda: fonctionvalider(aide1,Nombre_tentativesmaximum))
-    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8, command=lambda: supprimer(master_mind, grille,'lavender'))
+    bsupprimer = Button(master_mind,text = 'Supprimer',height=1, width=8, command=supprimer)
     bquitter = Button(master_mind,text = 'Quitter',height=1, width=8,command=master_mind.destroy)
-    bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=8, command = sauvegarderjeu)
+    bsauvegarder = Button(master_mind,text = 'Sauvegarder', height=1, width=9, command = sauvegarderjeu)
+    bchargerpartie = Button (master_mind, text = 'ancienne partie', height = 1, width=15, command = recharger_partie)
 
     #placement des boutons validé,supprimer,quitter et le label code
     bvalide.place(x = 175, y = 585)
     bsupprimer.place(x =50, y = 585)
     bquitter.place(x = 300, y = 585)
-    bsauvegarder.place(x =175, y=620)
+    bsauvegarder.place(x =45, y=620)
+    bchargerpartie.place (x=280, y=620)
     c.place(x= 5, y=5)
     s.place(x=20, y=23)
 
@@ -368,7 +370,17 @@ def aproposbouton_mode1 () :
 
 
 def sauvegarderjeu () :
-    print ("bonjour")
+    """fonction permettant de sauvegarder la partie joué """
+    global sauvegarder
+    sauvegarder = "partie.mastermind"
+    import pickle 
+    with open (sauvegarder, "wb") as f :
+        pickle.dump(L, f)
+
+def recharger_partie () :
+    with open (sauvegarder, "rb") as f :
+        L = pickle.load(f)
+    print (L)
 
  
 # Bouton mode 1 joueur
