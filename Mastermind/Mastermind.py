@@ -49,11 +49,11 @@ def creer_combinaison_secrete():
     
     combinaison_secrete=[]
     for i in range(0,combinaison_max):
-<<<<<<< HEAD
+
         couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuclair","rouge"]
-=======
+
         couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuciel","rouge"]
->>>>>>> d17141df7b4d15609d6a984e2120b7be993a3706
+
         index=random.randint(0,len(couleurs)-1)
         combinaison_secrete.append(couleurs[index])
     return combinaison_secrete
@@ -169,9 +169,24 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
         if bienplace!=4:
             nombredetentative+=1
         if nombredetentative==Nombre_tentativesmaximum:
-            Labelcouleur=Label(master_mind, text="Tu as perdue!", font =("helvetica", "18"),height = 1,width = 12, bg='red')
-            Labelcouleur.place(x=95, y=20)
-            print("tu as perdue")
+            #création de la fenetre, taille et titre 
+            lost=Toplevel(master_mind)
+            lost.geometry("300x100")
+            lost.title("Vous avez perdu : (")
+
+            #création de label + positionnement 
+            perdu1 = Label(lost,text='Perdu !!!!',font =("helvetica", "25"))
+            perdu1.place(x= 50, y=40)
+
+            perdu2 = Image.open('pleure.png')
+
+            taille103 = perdu2.resize((100,100))
+            e37 = ImageTk.PhotoImage(taille103)
+
+            labp = Label(lost,image=e37)
+            labp.place(x = 170, y = 0)
+
+            lost.mainloop()
         cpt=0
         while bienplace>0:
             canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
@@ -222,9 +237,24 @@ def fonctionvalider2(canvas,Nombre_tentativesmaximum):
         if bienplace!=4:
             nombredetentative+=1
         if nombredetentative==Nombre_tentativesmaximum:
-            Labelcouleur=Label(master_mind, text="Tu as perdue!", font =("helvetica", "18"),height = 1,width = 12, bg='red')
-            Labelcouleur.place(x=95, y=20)
-            print("tu as perdue")
+             #création de la fenetre, taille et titre 
+            lost=Toplevel(master_mind)
+            lost.geometry("300x100")
+            lost.title("Vous avez perdu : (")
+
+            #création de label + positionnement 
+            perdu1 = Label(lost,text='Perdu !!!!',font =("helvetica", "25"))
+            perdu1.place(x= 50, y=40)
+
+            perdu2 = Image.open('pleure.png')
+
+            taille103 = perdu2.resize((100,100))
+            e37 = ImageTk.PhotoImage(taille103)
+
+            labp = Label(lost,image=e37)
+            labp.place(x = 170, y = 0)
+
+            lost.mainloop()
         cpt=0
         while bienplace>0:
             canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
@@ -1420,7 +1450,7 @@ def nbrcouleur4 () :
     """fonction qui permet d'avoir seulement 4 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
     est égal à 4"""
     #creation de la frame et des boutons de couleurs 
-<<<<<<< HEAD
+
     
     frameb20 = Frame(master_mind, width=0, height=200, borderwidth=1)
     frameb20.place(x= 60, y=535)
@@ -1440,7 +1470,7 @@ def nbrcouleur4 () :
     taille32 = img32.resize((35,35))
     z9 = ImageTk.PhotoImage(taille32)
 
-=======
+
     global frameb3
     frameb3 = Frame(master_mind, width=0, height=200, borderwidth=1)
     frameb3.place(x= 60, y=535)
@@ -1456,31 +1486,28 @@ def nbrcouleur4 () :
     z8 = ImageTk.PhotoImage(taille31)
     taille32 = img32.resize((35,35))
     z9 = ImageTk.PhotoImage(taille32)
->>>>>>> d17141df7b4d15609d6a984e2120b7be993a3706
+
     taille33 = img33.resize((35,35))
     z10 = ImageTk.PhotoImage(taille33)
         #boutons
     global B30, B31, B32, B33
-<<<<<<< HEAD
+
     B30 = Button(frameb20, image=z7)
     B31 = Button(frameb20, image=z8)
     B32 = Button(frameb20, image=z9)
     B33 = Button(frameb20, image=z10)
-=======
+
     B30 = Button(frameb3, image=z7)
     B31 = Button(frameb3, image=z8)
     B32 = Button(frameb3, image=z9)
     B33 = Button(frameb3, image=z10)
->>>>>>> d17141df7b4d15609d6a984e2120b7be993a3706
+
         # affichage des boutons
     B30.grid(row =0,column=2)
     B31.grid(row =0,column=3)
     B32.grid(row =0,column=4)
     B33.grid(row =0,column=5)
-<<<<<<< HEAD
-    
-=======
->>>>>>> d17141df7b4d15609d6a984e2120b7be993a3706
+
 
 def nbrcouleur5 () :
     nbrcouleur4 ()
