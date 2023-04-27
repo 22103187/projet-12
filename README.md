@@ -11,6 +11,7 @@ Faradna Alissar
 
 https://github.com/uvsq22200131/Master-mind_12-main.git
 
+info supplémentaire : tout le monde n'a pas réussi à commit 
 
 
 Répartition des tâches :
