@@ -54,9 +54,9 @@ Pour aller plus loin :
 
 Répartition des tâches :
 Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie, fonction pour revenir en arrière
-Jessica -->   création des interphases graphiques 
-Firdos -->       code de jeu mode 1 joueur
-Alisar -->       code de jeu mode 2 joueur
+Jessica -->   création du plateau de jeu et des pions 
+Firdos -->      début du code de jeu mode 1 joueur
+Alisar -->      début code de jeu mode 2 joueur
 
 
 
@@ -64,10 +64,11 @@ Alisar -->       code de jeu mode 2 joueur
 
 Nina :
 - création de la fenètre racine
-- création de 2 boutons sur celle-ci pour accéder au mode 1 et 2 joueurs 
+- création de 3 boutons sur celle-ci pour accéder au mode 1 et 2 joueurs et au mode préférence
 - création des fonction spermettant d'afficher le plateu de jeu lorsqu'on clique sur un des boutons des modes de jeu
 - création du menu de jeu contenant les règles du jeu dans "à propos", les paramètres de jeu mofifiables selon nos envies dans "préférences", et enfin l'ajout d'un timer qui permettra de savoir en combien de temps le code secret a été trouver 
 "préférence", "ajouter un timer" et "à propos" renvoient chacun à une fonction
+Le mode 1 et 2 joueurs ne contiennet que "à propos" et "ajouter un timer" dans le menu
 pour la fonction préférénce ("preferencebouton1 (ou 2)) : Cette fonction permet de choisir le nombre de pions souhaité (= taille du code secret), le nombre de couleurs disponibles et le nombre d'essais possibles pour trouver le code secret. De plus, le bouton "appliquer" est crée qui renvoie à une fonction permettant d'appliquer tous ses paramètres : "appliquerparametres1 (ou 2)". 
 La fonction "appliquerparamètres" renvoie à d'autres fonctions, selon les valeurs de paramètres choisis. 
 Les valeurs des combobox ont du être appeler grace à .get, puis transformées en nombre entier grace à "int" afin d'être utilisables. 
@@ -76,30 +77,131 @@ essai précédent :
 def appliquerparametres2 (master_mind) :
     if labelpreference4 == 3 :
         canvascs.delete(cercle4) 
-    if labelpreference4 == 5 :
+    elif labelpreference4 == 5 :
         cercle5 = canvascs.create_oval (210, 10, 240, 40)
-    if labelpreference4 == 6 :
+    elif labelpreference4 == 6 :
         cercle5 = canvascs.create_oval (210, 10, 240, 40)
         cercle6 = canvascs.create_oval (10, 10, 40, 40)
-    if labelpreference4 == 7 :
+    elif labelpreference4 == 7 :
         cercle5 = canvascs.create_oval (210, 10, 240, 40)
         cercle6 = canvascs.create_oval (10, 10, 40, 40)
         cercle7 = canvascs.create_oval (240, 10, 270, 40)
-    if labelpreference4 == 8 :
+    elif labelpreference4 == 8 :
         cercle5 = canvascs.create_oval (210, 10, 240, 40)
         cercle6 = canvascs.create_oval (10, 10, 40, 40)
         cercle7 = canvascs.create_oval (240, 10, 270, 40)
         cercle8 = canvascs.create_oval (280, 10, 300, 40)
+    .... pareil pour les autres Combobox
 
-- création du timer
-
-
-
-
+- création du timer ---- plusieurs tentatives, mais pas eu le temps de finir 
+- création du bouton permettant la sauvegarde de la partie ---- pas aboutit
 
 
+Notre code : 
+- création fenetre racine 
+    * titre, taille, background...
+    * ajout de labels 
+    * ajout de trois boutons : 1 bouton pour chacun des modes 
+- code du mode 1 joueur et 2 joueurs 
+    * def cree_combinaison_secrete pour le mode 1 joueur 
+    * def get_couleur 
+    * def get_couleur2
+    * def comparer_combinaison
+    * def fonction_valider
 
-A faire :
-Ajouter docstring pour fonctions
-demander à jessica pour que "choisir le code secret" passe au dessu du canva
-voir pour espacer cercle 6, 7, 8
+- création mode 1 joueur 
+    * def bouton1fonction 
+            ° création de la fenetre
+            ° création du menu : "à propos" et "timer" (non fonctionnel)
+            ° bontons validé/supprimer/quitter
+            ° création ligne du bas/ du haut pour le plateau de jeu 
+            ° création canva qui va révéler le code secret
+            ° création frame te boutons de couleurs (ouvrir les images, les redimmensionner...)
+            ° mainloop
+    * def aproposbouton_mode1
+    * def sauvegarderjeu
+    * def timer
+    * création bouton1
+
+- création mode 2 joueur 
+    * def bouton2fonction 
+            ° création de la fenetre
+            ° création du menu : "à propos" et "timer" (non fonctionnel)
+            ° bontons validé/supprimer/quitter
+            ° création ligne du bas/ du haut pour le plateau de jeu 
+            ° création canva qui va révéler le code secret
+            ° création frame te boutons de couleurs (ouvrir les images, les redimmensionner...)
+            ° canva de la grille de jeu
+            ° création des pions rouges et noirs
+            ° appelle def code_secret   = fonction pour choisir le code secret
+            ° mainloop
+    * def code_secret
+        ° création fenetre 
+        ° labels et placement des labels
+        ° bouton valider
+        ° création canvas cercles (4)
+        ° ouvrir + redimenssionner les images 
+        ° mainloop
+    * def aproposbouton_mode2
+    * def sauvegarderjeu
+    * def timer
+    * bouton mode 2 joueur
+
+- création du mode préférence 
+    * variables paramètres 
+    * def bouton3fonction (fonction{})
+            ° création de la fenetre
+            ° création du menu : "à propos" et "timer" (non fonctionnel), "préférences
+            ° bontons validé/supprimer/quitter
+            ° création ligne du bas/ du haut pour le plateau de jeu 
+            ° création canva qui va révéler le code secret
+            ° création frame te boutons de couleurs (ouvrir les images, les redimmensionner...)
+            ° if fonction == {}
+                    appliquer_parametres ()
+              else : 
+                    fonction ()
+            ° mainloop
+    * def timer 
+    * def sauvegarder
+    * def preferencebouton
+        ° création fenetre pour choisir les préférences 
+        ° création de 3 combobox : choix du nombre de pions = taille du code secret, choix du nombre de couleur à disposition, choix du nombre d'essai possible 
+        ° création bouton appliquer qui appelle la fonction appliquerparametres
+    * def appliquerparametres = renvoie à une fonction différente selon les paramètres qu'on choisi
+        1- choix nombre de pions : if/else + master_mind.destroy()
+                    récupération de la valeur choisie dans la combobox associée
+                    Exemple : si le nombre de pions choisi est 3, cela renvoie à la fonction cercletrois
+                    si le nombre de pions choisi est 4,cela rencoie à la fonction cerquatre (qui crée un quatrième cercle) qui elle même renvoie à la fonction cercletrois (ou les 3 premiers cercles on déjà été crées)
+        2- choix couleur : if/else + master_mind.destroy()
+                    récupération de la valeur choisie dans la combobox associée 
+                    Exemple : si le nombre de couleur choisi est 4, cela renvoie à la fonction nbrcouleur4
+                    si le nombre de couleur choisi est 5, cela renvoie à la fonction nbrcouleur5 (ou une quatrième couleur est ajouté) qui elle même renvoie à la fonction nbrcouleur4 sur laquelle les 4 premières couleur ont déjà été placés 
+        3- choix du nombre d'essai : if/else 
+                    récupération de la valeur choisie dans la combobox associée
+                    Exemple : si le nombre d'essai choisi est 7, cela appelle la fonction ligne7
+                    cette fonction ligne7 appelle esnsuite une fonction différente en fonction du nombre de pions choisi afin que le nombre de pions des essais soit le même que le nombre de pion du code secret
+                    ligne7 appelle également les fonctions qui lui sont antérieurs (ligne1/2/3/4/5/6)
+    * def cercletrois
+        ° défintion de 3 cercles 
+    * def cerclequatre/def cerclecinq/defcerclesix
+        ° renvoient à la fonction précédente ; + 1 cercle pour chaqu fonction
+    * def ligne1
+        ° création de la grille 
+        ° if/else : appelle une fonction différente en fonction du nombre de pions choisi
+    * def ovalsligne1_pions3
+    * def ovalsligne1_pions4
+    * def ovalsligne1_pions5
+    * def ovalsligne1_pions6
+    * def ligne2/3/4/5/6/7/8/9/10 
+        ° même fonctionnement que ligne1, mais chaque fonction appelle sa précédente
+    * def nbrcouleur4
+        ° création frame 
+        ° ouvrir + redimenssionner les images 
+        ° création 4 boutons de couleur 
+    * def nbrcouleur5/6/7/8 
+        ° chaque fonctiona appelle sa précédente 
+        ° + 1 couleur à chaque fois
+    * def aproposbouton
+    * création bouton3
+
+* racine.mainloop()
