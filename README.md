@@ -13,6 +13,27 @@ https://github.com/uvsq22200131/Master-mind_12-main.git
 
 
 
+Répartition des tâches :
+Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie
+
+
+Jessica -->  Création de toute les interphases graphiques, du mode 2 jouers, 1joueurs + interphases win et loose. Création des canvas et des grilles de  cercles et petits cercles qui ce trouve dans les canvas , importation des images et modification via picsart (pour crée des bouton png et des images png, sans fond), utilisation du module Pillow pour pouvoir afficher les images, png importer depuis : https://fr.pngtree.com/free-png-vectors/bouton
+
+
+Firdos --> Création du mode 1 joueurs et 2 joueurs qui inclue les fonction suivante : 
+- creer_combinaison_secrete(code secret aléatoire) 
+- get_couleur() et get_couleur2(insérer le code secret dans le mode 2 joueurs)
+- comparer_combinaison(), comparer_combinaison2()
+- comparer_combinaison2()
+- supprimer()
+- fonctionvalider1()
+- fonctionvalider()
+- fonctionvalider2()
+
+Alisar --> essai code 2 joueur
+
+
+
 
 Etape 1 :
 création fenêtre racine
@@ -31,10 +52,10 @@ création d'un menu qui comprend :
 - "ajouter un timer"   (idée bonus)
 
 Etape 5 : 
-création du plateau de jeu 
+création de toute les interphases graphique 
 
 Etape 6 : 
-code du jeu
+code du jeu du mode 1 joueurs et 2 joueur
 
 
 
@@ -52,11 +73,7 @@ Pour aller plus loin :
 
 
 
-Répartition des tâches :
-Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie
-Jessica -->   création du plateau de jeu et des pions, création de la fenêtre qui s'affiche lorsqu'on a réussi 
-Firdos -->      code du mode 1 et 2 joueurs, bouton supprimer, bouton valider
-Alisar -->      essai code 2 joueur
+
 
 
 

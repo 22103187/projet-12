@@ -189,15 +189,15 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
             lost.mainloop()
         cpt=0
         while bienplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
+            canvas.create_oval(4+cpt*23,13+CPT*39,20+cpt*23,30+CPT*40, fill='red')
             cpt+=1
             bienplace-=1
         while malplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='black')
+            canvas.create_oval(4+cpt*23,13+CPT*39,20+cpt*23,30+CPT*40, fill='black')
             cpt+=1
             malplace-=1
         CPT+=1
-        canvas.place(x = 280, y = 75)
+        canvas.place(x = 280, y = 80)
         L.pop()
         L.pop()
         L.pop()
@@ -257,15 +257,15 @@ def fonctionvalider2(canvas,Nombre_tentativesmaximum):
             lost.mainloop()
         cpt=0
         while bienplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
+            canvas.create_oval(4+cpt*23,13+CPT*40,20+cpt*23,25+CPT*40, fill='red')
             cpt+=1
             bienplace-=1
         while malplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='black')
+            canvas.create_oval(4+cpt*23,13+CPT*40,20+cpt*23,25+CPT*40, fill='black')
             cpt+=1
             malplace-=1
         CPT+=1
-        canvas.place(x = 280, y = 75)
+        canvas.place(x = 280, y = 80)
         # del L
         L.pop()
         L.pop()
@@ -593,47 +593,60 @@ def bouton2fonction () :
     
     #création 1 des canvas pions bien placé ou non    
     aide1 = Canvas(master_mind,width=90, height=400)
-    a1 = aide1.create_oval(4,9,20,25)
-    a2 = aide1.create_oval(27,9,43,25)
-    a3 = aide1.create_oval(50,9,65,25)
-    a4 = aide1.create_oval(71,9,87,25)
-    a6 = aide1.create_oval(4,50,20,65)
-    a7 = aide1.create_oval(27,50,43,65)
-    a8 = aide1.create_oval(50,50,65,65)
-    a9 = aide1.create_oval(71,50,87,65)
-    a10 = aide1.create_oval(4,89,20,105)
-    a11 = aide1.create_oval(27,89,43,105)
-    a12 = aide1.create_oval(50,89,65,105)
-    a13 = aide1.create_oval(71,89,87,105)
-    a14 = aide1.create_oval(4,128,20,145)
-    a15 = aide1.create_oval(27,128,43,145)
-    a16 = aide1.create_oval(50,128,65,145)
-    a17 = aide1.create_oval(71,128,87,145)
-    a18 = aide1.create_oval(4,168,20,185)
-    a19 = aide1.create_oval(27,168,43,185)
-    a20 = aide1.create_oval(50,168,65,185)
-    a21 = aide1.create_oval(71,168,87,185)
-    a22 = aide1.create_oval(4,208,20,225)
-    a23 = aide1.create_oval(27,208,43,225)
-    a24 = aide1.create_oval(50,208,65,225)
-    a25 = aide1.create_oval(71,208,87,225)
-    a26 = aide1.create_oval(4,249,20,265)
-    a27 = aide1.create_oval(27,249,43,265)
-    a28 = aide1.create_oval(50,249,65,265)
-    a29 = aide1.create_oval(71,249,87,265)
-    a30 = aide1.create_oval(4,289,20,305)
-    a31 = aide1.create_oval(27,289,43,305)
-    a32 = aide1.create_oval(50,289,65,305)
-    a33 = aide1.create_oval(71,289,87,305)
-    a34 = aide1.create_oval(4,328,20,345)
-    a35 = aide1.create_oval(27,328,43,345)
-    a36 = aide1.create_oval(50,328,65,345)
-    a37 = aide1.create_oval(71,328,87,345)
-    a38 = aide1.create_oval(4,368,20,385)
-    a39 = aide1.create_oval(27,368,43,385)
-    a40 = aide1.create_oval(50,368,65,385)
-    a41 = aide1.create_oval(71,368,87,385)
-    aide1.place(x = 280, y = 83)
+
+    a1 = aide1.create_oval(4,13,20,30)
+    a2 = aide1.create_oval(27,13,43,30)
+    a3 = aide1.create_oval(50,13,65,30)
+    a4 = aide1.create_oval(71,13,87,30)
+
+    a6 = aide1.create_oval(4,53,20,70)
+    a7 = aide1.create_oval(27,53,43,70)
+    a8 = aide1.create_oval(50,53,65,70)
+    a9 = aide1.create_oval(71,53,87,70)
+
+    a10 = aide1.create_oval(4,93,20,110)
+    a11 = aide1.create_oval(27,93,43,110)
+    a12 = aide1.create_oval(50,93,65,110)
+    a13 = aide1.create_oval(71,93,87,110)
+
+    a14 = aide1.create_oval(4,133,20,150)
+    a15 = aide1.create_oval(27,133,43,150)
+    a16 = aide1.create_oval(50,133,65,150)
+    a17 = aide1.create_oval(71,133,87,150)
+
+    a18 = aide1.create_oval(4,173,20,190)
+    a19 = aide1.create_oval(27,173,43,190)
+    a20 = aide1.create_oval(50,173,65,190)
+    a21 = aide1.create_oval(71,173,87,190)
+
+    a22 = aide1.create_oval(4,213,20,230)
+    a23 = aide1.create_oval(27,213,43,230)
+    a24 = aide1.create_oval(50,213,65,230)
+    a25 = aide1.create_oval(71,213,87,230)
+
+    a26 = aide1.create_oval(4,253,20,270)
+    a27 = aide1.create_oval(27,253,43,270)
+    a28 = aide1.create_oval(50,253,65,270)
+    a29 = aide1.create_oval(71,253,87,270)
+
+    a30 = aide1.create_oval(4,293,20,310)
+    a31 = aide1.create_oval(27,293,43,310)
+    a32 = aide1.create_oval(50,293,65,310)
+    a33 = aide1.create_oval(71,293,87,310)
+
+    a34 = aide1.create_oval(4,333,20,350)
+    a35 = aide1.create_oval(27,333,43,350)
+    a36 = aide1.create_oval(50,333,65,350)
+    a37 = aide1.create_oval(71,333,87,350)
+
+    a38 = aide1.create_oval(4,373,20,390)
+    a39 = aide1.create_oval(27,373,43,390)
+    a40 = aide1.create_oval(50,373,65,390)
+    a41 = aide1.create_oval(71,373,87,390)
+
+    aide1.place(x = 280, y = 80)
+
+   
  
     codesecret()
       
