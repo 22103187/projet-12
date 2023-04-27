@@ -54,9 +54,9 @@ Pour aller plus loin :
 
 Répartition des tâches :
 Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie, fonction pour revenir en arrière
-Jessica -->   création du plateau de jeu et des pions 
-Firdos -->      début du code de jeu mode 1 joueur
-Alisar -->      début code de jeu mode 2 joueur
+Jessica -->   création des interphases graphiques 
+Firdos -->       code de jeu mode 1 joueur
+Alisar -->       code de jeu mode 2 joueur
 
 
 
@@ -92,7 +92,7 @@ def appliquerparametres2 (master_mind) :
         cercle8 = canvascs.create_oval (280, 10, 300, 40)
 
 - création du timer
-- création du bouton permettant la sauvegarde de la partie 
+
 
 
 

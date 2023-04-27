@@ -7,15 +7,29 @@ import time
 
 
 # Paramètres fenetre racine
-racine = Tk()    # création de la fenetre racine
-racine.geometry("600x600")    # régler la taille de la fenetre
-racine.title("Mastermind")     # nom fenetre
-racine["bg"] = 'pink3'      # couleur arrière plan 
-racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
+
+# création de la fenetre racine
+racine = Tk() 
+
+# régler la taille de la fenetre
+racine.geometry("600x600")
+
+ # nom fenetre
+racine.title("Mastermind")    
+
+# couleur arrière plan 
+racine["bg"] = 'pink3'      
+
+# = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
+racine.resizable(height=False, width=False)  
+
+#label de la fenetre racine 
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
 label.pack(side="top")
+
 label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
 label1.place(x='140', y='230')
+
 M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
 M.place(x = 210, y=40)
 
@@ -49,10 +63,9 @@ def get_couleur(couleur, master_mind, canvas, color):
         L.append(couleur)
         cpt=len(L)-1
         print(CPT)
-        # label_image = Label(master_mind, image=image)
-        # label_image.grid(row=0, column=cpt)
         canvas.create_oval(10+cpt*35,10+CPT*40,40+cpt*35,40+CPT*40, fill=color)
-        canvas.place(x = 50, y=75)
+        canvas.place(x = 50, y=75)       
+     
 
 def get_couleur2(couleur, master_mind,canvas,color):
     global CPT
@@ -67,6 +80,7 @@ def get_couleur2(couleur, master_mind,canvas,color):
         # label_image.grid(row=0, column=cpt)
         canvas.create_oval(10+cpt*35,10+CPT*40,40+cpt*35,40+CPT*40, fill=color)
         canvas.place(x = 50, y=75)       
+         
      
     
     print(L) 
@@ -84,16 +98,12 @@ def comparer_combinaison(combinaison_entree, combinaison_secrete, master_mind):
             nb_couleurs_bien_placees+=1
         elif combinaison_entree[i] in combinaison_secrete:
             nb_couleurs_mal_placees+=1
-            #Labelperdue=Label(master_mind, text="recommence ce n'est pas sa")
-            # nb_max_tentatives=0
-            # nb_max_tentatives+=1
+            
     
 
     return (nb_couleurs_bien_placees, nb_couleurs_mal_placees)
 
-    #labelaffichescore=label()
-#comparer_combinaison(L, combinaison)
-        #placement des boutons validé,supprimer,quitter et le label code
+  
 Nombre_tentativesmaximum= 10
 
 def fonctionvalider(canvas,Nombre_tentativesmaximum):
@@ -120,15 +130,15 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
 
         cpt=0
         while bienplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='red')
+            canvas.create_oval(4+cpt*23,13+CPT*40,20+cpt*23,30+CPT*40, fill='red')
             cpt+=1
             bienplace-=1
         while malplace>0:
-            canvas.create_oval(4+cpt*23,9+CPT*39,20+cpt*23,25+CPT*40, fill='black')
+            canvas.create_oval(4+cpt*23,13+CPT*40,20+cpt*23,30+CPT*40, fill='black')
             cpt+=1
             malplace-=1
         CPT+=1
-        canvas.place(x = 280, y = 75)
+        canvas.place(x = 280, y = 80)
         # del L
         L.pop()
         L.pop()
@@ -140,7 +150,6 @@ def fonctionvalider(canvas,Nombre_tentativesmaximum):
 
 
 
-# Fonction bouton 1
 def bouton1fonction ():  
     """Création de la fonction permettant l'affichage du plateau de jeu lorsqu'on
         clique sur le bouton du mode 1 joueur"""
@@ -180,7 +189,7 @@ def bouton1fonction ():
     gun = grille.place(x = 50, y=75)
     ligne1=Canvas(master_mind,width=400, height=30)#largeur et hauteur du canvas
     a=(0, 30)
-    b=(300,30)
+    b=(400,30)
     ligne1.create_line(a, b)
     ligne1.place(x = 20, y = 470)#placer le canvas
 
@@ -217,18 +226,25 @@ def bouton1fonction ():
     #redimentionner les images
     taille0= img.resize((35,35))
     a = ImageTk.PhotoImage(taille0)
+
     taille1 = img1.resize((35,35))
     b = ImageTk.PhotoImage(taille1)
+
     taille2 = img2.resize((35,35))
     c = ImageTk.PhotoImage(taille2)
+
     taille3 = img3.resize((35,35))
     d = ImageTk.PhotoImage(taille3)
+
     taille4 = img4.resize((35,35))
     e = ImageTk.PhotoImage(taille4)
+
     taille5 = img5.resize((35,35))
     f = ImageTk.PhotoImage(taille5)
+
     taille6 = img6.resize((35,35))
     g = ImageTk.PhotoImage(taille6)
+
     taille7 = img7.resize((35,35))
     h = ImageTk.PhotoImage(taille7)
 
@@ -254,6 +270,7 @@ def bouton1fonction ():
   
 
     master_mind.mainloop()
+
    
 def aproposbouton_mode1 () : 
     """Création de la fonction permettant d'afficher les règles du jeu""" 
@@ -280,9 +297,96 @@ bouton1 = tkinter.Button(racine, text = 'mode 1 joueur', bd = '5', command=bouto
 bouton1.pack(side = 'left', fill='x', expand = True)            # .pack = pour afficher le bouton       SAVOIR EXPLIQUER LE RESTE
 
 
+def codesecret() :
+    """Création de la fenetre permettant de choisir le code secret"""
+    #création de la fenetre, taille et titre
+    global code_secret
+    code_secret=Toplevel(master_mind)
+    code_secret.geometry("400x250")
+    code_secret.title(":)")
+
+    #création des label + placement dans la fenetre 
+    choisir = Label(code_secret, text='Choisir le code secret : )')
+    choisir.place(x=120, y=10)
+    pal = Label(code_secret, text="palette de couleurs : ")
+    pal.place(x= 130, y=110)
+
+    #création du bouton validé 
+    valider1 = Button(code_secret, text='Validé') 
+    valider1.place(x =165, y=200)
+
+    #création du canvas et des cercles qui révèle le code secrert
+    canvasbis = Canvas(code_secret,width=245, height=50)
+    canvasbis.create_oval(40,10,80,50)
+    canvasbis.create_oval(90,10,130,50)
+    canvasbis.create_oval(140,10,180,50)
+    canvasbis.create_oval(190,10,230,50)
+    canvasbis.place(x= 60 , y= 40)
+
+    #creation de la frame qui contient les boutons de couleurs
+    frameb2 = Frame(code_secret, width=400, height=600)
+    frameb2.place(x= 25, y=145)
+
+    #ouvrir les images
+    img8 = Image.open('rose.PNG')
+    img9 = Image.open('violet.PNG')
+    img10 = Image.open('bleu1.PNG')
+    img11 = Image.open('bleu2.PNG')
+    img12 = Image.open('turquoise.PNG')
+    img13 = Image.open('jaune.PNG')
+    img14 = Image.open('orange.PNG')
+    img15 = Image.open('rouge.PNG')
+
+    #redimentionner les images
+    taille8 = img8.resize((35,35))
+    i = ImageTk.PhotoImage(taille8)
+
+    taille9 = img9.resize((35,35))
+    j = ImageTk.PhotoImage(taille9)
+
+    taille10 = img10.resize((35,35))
+    k = ImageTk.PhotoImage(taille10)
+
+    taille11 = img11.resize((35,35))
+    l = ImageTk.PhotoImage(taille11)
+
+    taille12 = img12.resize((35,35))
+    m = ImageTk.PhotoImage(taille12)
+
+    taille13 = img13.resize((35,35))
+    n = ImageTk.PhotoImage(taille13)
+
+    taille14 = img14.resize((35,35))
+    o = ImageTk.PhotoImage(taille14)
+
+    taille15 = img15.resize((35,35))
+    p = ImageTk.PhotoImage(taille15)
+
+    #création des bouton + ajout des parametre 
+    B8 = Button(frameb2, image=i)
+    B9 = Button(frameb2, image=j)
+    B10 = Button(frameb2, image=k)
+    B11 = Button(frameb2, image=l)
+    B12 = Button(frameb2, image=m)
+    B13 = Button(frameb2, image=n)
+    B14 = Button(frameb2, image=o)
+    B15 = Button(frameb2, image=p)
+
+    #placement des bouton
+    B8.grid()
+    B9.grid(row =0, column=1)
+    B10.grid(row =0,column=2)
+    B11.grid(row =0,column=3)
+    B12.grid(row =0,column=4)
+    B13.grid(row =0,column=5)
+    B14.grid(row =0,column=6)
+    B15.grid(row =0,column=7)
+
+    
+    code_secret.mainloop()
 
 
-
+  
 
 
 
@@ -377,52 +481,59 @@ def bouton2fonction () :
     frameb1.place(x= 60, y=535)
 
     #ouvrir les images
-    img = Image.open('boutonrose.PNG')
-    img1 = Image.open('boutonviolet.PNG')
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
-    img6 = Image.open('boutonorange1.PNG')
-    img7 = Image.open('boutonrouge.PNG')
+    img16 = Image.open('ro.PNG')
+    img17 = Image.open('v.PNG')
+    img18 = Image.open('bl1.PNG')
+    img19 = Image.open('bl2.PNG')
+    img20 = Image.open('t.PNG')
+    img21 = Image.open('j.PNG')
+    img22 = Image.open('rou.PNG')
+    img23 = Image.open('r.PNG')
  
     #redimentionner les images
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
+    taille16= img16.resize((35,35))
+    q = ImageTk.PhotoImage(taille16)
+
+    taille17 = img17.resize((35,35))
+    r = ImageTk.PhotoImage(taille17)
+
+    taille18 = img18.resize((35,35))
+    s = ImageTk.PhotoImage(taille18)
+
+    taille19 = img19.resize((35,35))
+    t = ImageTk.PhotoImage(taille19)
+
+    taille20 = img20.resize((35,35))
+    u = ImageTk.PhotoImage(taille20)
+
+    taille21 = img21.resize((35,35))
+    v = ImageTk.PhotoImage(taille21)
+
+    taille22 = img22.resize((35,35))
+    w = ImageTk.PhotoImage(taille22)
+
+    taille23 = img23.resize((35,35))
+    x = ImageTk.PhotoImage(taille23)
 
     #boutons
-    B0 = Button(frameb1, image=a, command=lambda : get_couleur2("rose", master_mind, grille, 'fuchsia'))
-    B1 = Button(frameb1, image=b, command=lambda : get_couleur2("violet", master_mind, grille,'blueviolet'))
-    B2 = Button(frameb1, image=c, command=lambda : get_couleur2("bleu", master_mind, grille,'blue'))
-    B3 = Button(frameb1, image=d,command=lambda : get_couleur2("bleuciel", master_mind, grille, 'deepskyblue'))
-    B4 = Button(frameb1, image=e,command=lambda : get_couleur2("turquoise", master_mind, grille,'springgreen'))
-    B5 = Button(frameb1, image=f,command=lambda : get_couleur2("jaune", master_mind, grille, 'yellow'))
-    B6 = Button(frameb1, image=g,command=lambda : get_couleur2("orange", master_mind, grille,'darkorange'))
-    B7 = Button(frameb1, image=h,command=lambda : get_couleur2("rouge", master_mind, grille, 'crimson'))
+    B16 = Button(frameb1, image=q, command=lambda : get_couleur2("rose", master_mind, grille, 'fuchsia'))
+    B17 = Button(frameb1, image=r, command=lambda : get_couleur2("violet", master_mind, grille,'blueviolet'))
+    B18 = Button(frameb1, image=s, command=lambda : get_couleur2("bleu", master_mind, grille,'blue'))
+    B19 = Button(frameb1, image=t,command=lambda : get_couleur2("bleuciel", master_mind, grille, 'deepskyblue'))
+    B20 = Button(frameb1, image=u,command=lambda : get_couleur2("turquoise", master_mind, grille,'springgreen'))
+    B21 = Button(frameb1, image=v,command=lambda : get_couleur2("jaune", master_mind, grille, 'yellow'))
+    B22 = Button(frameb1, image=w,command=lambda : get_couleur2("orange", master_mind, grille,'darkorange'))
+    B23 = Button(frameb1, image=x,command=lambda : get_couleur2("rouge", master_mind, grille, 'crimson'))
         
     #affichage des boutons
-    B0.grid()
-    B1.grid(row =0, column=1)
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
-    B6.grid(row =0,column=6)
-    B7.grid(row =0,column=7)
+    B16.grid()
+    B17.grid(row =0, column=1)
+    B18.grid(row =0,column=2)
+    B19.grid(row =0,column=3)
+    B20.grid(row =0,column=4)
+    B21.grid(row =0,column=5)
+    B22.grid(row =0,column=6)
+    B23.grid(row =0,column=7)
   
     #Canvas de la grille de jeu
     grille = Canvas(master_mind,width=145, height=400)
@@ -479,132 +590,71 @@ def bouton2fonction () :
     gun = grille.place(x = 50, y=75)
     
     #création 1 des canvas pions bien placé ou non    
+    
+
     aide1 = Canvas(master_mind,width=90, height=400)
-    a1 = aide1.create_oval(4,9,20,25)
-    a2 = aide1.create_oval(27,9,43,25)
-    a3 = aide1.create_oval(50,9,65,25)
-    a4 = aide1.create_oval(71,9,87,25)
-    a6 = aide1.create_oval(4,50,20,65)
-    a7 = aide1.create_oval(27,50,43,65)
-    a8 = aide1.create_oval(50,50,65,65)
-    a9 = aide1.create_oval(71,50,87,65)
-    a10 = aide1.create_oval(4,89,20,105)
-    a11 = aide1.create_oval(27,89,43,105)
-    a12 = aide1.create_oval(50,89,65,105)
-    a13 = aide1.create_oval(71,89,87,105)
-    a14 = aide1.create_oval(4,128,20,145)
-    a15 = aide1.create_oval(27,128,43,145)
-    a16 = aide1.create_oval(50,128,65,145)
-    a17 = aide1.create_oval(71,128,87,145)
-    a18 = aide1.create_oval(4,168,20,185)
-    a19 = aide1.create_oval(27,168,43,185)
-    a20 = aide1.create_oval(50,168,65,185)
-    a21 = aide1.create_oval(71,168,87,185)
-    a22 = aide1.create_oval(4,208,20,225)
-    a23 = aide1.create_oval(27,208,43,225)
-    a24 = aide1.create_oval(50,208,65,225)
-    a25 = aide1.create_oval(71,208,87,225)
-    a26 = aide1.create_oval(4,249,20,265)
-    a27 = aide1.create_oval(27,249,43,265)
-    a28 = aide1.create_oval(50,249,65,265)
-    a29 = aide1.create_oval(71,249,87,265)
-    a30 = aide1.create_oval(4,289,20,305)
-    a31 = aide1.create_oval(27,289,43,305)
-    a32 = aide1.create_oval(50,289,65,305)
-    a33 = aide1.create_oval(71,289,87,305)
-    a34 = aide1.create_oval(4,328,20,345)
-    a35 = aide1.create_oval(27,328,43,345)
-    a36 = aide1.create_oval(50,328,65,345)
-    a37 = aide1.create_oval(71,328,87,345)
-    a38 = aide1.create_oval(4,368,20,385)
-    a39 = aide1.create_oval(27,368,43,385)
-    a40 = aide1.create_oval(50,368,65,385)
-    a41 = aide1.create_oval(71,368,87,385)
-    aide1.place(x = 280, y = 83)
+
+    a1 = aide1.create_oval(4,13,20,30)
+    a2 = aide1.create_oval(27,13,43,30)
+    a3 = aide1.create_oval(50,13,65,30)
+    a4 = aide1.create_oval(71,13,87,30)
+
+    a6 = aide1.create_oval(4,53,20,70)
+    a7 = aide1.create_oval(27,53,43,70)
+    a8 = aide1.create_oval(50,53,65,70)
+    a9 = aide1.create_oval(71,53,87,70)
+
+    a10 = aide1.create_oval(4,93,20,110)
+    a11 = aide1.create_oval(27,93,43,110)
+    a12 = aide1.create_oval(50,93,65,110)
+    a13 = aide1.create_oval(71,93,87,110)
+
+    a14 = aide1.create_oval(4,133,20,150)
+    a15 = aide1.create_oval(27,133,43,150)
+    a16 = aide1.create_oval(50,133,65,150)
+    a17 = aide1.create_oval(71,133,87,150)
+
+    a18 = aide1.create_oval(4,173,20,190)
+    a19 = aide1.create_oval(27,173,43,190)
+    a20 = aide1.create_oval(50,173,65,190)
+    a21 = aide1.create_oval(71,173,87,190)
+
+    a22 = aide1.create_oval(4,213,20,230)
+    a23 = aide1.create_oval(27,213,43,230)
+    a24 = aide1.create_oval(50,213,65,230)
+    a25 = aide1.create_oval(71,213,87,230)
+
+    a26 = aide1.create_oval(4,253,20,270)
+    a27 = aide1.create_oval(27,253,43,270)
+    a28 = aide1.create_oval(50,253,65,270)
+    a29 = aide1.create_oval(71,253,87,270)
+
+    a30 = aide1.create_oval(4,293,20,310)
+    a31 = aide1.create_oval(27,293,43,310)
+    a32 = aide1.create_oval(50,293,65,310)
+    a33 = aide1.create_oval(71,293,87,310)
+
+    a34 = aide1.create_oval(4,333,20,350)
+    a35 = aide1.create_oval(27,333,43,350)
+    a36 = aide1.create_oval(50,333,65,350)
+    a37 = aide1.create_oval(71,333,87,350)
+
+    a38 = aide1.create_oval(4,373,20,390)
+    a39 = aide1.create_oval(27,373,43,390)
+    a40 = aide1.create_oval(50,373,65,390)
+    a41 = aide1.create_oval(71,373,87,390)
+
+    aide1.place(x = 280, y = 80)
+
  
     codesecret()
     master_mind.mainloop()  
 
 
 
-def codesecret() :
-    """Création de la fenetre permettant de choisir le code secret"""
-    #création de la fenetre, taille et titre 
-    code_secret = Tk()
-    code_secret.geometry("400x250")
-    code_secret.title(":)")
+    
 
-    #création des label + placement dans la fenetre 
-    choisir = Label(code_secret, text='Choississez le code secret : )')
-    choisir.place(x=120, y=10)
-    pal = Label(code_secret, text="palette de couleurs : ")
-    pal.place(x= 140, y=110)
 
-    #création du bouton validé 
-    valider = Button(code_secret, text='Validé') 
-    valider.place(x =165, y=200)
-
-    #création du canvas et des cercles qui révèle le code secrert
-    canvasbis = Canvas(code_secret,width=245, height=50)
-    canvasbis.create_oval(40,10,80,50)
-    canvasbis.create_oval(90,10,130,50)
-    canvasbis.create_oval(140,10,180,50)
-    canvasbis.create_oval(190,10,230,50)
-    canvasbis.place(x= 55 , y= 40)
-
-    #creation de la frame qui contient les boutons de couleurs
-    frameb1 = Frame(code_secret, width=400, height=600)
-    frameb1.place(x= 20, y=145)
-
-    #ouvrir les images
-    img = Image.open('boutonrose.PNG')
-    img1 = Image.open('boutonviolet.PNG')
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
-    img6 = Image.open('boutonorange1.PNG')
-    img7 = Image.open('boutonrouge.PNG')
-
-    #redimentionner les images
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
-
-    #création des bouton + ajout des parametre 
-    B0 = Button(frameb1, image=a, command=lambda : get_couleur("rose", code_secret, canvasbis, 'fuchsia'))
-    B1 = Button(frameb1, image=b, command=lambda : get_couleur("violet", code_secret, canvasbis,'blueviolet'))
-    B2 = Button(frameb1, image=c, command=lambda : get_couleur("bleu", code_secret,canvasbis,'blue'))
-    B3 = Button(frameb1, image=d,command=lambda : get_couleur("bleuciel", code_secret,canvasbis, 'deepskyblue'))
-    B4 = Button(frameb1, image=e,command=lambda : get_couleur("turquoise", code_secret, canvasbis,'cyan'))
-    B5 = Button(frameb1, image=f,command=lambda : get_couleur("jaune", code_secret, canvasbis, 'yellow'))
-    B6 = Button(frameb1, image=g,command=lambda : get_couleur("orange", code_secret, canvasbis,'darkorange'))
-    B7 = Button(frameb1, image=h,command=lambda : get_couleur("rouge", code_secret, canvasbis, 'crimson'))
-
-    #placement des bouton
-    B0.grid()
-    B1.grid(row =0, column=1)
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
-    B6.grid(row =0,column=6)
-    B7.grid(row =0,column=7)
-
-    code_secret.mainloop()
 
 def aproposbouton_mode2 () : 
     """Création de la fonction permettant d'afficher les règles du jeu""" 
@@ -704,59 +754,59 @@ def bouton3fonction (fonction={}) :
     frameb.place(x= 60, y=535)
 
     #ouvrir les images 
-    img = Image.open('boutonrose.PNG')
-    img1 = Image.open('boutonviolet.PNG')
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
-    img6 = Image.open('boutonorange1.PNG')
-    img7 = Image.open('boutonrouge.PNG')
+    img22 = Image.open('boutonrose.PNG')
+    img23 = Image.open('boutonviolet.PNG')
+    img24 = Image.open('boutonbleuf.PNG')
+    img25 = Image.open('boutonbleuciel.PNG')
+    img26 = Image.open('boutonturquoise.PNG')
+    img27 = Image.open('boutonjeune.PNG')
+    img28 = Image.open('boutonorange1.PNG')
+    img29 = Image.open('boutonrouge.PNG')
 
     #redimentionner les images
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
+    taille22= img22.resize((35,35))
+    y = ImageTk.PhotoImage(taille22)
 
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
+    taille23 = img23.resize((35,35))
+    z = ImageTk.PhotoImage(taille23)
 
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
+    taille24 = img24.resize((35,35))
+    z1 = ImageTk.PhotoImage(taille24)
 
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
+    taille25 = img25.resize((35,35))
+    z2 = ImageTk.PhotoImage(taille25)
 
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
+    taille26 = img26.resize((35,35))
+    z3 = ImageTk.PhotoImage(taille26)
 
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
+    taille27 = img27.resize((35,35))
+    z4 = ImageTk.PhotoImage(taille27)
 
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
+    taille28 = img28.resize((35,35))
+    z5 = ImageTk.PhotoImage(taille28)
 
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
+    taille29 = img29.resize((35,35))
+    z6 = ImageTk.PhotoImage(taille29)
 
     #boutons
-    B0 = Button(frameb, image=a)
-    B1 = Button(frameb, image=b)
-    B2 = Button(frameb, image=c)
-    B3 = Button(frameb, image=d)
-    B4 = Button(frameb, image=e)
-    B5 = Button(frameb, image=f)
-    B6 = Button(frameb, image=g)
-    B7 = Button(frameb, image=h)
+    B22 = Button(frameb, image=y)
+    B23 = Button(frameb, image=z)
+    B24 = Button(frameb, image=z1)
+    B25 = Button(frameb, image=z2)
+    B26 = Button(frameb, image=z3)
+    B27 = Button(frameb, image=z4)
+    B28 = Button(frameb, image=z5)
+    B29 = Button(frameb, image=z6)
 
     #affichage des boutons
-    B0.grid()
-    B1.grid(row =0, column=1)
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
-    B6.grid(row =0,column=6)
-    B7.grid(row =0,column=7)
+    B22.grid()
+    B23.grid(row =0, column=1)
+    B24.grid(row =0,column=2)
+    B25.grid(row =0,column=3)
+    B26.grid(row =0,column=4)
+    B27.grid(row =0,column=5)
+    B28.grid(row =0,column=6)
+    B29.grid(row =0,column=7)
 
 
     if fonction == {}:                         #fonction prend en paramètre un élément
@@ -1311,69 +1361,91 @@ def nbrcouleur4 () :
     """fonction qui permet d'avoir seulement 4 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
     est égal à 4"""
     #creation de la frame et des boutons de couleurs 
-    global frameb1
-    frameb1 = Frame(master_mind, width=0, height=200, borderwidth=1)
-    frameb1.place(x= 60, y=535)
+    
+    frameb3 = Frame(master_mind, width=0, height=200, borderwidth=1)
+    frameb3.place(x= 60, y=535)
         #ouvrir les images 
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
+    img30 = Image.open('a3.PNG')
+    img31 = Image.open('a7.PNG')
+    img32 = Image.open('a2.PNG')
+    img33 = Image.open('a1.PNG')
+
         #redimentionner les images
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
+    taille30 = img30.resize((35,35))
+    z7 = ImageTk.PhotoImage(taille30)
+
+    taille31 = img31.resize((35,35))
+    z8 = ImageTk.PhotoImage(taille31)
+
+    taille32 = img32.resize((35,35))
+    z9 = ImageTk.PhotoImage(taille32)
+
+    taille33 = img33.resize((35,35))
+    z10 = ImageTk.PhotoImage(taille33)
         #boutons
-    global B2, B3, B4, B5
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
+    global B30, B31, B32, B33
+    B30 = Button(frameb3, image=z7)
+    B31 = Button(frameb3, image=z8)
+    B32 = Button(frameb3, image=z9)
+    B33 = Button(frameb3, image=z10)
         # affichage des boutons
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
+    B30.grid(row =0,column=2)
+    B31.grid(row =0,column=3)
+    B32.grid(row =0,column=4)
+    B33.grid(row =0,column=5)
 
 def nbrcouleur5 () :
     """fonction qui permet d'avoir 5 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
     est égal à 5
     appelle la fonction nbrcouleur4 car les 4 premières couleurs sont déjà placés dans cette fonction"""
     nbrcouleur4 ()
-    img6 = Image.open('boutonorange1.PNG')
-    taille6 = img6.resize((35,35))
-    g = ImageTk.PhotoImage(taille6)
-    B6 = Button(frameb1, image=g)
-    B6.grid(row =0,column=6)
+    frameb4 = Frame(master_mind, width=0, height=200, borderwidth=1)
+    frameb4.place(x= 60, y=535)
+
+    img34 = Image.open('a8.PNG')
+
+    taille34 = img34.resize((35,35))
+    z11 = ImageTk.PhotoImage(taille34)
+
+    B34 = Button(frameb3, image=z11)
+
+    B34.grid(row =0,column=6)
 
 def nbrcouleur6 () :
     nbrcouleur5 ()
-    img1 = Image.open('boutonviolet.PNG')
-    taille1 = img1.resize((35,35))
-    b = ImageTk.PhotoImage(taille1)
-    B1 = Button(frameb1, image=b)
-    B1.grid(row =0, column=1)
+    img35 = Image.open('a5.PNG')
+
+    taille35 = img35.resize((35,35))
+
+    z12 = ImageTk.PhotoImage(taille35)
+
+    B35 = Button(frameb4, image=z12)
+
+    B35.grid(row =0, column=1)
 
 def nbrcouleur7 () :
     nbrcouleur6 ()
-    img7 = Image.open('boutonrouge.PNG')
-    taille7 = img7.resize((35,35))
-    h = ImageTk.PhotoImage(taille7)
-    B7 = Button(frameb1, image=h)
-    B7.grid(row =0,column=7)
+    img36 = Image.open('a8.PNG')
+
+    taille36 = img36.resize((35,35))
+
+    z13 = ImageTk.PhotoImage(taille36)
+
+    B36 = Button(frameb4, image=z13)
+
+    B36.grid(row =0,column=7)
 
 def nbrcouleur8 () :
     nbrcouleur7 ()
-    img = Image.open('boutonrose.PNG')
-    taille0= img.resize((35,35))
-    a = ImageTk.PhotoImage(taille0)
-    B0 = Button(frameb1, image=a)
-    B0.grid()
+    img37 = Image.open('a6.PNG')
+
+    taille37= img.resize((35,35))
+
+    z14 = ImageTk.PhotoImage(taille37)
+
+    B37 = Button(frameb4, image=z14)
+
+    B37.grid()
 
 
 
