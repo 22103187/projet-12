@@ -115,7 +115,6 @@ Notre code :
             ° création du menu : "à propos" et "timer" (non fonctionnel)
             ° bontons validé/supprimer/quitter
             ° création ligne du bas/ du haut pour le plateau de jeu 
-            ° création canva qui va révéler le code secret
             ° création frame te boutons de couleurs (ouvrir les images, les redimmensionner...)
             ° mainloop
     * def aproposbouton_mode1
@@ -129,7 +128,6 @@ Notre code :
             ° création du menu : "à propos" et "timer" (non fonctionnel)
             ° bontons validé/supprimer/quitter
             ° création ligne du bas/ du haut pour le plateau de jeu 
-            ° création canva qui va révéler le code secret
             ° création frame te boutons de couleurs (ouvrir les images, les redimmensionner...)
             ° canva de la grille de jeu
             ° création des pions rouges et noirs
