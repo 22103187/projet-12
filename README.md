@@ -56,7 +56,7 @@ Répartition des tâches :
 Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie
 Jessica -->   création du plateau de jeu et des pions, création de la fenêtre qui s'affiche lorsqu'on a réussi 
 Firdos -->      code du mode 1 et 2 joueurs, bouton supprimer, bouton valider
-Alisar -->      début code mode 2 joueur
+Alisar -->      essai code 2 joueur
 
 
 
@@ -203,5 +203,6 @@ Notre code :
         ° + 1 couleur à chaque fois
     * def aproposbouton
     * création bouton3
+ Note : nous n'avons réussi à régler le problème des boutons. En effet, cela ne s'affichent pas malgré nos tentatives. Une fois ce problème réglé nous aurions relier ce mode à un code ressemblant au code de jeu du mode 1 joueur. 
 
 * racine.mainloop()
