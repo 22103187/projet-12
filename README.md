@@ -53,10 +53,10 @@ Pour aller plus loin :
 
 
 Répartition des tâches :
-Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie, fonction pour revenir en arrière
-Jessica -->   création du plateau de jeu et des pions 
-Firdos -->      début du code de jeu mode 1 joueur
-Alisar -->      début code de jeu mode 2 joueur
+Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie
+Jessica -->   création du plateau de jeu et des pions, création de la fenêtre qui s'affiche lorsqu'on a réussi 
+Firdos -->      code du mode 1 et 2 joueurs, bouton supprimer, bouton valider
+Alisar -->      essai code 2 joueur
 
 
 
@@ -93,7 +93,7 @@ def appliquerparametres2 (master_mind) :
         cercle8 = canvascs.create_oval (280, 10, 300, 40)
     .... pareil pour les autres Combobox
 
-- création du timer ---- plusieurs tentatives, mais pas eu le temps de finir 
+- création du timer ---- plusieurs tentatives, mais pas concluantes 
 - création du bouton permettant la sauvegarde de la partie ---- pas aboutit
 
 
@@ -102,12 +102,14 @@ Notre code :
     * titre, taille, background...
     * ajout de labels 
     * ajout de trois boutons : 1 bouton pour chacun des modes 
+  
 - code du mode 1 joueur et 2 joueurs 
-    * def cree_combinaison_secrete pour le mode 1 joueur 
-    * def get_couleur 
-    * def get_couleur2
+    * def cree_combinaison_secrete : pour le mode 1 joueur 
+    * def get_couleur : mode 1 et 2 joueurs 
+    * def get_couleur2 : code secret du mode 2 joueur
     * def comparer_combinaison
-    * def fonction_valider
+    * def fonction_valider : pour le mode 1 joueur 
+    * def fonctionvalider2 : pour le mode 2 joueur
 
 - création mode 1 joueur 
     * def bouton1fonction 
@@ -201,5 +203,6 @@ Notre code :
         ° + 1 couleur à chaque fois
     * def aproposbouton
     * création bouton3
+ Note : nous n'avons réussi à régler le problème des boutons. En effet, cela ne s'affichent pas malgré nos tentatives. Une fois ce problème réglé nous aurions relier ce mode à un code ressemblant au code de jeu du mode 1 joueur. 
 
 * racine.mainloop()
