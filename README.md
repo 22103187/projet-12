@@ -98,6 +98,7 @@ def appliquerparametres2 (master_mind) :
 
 
 Notre code : 
+ajouter "cd Mastermind" dans le terminal pour appeller les boutons  
 - création fenetre racine 
     * titre, taille, background...
     * ajout de labels 
