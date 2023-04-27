@@ -7,30 +7,22 @@ from PIL import ImageTk, Image
 import time
 
 
-# Paramètres fenetre racine
-
+# PARAMETRES DE LA FENETRE RACINE
 # création de la fenetre racine
 racine = Tk() 
-
  # régler la taille de la fenetre
 racine.geometry("600x550")
-
  # nom fenetre
 racine.title("Mastermind")  
-
  # couleur arrière plan 
-racine["bg"] = 'pink3'   
-
+racine["bg"] = 'pink3'  
  # = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
 racine.resizable(height=False, width=False) 
-
 #label + position : bienvenue, choisir un mode de jeu, sur le jeu Mastermind
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
 label.pack(side="top")
-
 label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
 label1.place(x= 140, y= 210)
-
 M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='25')
 M.place(x = 230, y=40)
 
@@ -46,14 +38,10 @@ Nombre_tentativesmaximum= 10
   
 def creer_combinaison_secrete():
     """fonction qui va créer une liste de couleurs aléatoirement, en séléctionnant au hasard les couleurs d'une liste prédéfinis"""
-    
     combinaison_secrete=[]
     for i in range(0,combinaison_max):
-
         couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuclair","rouge"]
-
         couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuciel","rouge"]
-
         index=random.randint(0,len(couleurs)-1)
         combinaison_secrete.append(couleurs[index])
     return combinaison_secrete
