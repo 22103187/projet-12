@@ -17,7 +17,13 @@ Répartition des tâches :
 Nina -->    création fenêtre racine et boutons + accès à la fenetre de chaque mode, création du menu (a propos, préférences, timer), fonctions qui appliquent les préférences et timer, fonction pour sauvegarder la partie
 
 
-Jessica -->  Création de toute les interphases graphiques, du mode 2 jouers, 1joueurs + interphases win et loose. Création des canvas et des grilles de  cercles et petits cercles qui ce trouve dans les canvas , importation des images et modification via picsart (pour crée des bouton png et des images png, sans fond), utilisation du module Pillow pour pouvoir afficher les images, png importer depuis : https://fr.pngtree.com/free-png-vectors/bouton
+Jessica -->  Création de toute les interphases graphiques, du mode 2 jouers, 1joueurs + interphases win et lost. Création des canvas et des grilles des grands cercles et petits cercles qui ce trouve dans les canvas , importation des images et modification via picsart (pour séparer chaque boutons), utilisation du module Pillow pour pouvoir afficher les images, png importer depuis : https://fr.pngtree.com/free-png-vectors/bouton
+
+lien des boutons : https://fr.pngtree.com/freepng/stereo-macaron-button-material_4743390.html
+
+lien confettis : https://fr.pngtree.com/freepng/birthday-cap-with-confetti-and-serpentine-explosion-celebration-vector_5574624.html
+
+lien png qui s'aafiche dans la fenetre perdu :https://fr.pngtree.com/freepng/it-s-in-the-crying-cartoon-character-illustration-cant-grab-the-red-envelope-sad_3845898.html
 
 
 Firdos --> Création du mode 1 joueurs et 2 joueurs qui inclue les fonction suivante : 
