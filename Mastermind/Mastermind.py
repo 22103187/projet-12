@@ -8,17 +8,31 @@ import time
 
 
 # Paramètres fenetre racine
-racine = Tk()    # création de la fenetre racine
-racine.geometry("600x600")    # régler la taille de la fenetre
-racine.title("Mastermind")     # nom fenetre
-racine["bg"] = 'pink3'      # couleur arrière plan 
-racine.resizable(height=False, width=False)   # = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
+
+# création de la fenetre racine
+racine = Tk() 
+
+ # régler la taille de la fenetre
+racine.geometry("600x550")
+
+ # nom fenetre
+racine.title("Mastermind")  
+
+ # couleur arrière plan 
+racine["bg"] = 'pink3'   
+
+ # = fenetre pas redimensionnable dans longeur et largeur, figer les dimenssions
+racine.resizable(height=False, width=False) 
+
+#label + position : bienvenue, choisir un mode de jeu, sur le jeu Mastermind
 label = Label(racine, text="Bienvenue", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
 label.pack(side="top")
-label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "20"))
-label1.place(x='140', y='230')
-M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='20')
-M.place(x = 210, y=40)
+
+label1 = Label(racine, text="Choisissez un mode de jeu", fg = ("black"), bg=("pink3"), font =("helvetica", "25"))
+label1.place(x= 140, y= 210)
+
+M = Label(racine, text='sur le jeu Mastermind',bg=('pink3'),font='25')
+M.place(x = 230, y=40)
 
 
 
@@ -35,7 +49,7 @@ def creer_combinaison_secrete():
     
     combinaison_secrete=[]
     for i in range(0,combinaison_max):
-        couleurs=["rose","bleu","jaune","orange","turquoise", "violet","bleuciel","rouge"]
+        couleurs=["rose","bleufonce","jaune","orange","turquoise", "violet","bleuclair","rouge"]
         index=random.randint(0,len(couleurs)-1)
         combinaison_secrete.append(couleurs[index])
     return combinaison_secrete
@@ -316,8 +330,8 @@ def bouton1fonction ():
     #boutons
     B0 = Button(frameb1, image=a, command=lambda : get_couleur("rose", master_mind, grille, 'fuchsia'))
     B1 = Button(frameb1, image=b, command=lambda : get_couleur("violet", master_mind, grille,'blueviolet'))
-    B2 = Button(frameb1, image=c, command=lambda : get_couleur("bleu", master_mind, grille,'blue'))
-    B3 = Button(frameb1, image=d,command=lambda : get_couleur("bleuciel", master_mind, grille, 'deepskyblue'))
+    B2 = Button(frameb1, image=c, command=lambda : get_couleur("bleufonce", master_mind, grille,'blue'))
+    B3 = Button(frameb1, image=d,command=lambda : get_couleur("bleuclair", master_mind, grille, 'deepskyblue'))
     B4 = Button(frameb1, image=e,command=lambda : get_couleur("turquoise", master_mind, grille,'cyan'))
     B5 = Button(frameb1, image=f,command=lambda : get_couleur("jaune", master_mind, grille, 'yellow'))
     B6 = Button(frameb1, image=g,command=lambda : get_couleur("orange", master_mind, grille,'darkorange'))
@@ -1399,35 +1413,42 @@ def ovalsligne10_pions6 () :
 
 
 def nbrcouleur4 () :
+    """fonction qui permet d'avoir seulement 4 couleurs à disposition lorsque le nombre de couleur choisi dans les paramètres 
+    est égal à 4"""
     #creation de la frame et des boutons de couleurs 
-    global frameb1
-    frameb1 = Frame(master_mind, width=0, height=200, borderwidth=1)
-    frameb1.place(x= 60, y=535)
+    
+    frameb20 = Frame(master_mind, width=0, height=200, borderwidth=1)
+    frameb20.place(x= 60, y=535)
         #ouvrir les images 
-    img2 = Image.open('boutonbleuf.PNG')
-    img3 = Image.open('boutonbleuciel.PNG')
-    img4 = Image.open('boutonturquoise.PNG')
-    img5 = Image.open('boutonjeune.PNG')
+    img30 = Image.open('a3.PNG')
+    img31 = Image.open('a7.PNG')
+    img32 = Image.open('a2.PNG')
+    img33 = Image.open('a1.PNG')
+
         #redimentionner les images
-    taille2 = img2.resize((35,35))
-    c = ImageTk.PhotoImage(taille2)
-    taille3 = img3.resize((35,35))
-    d = ImageTk.PhotoImage(taille3)
-    taille4 = img4.resize((35,35))
-    e = ImageTk.PhotoImage(taille4)
-    taille5 = img5.resize((35,35))
-    f = ImageTk.PhotoImage(taille5)
+    taille30 = img30.resize((35,35))
+    z7 = ImageTk.PhotoImage(taille30)
+
+    taille31 = img31.resize((35,35))
+    z8 = ImageTk.PhotoImage(taille31)
+
+    taille32 = img32.resize((35,35))
+    z9 = ImageTk.PhotoImage(taille32)
+
+    taille33 = img33.resize((35,35))
+    z10 = ImageTk.PhotoImage(taille33)
         #boutons
-    global B2, B3, B4, B5
-    B2 = Button(frameb1, image=c)
-    B3 = Button(frameb1, image=d)
-    B4 = Button(frameb1, image=e)
-    B5 = Button(frameb1, image=f)
+    global B30, B31, B32, B33
+    B30 = Button(frameb20, image=z7)
+    B31 = Button(frameb20, image=z8)
+    B32 = Button(frameb20, image=z9)
+    B33 = Button(frameb20, image=z10)
         # affichage des boutons
-    B2.grid(row =0,column=2)
-    B3.grid(row =0,column=3)
-    B4.grid(row =0,column=4)
-    B5.grid(row =0,column=5)
+    B30.grid(row =0,column=2)
+    B31.grid(row =0,column=3)
+    B32.grid(row =0,column=4)
+    B33.grid(row =0,column=5)
+    
 
 def nbrcouleur5 () :
     nbrcouleur4 ()
