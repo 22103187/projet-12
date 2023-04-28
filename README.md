@@ -235,3 +235,4 @@ ajouter "cd Mastermind" dans le terminal pour appeller les boutons
 
 Sources : 
 cours 
+fonction sauvegarder et recharger la partie : internet
